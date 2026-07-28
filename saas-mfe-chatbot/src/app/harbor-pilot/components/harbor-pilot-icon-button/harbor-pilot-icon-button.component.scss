@@ -1,0 +1,28 @@
+/*
+ * Copyright (C) 2025 Acme Technologies, Inc.  All rights reserved.
+ */
+@import '@acme-priv/armada-angular/src/acme/theme/styles/variables';
+@import '../../shared/styles/variables';
+
+slpt-icon {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.harbor-pilot-logo-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	border: 1px solid $slpt-a2;
+	z-index: $zIndexStaticModal;
+}
+
+.harbor-pilot-logo-button__active {
+	background: $hp-gradient;
+}
+
+.harbor-pilot-logo-button__inactive {
+	background: none;
+}

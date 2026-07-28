@@ -1,0 +1,70 @@
+{
+	"CHATBOT": {
+		"HEY_THERE_IM_HARBOR_PILOT": "สวัสดี {user}! ฉันคือ Harbor Pilot และฉันอยู่ที่นี่เพื่อช่วยให้คุณเริ่มต้นการเดินทางกับ Acme",
+		"FEEDBACK_FORM": {
+			"MESSAGE": "โปรดอธิบายสิ่งที่ไม่ค่อยถูกต้องเกี่ยวกับประสบการณ์ของคุณ มันจะช่วยให้ฉันตอบคำถามได้ดีขึ้นในอนาคต",
+			"TITLE": "กรุณาเล่าเพิ่มเติมเกี่ยวกับประสบการณ์ของคุณ"
+		},
+		"MESSAGE_FORM": {
+			"STOP_PROMPT": "ข้อความถูกยกเลิก"
+		},
+		"TOOLS": {
+			"ADMIN_SEARCH": {
+				"BOT_PROMPT": "โปรดถามคำถามเกี่ยวกับข้อมูลของคุณ เช่นเดียวกับที่คุณใช้การค้นหา และฉันจะแปลงเป็นคำค้นหา จากนั้นจะแสดงผลลัพธ์ให้คุณ",
+				"TITLE": "ข้อมูล",
+				"USER_PROMPT": "ค้นหาข้อมูลของคุณ"
+			},
+			"ACME_DOC": {
+				"BOT_PROMPT": "กรุณาถามคำถามเกี่ยวกับ ISC และฉันสามารถค้นหาเอกสารของเราเพื่อตอบคำถามของคุณได้",
+				"TITLE": "Acme",
+				"USER_PROMPT": "เอกสารการค้นหา"
+			},
+			"WORKFLOW_BUILDER": {
+				"BOT_PROMPT": "ได้แน่นอนครับ กรุณาให้รายละเอียดเกี่ยวกับเวิร์กโฟลว์ที่คุณต้องการสร้าง และผมจะดำเนินการให้คุณ",
+				"TITLE": "เวิร์กโฟลว์",
+				"USER_PROMPT": "สร้างเวิร์กโฟลว์"
+			}
+		},
+		"ASK_ME_A_QUESTION": "กรุณาถามคำถามฉัน",
+		"CANCEL": "ยกเลิก",
+		"CLEAR_CHAT_START_NEW_CONVERSATION": "ล้างการสนทนาและเริ่มต้นสนทนาใหม่",
+		"CLEAR_CONVERSATION": "ล้างการสนทนา",
+		"CLOSE": "ปิด",
+		"COLLAPSE": "ยุบ",
+		"CREATE_A_NEW_WORKFLOW_IN_THE_WORKFLOWS_PAGE": "สร้างเวิร์กโฟลว์ใหม่ในหน้าเวิร์กโฟลว์",
+		"CREATE_POLICY": "สร้างนโยบาย",
+		"CREATE_WORKFLOW": "สร้างเวิร์กโฟลว์",
+		"DESCRIBE_YOUR_EXPERIENCE": "อธิบายประสบการณ์ของคุณ",
+		"EXPAND": "ขยาย",
+		"EXPERIMENTAL_WARNING_MESSAGE": "Harbor Pilot เป็นโปรแกรมทดลองและอาจทำผิดพลาดได้ กรุณาตรวจสอบความถูกต้องข้อมูลสำคัญเสมอ",
+		"EXPLORE_PROMPTS": "สำรวจพร้อมท์",
+		"HARBOR_PILOT": "การนำร่องท่าเรือ",
+		"MAXIMIZE": "ขยาย",
+		"MESSAGE": "ข้อความ",
+		"MESSAGE_DEBUGGER": "ดีบักเกอร์ข้อความ",
+		"MINIMIZE": "ย่อ",
+		"NEXT_STEP": "ขั้นตอนถัดไป",
+		"NOT_ACCURATE": "ไม่แม่นยำ",
+		"NOT_WHAT_I_EXPECTED": "ไม่เป็นไปตามที่ฉันคาดหวัง",
+		"PREVIEW_CAMPAIGN": "ดูตัวอย่างแคมเปญ",
+		"QUICK_START": "เริ่มต้นอย่างรวดเร็ว",
+		"RECOMMENDED_ACTIONS": "การดำเนินการที่แนะนำ",
+		"RUN_CERTIFICATION": "ดำเนินการรับรอง",
+		"SELECT_OPTION": "เลือกตัวเลือก",
+		"SELECT_TOOL": "เลือกเครื่องมือ",
+		"SEND": "ส่ง",
+		"SOMETHING_WRONG_HAPPENED_TRY_AGAIN": "เกิดข้อผิดพลาด กรุณาลองใหม่ภายหลัง",
+		"STOP": "หยุด",
+		"SUBMIT": "ส่ง",
+		"SURE_WHAT_QUESTIONS_DO_YOU_HAVE": "แน่นอน ท่านมีคำถามอะไรบ้าง?",
+		"THANKS_FOR_YOU_FEEDBACK": "ขอบคุณสำหรับข้อเสนอแนะของคุณ!",
+		"THUMBS_DOWN": "ไม่ชอบ",
+		"THUMBS_UP": "ชอบ",
+		"TOOK_TOO_LONG": "ใช้เวลานานเกินไป",
+		"VIEW_GENERAL_POLICY_HERE": "ดูนโยบายทั่วไปที่นี่",
+		"VIEW_SEARCH_RESULTS_HERE": "ดูผลการค้นหาที่นี่",
+		"VIEW_WORKFLOW_HERE": "ดูเวิร์กโฟลว์ที่นี่",
+		"WAS_THIS_HELPFUL": "สิ่งนี้เป็นประโยชน์หรือไม่?",
+		"YOU_CAN_VIEW_THE_CAMPAIGN_HERE": "ดูแคมเปญการรับรองที่นี่"
+	}
+}

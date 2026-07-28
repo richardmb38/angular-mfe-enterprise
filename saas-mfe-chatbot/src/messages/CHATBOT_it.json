@@ -1,0 +1,70 @@
+{
+	"CHATBOT": {
+		"HEY_THERE_IM_HARBOR_PILOT": "Salve {user}! Sono Harbor Pilot e sono qui per aiutarti a iniziare il tuo percorso con Acme.",
+		"FEEDBACK_FORM": {
+			"MESSAGE": "Per favore, descrivi cosa non è andato del tutto bene nella tua esperienza. Ciò mi aiuterà a fornire risposte migliori in futuro.",
+			"TITLE": "Parlami di più della tua esperienza"
+		},
+		"MESSAGE_FORM": {
+			"STOP_PROMPT": "Il messaggio è stato annullato."
+		},
+		"TOOLS": {
+			"ADMIN_SEARCH": {
+				"BOT_PROMPT": "Poni una domanda sui tuoi dati. Creerò una query di ricerca e restituirò i risultati.",
+				"TITLE": "Dati",
+				"USER_PROMPT": "Ricerca i tuoi dati"
+			},
+			"ACME_DOC": {
+				"BOT_PROMPT": "Fammi una domanda su Identity Security Cloud e cercherò nella nostra documentazione per fornirti una risposta.",
+				"TITLE": "Acme",
+				"USER_PROMPT": "Documentazione delle ricerche"
+			},
+			"WORKFLOW_BUILDER": {
+				"BOT_PROMPT": "Certo! Fornisci una descrizione del flusso di lavoro che desideri costruire e lo realizzerò per te.",
+				"TITLE": "Flussi di lavoro",
+				"USER_PROMPT": "Crea un flusso di lavoro"
+			}
+		},
+		"ASK_ME_A_QUESTION": "Fai una domanda.",
+		"CANCEL": "Annulla",
+		"CLEAR_CHAT_START_NEW_CONVERSATION": "Cancella la chat e avvia una nuova conversazione",
+		"CLEAR_CONVERSATION": "Cancella Conversazione",
+		"CLOSE": "Chiudi",
+		"COLLAPSE": "Riduci",
+		"CREATE_A_NEW_WORKFLOW_IN_THE_WORKFLOWS_PAGE": "Crea un nuovo flusso di lavoro nella pagina Flussi di lavoro",
+		"CREATE_POLICY": "Crea criterio",
+		"CREATE_WORKFLOW": "Crea flusso di lavoro",
+		"DESCRIBE_YOUR_EXPERIENCE": "Descrivi la tua esperienza",
+		"EXPAND": "Espandi",
+		"EXPERIMENTAL_WARNING_MESSAGE": "Harbor Pilot è sperimentale e può commettere errori. Verifica sempre le informazioni importanti.",
+		"EXPLORE_PROMPTS": "Esplora richieste",
+		"HARBOR_PILOT": "Harbor Pilot",
+		"MAXIMIZE": "Massimizza",
+		"MESSAGE": "Messaggio",
+		"MESSAGE_DEBUGGER": "Debugger dei messaggi",
+		"MINIMIZE": "Minimizza",
+		"NEXT_STEP": "Prossimo passaggio",
+		"NOT_ACCURATE": "Non accurato",
+		"NOT_WHAT_I_EXPECTED": "Non come mi aspettavo",
+		"PREVIEW_CAMPAIGN": "Anteprima della campagna",
+		"QUICK_START": "Avvio rapido",
+		"RECOMMENDED_ACTIONS": "Azioni consigliate",
+		"RUN_CERTIFICATION": "Esegui Certificazione",
+		"SELECT_OPTION": "Seleziona opzione",
+		"SELECT_TOOL": "Seleziona Strumento",
+		"SEND": "Invia",
+		"SOMETHING_WRONG_HAPPENED_TRY_AGAIN": "Qualcosa non va. Riprova.",
+		"STOP": "Interrompi",
+		"SUBMIT": "Invia",
+		"SURE_WHAT_QUESTIONS_DO_YOU_HAVE": "Certo! Quali sono le tue domande?",
+		"THANKS_FOR_YOU_FEEDBACK": "Grazie per il feedback!",
+		"THUMBS_DOWN": "Pollice giù",
+		"THUMBS_UP": "Pollice su",
+		"TOOK_TOO_LONG": "Ha impiegato troppo tempo",
+		"VIEW_GENERAL_POLICY_HERE": "Visualizza il criterio generale qui",
+		"VIEW_SEARCH_RESULTS_HERE": "Visualizza i risultati di ricerca qui",
+		"VIEW_WORKFLOW_HERE": "Visualizza il flusso di lavoro qui.",
+		"WAS_THIS_HELPFUL": "È stato utile?",
+		"YOU_CAN_VIEW_THE_CAMPAIGN_HERE": "Visualizza campagna di certificazione qui"
+	}
+}

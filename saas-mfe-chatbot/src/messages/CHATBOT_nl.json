@@ -1,0 +1,70 @@
+{
+	"CHATBOT": {
+		"HEY_THERE_IM_HARBOR_PILOT": "Hallo {user}! Ik ben Harbor Pilot en ik kan u op weg helpen met uw Acme-reis.",
+		"FEEDBACK_FORM": {
+			"MESSAGE": "Beschrijf alstublieft wat niet helemaal goed was aan uw ervaring. Dit zal mij helpen om in de toekomst betere antwoorden te geven.",
+			"TITLE": "Vertel me meer over uw ervaring"
+		},
+		"MESSAGE_FORM": {
+			"STOP_PROMPT": "Het bericht is geannuleerd."
+		},
+		"TOOLS": {
+			"ADMIN_SEARCH": {
+				"BOT_PROMPT": "Stel me een vraag over uw gegevens. Ik zal een zoekopdracht aanmaken en de resultaten retourneren.",
+				"TITLE": "Gegevens",
+				"USER_PROMPT": "Uw gegevens doorzoeken"
+			},
+			"ACME_DOC": {
+				"BOT_PROMPT": "Stel mij een vraag over Identity Security Cloud en ik zal onze documentatie doorzoeken om een antwoord te vinden.",
+				"TITLE": "Acme",
+				"USER_PROMPT": "Documentatie doorzoeken"
+			},
+			"WORKFLOW_BUILDER": {
+				"BOT_PROMPT": "Dat kan ik zeker! Geef een beschrijving van de workflow die u probeert te ontwikkelen, dan zal ik deze voor u maken.",
+				"TITLE": "Workflows",
+				"USER_PROMPT": "Een workflow creëren"
+			}
+		},
+		"ASK_ME_A_QUESTION": "Stel mij een vraag.",
+		"CANCEL": "Annuleren",
+		"CLEAR_CHAT_START_NEW_CONVERSATION": "Chat wissen en nieuw gesprek starten",
+		"CLEAR_CONVERSATION": "Gesprek wissen",
+		"CLOSE": "Sluiten",
+		"COLLAPSE": "Inklappen",
+		"CREATE_A_NEW_WORKFLOW_IN_THE_WORKFLOWS_PAGE": "Een nieuwe workflow op de Workflows-pagina creëren",
+		"CREATE_POLICY": "Beleid creëren",
+		"CREATE_WORKFLOW": "Workflow creëren",
+		"DESCRIBE_YOUR_EXPERIENCE": "Beschrijf uw ervaring",
+		"EXPAND": "Uitvouwen",
+		"EXPERIMENTAL_WARNING_MESSAGE": "Harbor Pilot is experimenteel en kan fouten maken. U moet belangrijke informatie altijd verifiëren.",
+		"EXPLORE_PROMPTS": "Prompts verkennen",
+		"HARBOR_PILOT": "Harbor Pilot",
+		"MAXIMIZE": "Maximaliseren",
+		"MESSAGE": "Bericht",
+		"MESSAGE_DEBUGGER": "Berichtendebugger",
+		"MINIMIZE": "Minimaliseren",
+		"NEXT_STEP": "Volgende stap",
+		"NOT_ACCURATE": "Niet nauwkeurig",
+		"NOT_WHAT_I_EXPECTED": "Niet wat ik had verwacht",
+		"PREVIEW_CAMPAIGN": "Campagnevoorbeeld",
+		"QUICK_START": "Snelle start",
+		"RECOMMENDED_ACTIONS": "Aanbevolen acties",
+		"RUN_CERTIFICATION": "Certificatie uitvoeren",
+		"SELECT_OPTION": "Optie selecteren",
+		"SELECT_TOOL": "Tool selecteren",
+		"SEND": "Versturen",
+		"SOMETHING_WRONG_HAPPENED_TRY_AGAIN": "Er is iets fout gegaan. Probeer het opnieuw.",
+		"STOP": "Stoppen",
+		"SUBMIT": "Verzenden",
+		"SURE_WHAT_QUESTIONS_DO_YOU_HAVE": "Zeker! Welke vragen hebt u?",
+		"THANKS_FOR_YOU_FEEDBACK": "Bedankt voor uw feedback!",
+		"THUMBS_DOWN": "Duim omlaag",
+		"THUMBS_UP": "Duim omhoog",
+		"TOOK_TOO_LONG": "Het duurde te lang",
+		"VIEW_GENERAL_POLICY_HERE": "Bekijk het algemene beleid hier",
+		"VIEW_SEARCH_RESULTS_HERE": "Bekijk de zoekresultaten hier",
+		"VIEW_WORKFLOW_HERE": "Bekijk de workflow hier",
+		"WAS_THIS_HELPFUL": "Was dit nuttig?",
+		"YOU_CAN_VIEW_THE_CAMPAIGN_HERE": "Bekijk certificatiecampagne hier"
+	}
+}

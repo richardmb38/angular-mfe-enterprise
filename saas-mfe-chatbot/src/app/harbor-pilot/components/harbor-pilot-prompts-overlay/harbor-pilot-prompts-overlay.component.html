@@ -1,0 +1,15 @@
+<div slptBackdrop class="harbor-pilot-prompts-overlay" [backdropTransparent]="true">
+	<div class="harbor-pilot-prompts-overlay__header">
+		<button
+			type="button"
+			class="harbor-pilot-icon-button"
+			[attr.aria-label]="'CHATBOT.CLOSE' | slptTranslate"
+			(click)="dismiss.emit()"
+		>
+			<slpt-icon fill="g4" name="close" type="light" width="16px" height="16px"></slpt-icon>
+		</button>
+	</div>
+	<div class="harbor-pilot-prompts-overlay__prompts-container">
+		<app-harbor-pilot-prompts (click)="dismiss.emit()" />
+	</div>
+</div>

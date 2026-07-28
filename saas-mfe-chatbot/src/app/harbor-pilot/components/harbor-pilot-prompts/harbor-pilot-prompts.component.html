@@ -1,0 +1,29 @@
+<ng-container *ngFor="let category of prompts()">
+	<div *ngIf="categories() && categories().get(category.tool)" class="harbor-pilot-prompts">
+		<h3 class="harbor-pilot-prompts__category-title">
+			<slpt-icon
+				width="16px"
+				height="16px"
+				type="solid"
+				[name]="categories().get(category.tool).iconName"
+				[fill]="categories().get(category.tool).iconFill"
+			></slpt-icon>
+			{{ categories().get(category.tool).message | slptTranslate }}
+		</h3>
+		<div class="harbor-pilot-prompts__category-badges">
+			<slpt-badge
+				*ngFor="let example of category.examples"
+				color="w1"
+				tabindex="0"
+				type="pill"
+				maxWidth="100%"
+				[showToolTip]="true"
+				[tooltipContent]="{ untranslated: example.message }"
+				[tooltipAlignment]="aligments.BottomCenter"
+				(click)="onPromptClick(example.message, category.tool)"
+			>
+				<p class="harbor-pilot__prompts-category-badge-text">{{ example.message }}</p>
+			</slpt-badge>
+		</div>
+	</div>
+</ng-container>

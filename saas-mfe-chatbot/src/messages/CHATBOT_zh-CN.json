@@ -1,0 +1,70 @@
+{
+	"CHATBOT": {
+		"HEY_THERE_IM_HARBOR_PILOT": "{user}，您好！我是引航员，在此帮助您开始使用Acme。",
+		"FEEDBACK_FORM": {
+			"MESSAGE": "请描述您在体验过程中有哪些不尽如人意的地方。这将帮助我在未来提供更好的答案。",
+			"TITLE": "请详细描述您的体验"
+		},
+		"MESSAGE_FORM": {
+			"STOP_PROMPT": "该消息已被取消。"
+		},
+		"TOOLS": {
+			"ADMIN_SEARCH": {
+				"BOT_PROMPT": "向我提出有关您的数据的问题，我将创建一个搜索查询并返回结果。",
+				"TITLE": "数据",
+				"USER_PROMPT": "搜索您的数据"
+			},
+			"ACME_DOC": {
+				"BOT_PROMPT": "请向我提问有关身份安全云的问题，我将搜索文档并为您提供答案。",
+				"TITLE": "Acme",
+				"USER_PROMPT": "搜索文档"
+			},
+			"WORKFLOW_BUILDER": {
+				"BOT_PROMPT": "当然可以！请提供有关您尝试构建的工作流的描述，我将为您执行构建。",
+				"TITLE": "工作流",
+				"USER_PROMPT": "创建工作流"
+			}
+		},
+		"ASK_ME_A_QUESTION": "请提问。",
+		"CANCEL": "取消",
+		"CLEAR_CHAT_START_NEW_CONVERSATION": "清除聊天记录并开始新的对话",
+		"CLEAR_CONVERSATION": "清除会话",
+		"CLOSE": "关闭",
+		"COLLAPSE": "折叠",
+		"CREATE_A_NEW_WORKFLOW_IN_THE_WORKFLOWS_PAGE": "在工作流页面中新建工作流",
+		"CREATE_POLICY": "创建策略",
+		"CREATE_WORKFLOW": "创建工作流",
+		"DESCRIBE_YOUR_EXPERIENCE": "描述您的体验",
+		"EXPAND": "展开",
+		"EXPERIMENTAL_WARNING_MESSAGE": "Harbor Pilot属于实验性质，可能会出错。请始终核对重要信息。",
+		"EXPLORE_PROMPTS": "探索提示",
+		"HARBOR_PILOT": "引航员",
+		"MAXIMIZE": "最大化",
+		"MESSAGE": "消息",
+		"MESSAGE_DEBUGGER": "消息调试器",
+		"MINIMIZE": "最小化",
+		"NEXT_STEP": "下一步",
+		"NOT_ACCURATE": "不准确",
+		"NOT_WHAT_I_EXPECTED": "不是我所期望的",
+		"PREVIEW_CAMPAIGN": "预览活动",
+		"QUICK_START": "快速开始",
+		"RECOMMENDED_ACTIONS": "建议操作",
+		"RUN_CERTIFICATION": "运行认证",
+		"SELECT_OPTION": "选择选项",
+		"SELECT_TOOL": "选择工具",
+		"SEND": "发送",
+		"SOMETHING_WRONG_HAPPENED_TRY_AGAIN": "出错了，请再试一次",
+		"STOP": "停止",
+		"SUBMIT": "提交",
+		"SURE_WHAT_QUESTIONS_DO_YOU_HAVE": "当然！您有什么问题？",
+		"THANKS_FOR_YOU_FEEDBACK": "感谢您的反馈！",
+		"THUMBS_DOWN": "踩",
+		"THUMBS_UP": "赞",
+		"TOOK_TOO_LONG": "耗时过长",
+		"VIEW_GENERAL_POLICY_HERE": "在此查看一般策略",
+		"VIEW_SEARCH_RESULTS_HERE": "在此查看搜索结果",
+		"VIEW_WORKFLOW_HERE": "在此查看工作流",
+		"WAS_THIS_HELPFUL": "这对您有帮助吗？",
+		"YOU_CAN_VIEW_THE_CAMPAIGN_HERE": "在此查看认证活动"
+	}
+}

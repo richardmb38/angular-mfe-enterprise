@@ -1,0 +1,187 @@
+/*
+ * Copyright (C) 2024 Acme Technologies, Inc.  All rights reserved.
+ */
+@import '@acme-priv/armada-angular/src/acme/theme/styles/variables';
+@import '../../shared/styles/variables';
+@import '../../shared/styles/animations';
+
+// stylelint-disable max-nesting-depth
+.harbor-pilot-chat-message {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+
+	&:hover {
+		.harbor-pilot-chat-message__footer {
+			visibility: visible;
+		}
+	}
+}
+
+.harbor-pilot-chat-message__message-bubble {
+	display: flex;
+	flex-direction: row;
+	align-items: end;
+	column-gap: 8px;
+
+	&.harbor-pilot-chat-message--user-message {
+		flex-direction: row-reverse;
+	}
+
+	&.harbor-pilot-chat-message--loading-message {
+		column-gap: 16px;
+	}
+
+	&.harbor-pilot-chat-message--static-message {
+		justify-content: end !important;
+		font-size: 15px;
+	}
+}
+
+.harbor-pilot-chat-message__footer {
+	position: absolute;
+	bottom: -20px;
+	right: 1rem;
+	padding: 0 5px;
+	border-radius: 0.5rem;
+	border: solid 1px $slpt-g2;
+	background-color: $slpt-w1;
+	visibility: hidden;
+
+	&.harbor-pilot-chat-message__footer-most-recent {
+		visibility: visible;
+	}
+
+	slpt-icon-button {
+		// NG-DEEP: Removes excesive width and padding on the rating buttons.
+		// https://acme.atlassian.net/browse/UIDATA-1192
+		// stylelint-disable-next-line selector-pseudo-element-no-unknown
+		::ng-deep {
+			button {
+				width: auto;
+				height: 1.8rem;
+
+				&:hover,
+				&:focus {
+					background-color: transparent;
+					box-shadow: none;
+				}
+			}
+		}
+	}
+}
+
+.harbor-pilot-chat-message__content {
+	padding: 0.5rem 1rem;
+	border-radius: 16px 16px 16px 0;
+	overflow-x: auto;
+	max-width: 90%;
+	border-bottom-left-radius: 0;
+
+	&.harbor-pilot-chat-message__content--user {
+		color: $slpt-w1;
+		background-color: $slpt-g4;
+		border-radius: 16px 16px 0;
+		margin-bottom: 0;
+
+		p {
+			margin-bottom: 0 !important;
+		}
+	}
+
+	&.harbor-pilot-chat-message--table-width {
+		max-width: 100%;
+	}
+
+	&.harbor-pilot-chat-message--text-width {
+		max-width: 75%;
+	}
+
+	&.harbor-pilot-chat-message__content--bot {
+		background-color: $slpt-g1;
+	}
+
+	&.harbor-pilot-chat-message__content--white {
+		background-color: $slpt-w1;
+	}
+
+	&.harbor-pilot-chat-message__content--loading {
+		display: flex;
+		justify-content: center;
+		width: 48px;
+		padding: 2px;
+	}
+
+	&.harbor-pilot-chat-message__content--static {
+		text-transform: uppercase;
+		font-size: 12px;
+		line-height: 12px;
+		letter-spacing: 1px;
+		color: $slpt-g3;
+		padding-right: 0.5rem;
+
+		p {
+			margin-bottom: 0;
+		}
+	}
+
+	markdown {
+		// NG-DEEP: Allows single line messages to be as small as in the mocks
+		// stylelint-disable-next-line selector-pseudo-element-no-unknown
+		::ng-deep {
+			> p {
+				color: $slpt-g3;
+
+				&:last-of-type {
+					margin-bottom: 0 !important;
+				}
+			}
+			// table list customization.
+			> table {
+				border-collapse: collapse;
+				margin-top: 30px;
+
+				> thead {
+					display: none;
+				}
+
+				> tbody {
+					> tr {
+						> tr {
+							white-space: nowrap;
+
+							> td {
+								padding-bottom: 8px;
+
+								&:not(:first-child) {
+									padding-left: 20px;
+								}
+							}
+						}
+
+						&:not(:last-child) {
+							border-bottom: 1pt solid $slpt-g2;
+						}
+					}
+				}
+			}
+			// markdown responses headers excesive size.
+			> h3 {
+				font-size: 1rem;
+				line-height: 1rem;
+				font-weight: 600;
+				margin: 16px 0 8px;
+			}
+
+			li {
+				a {
+					color: $slpt-p1;
+				}
+			}
+		}
+	}
+}
+
+.harbor-pilot-chat-message__action {
+	margin-left: 40px;
+}

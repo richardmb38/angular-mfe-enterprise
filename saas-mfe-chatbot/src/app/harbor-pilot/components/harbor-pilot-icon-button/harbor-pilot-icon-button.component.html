@@ -1,0 +1,16 @@
+<button
+	class="harbor-pilot-logo-button"
+	type="button"
+	aria-label="Harbor Pilot"
+	[ngClass]="fill() ? 'harbor-pilot-logo-button__active' : 'harbor-pilot-logo-button__inactive'"
+	(click)="onClick()"
+>
+	<slpt-icon
+		name="lighthouse"
+		[style.width]="BUTTON_SIZES.get(size())?.background.width"
+		[style.height]="BUTTON_SIZES.get(size())?.background.height"
+		[width]="BUTTON_SIZES.get(size())?.icon.width"
+		[height]="BUTTON_SIZES.get(size())?.icon.height"
+		[fill]="fill() ? 'w1' : 'a2'"
+	></slpt-icon>
+</button>

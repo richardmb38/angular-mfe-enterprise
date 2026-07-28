@@ -1,0 +1,27 @@
+{
+	"extends": "../tsconfig.json",
+	"compilerOptions": {
+		"types": [
+			"node"
+		],
+		"allowSyntheticDefaultImports": true,
+		"experimentalDecorators": true,
+		"resolveJsonModule": true
+	},
+	"exclude": [
+		"../**/cypress",
+		"../src/**/*.spec.ts",
+		"../src/**/*.cypress.ts",
+		"../src/**/*.model.ts",
+		"../src/**/*.mocks.ts",
+		"./stories/**/*.cypress.ts"
+	],
+	"include": [
+		"../src/**/*",
+		"./stories/**/*",
+		"./preview.ts"
+	],
+	"files": [
+		"./typings.d.ts"
+	]
+}

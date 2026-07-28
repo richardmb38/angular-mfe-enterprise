@@ -1,0 +1,44 @@
+[
+	{
+		"tool": "acme-doc",
+		"examples": [
+			{
+				"message": "Explain what a role is."
+			},
+			{
+				"message": "How do I assign entitlements?"
+			},
+			{
+				"message": "How should I build a workflow to run a campaign?"
+			}
+		]
+	},
+	{
+		"tool": "admin-search",
+		"examples": [
+			{
+				"message": "List me the last 100 events."
+			},
+			{
+				"message": "How many inactive identites do I have?"
+			},
+			{
+				"message": "Which identities have active directory accounts?"
+			}
+		]
+	},
+	{
+		"tool": "workflow-builder",
+		"examples": [
+			{
+				"message": "Create a workflow."
+			},
+			{
+				"message": "Create a workflow that sends an email."
+			},
+			{
+				"message": "Create a workflow that removes entitlements."
+			}
+		]
+	}
+]

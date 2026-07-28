@@ -1,0 +1,30 @@
+<div slptBackdrop class="harbor-pilot-feedback-form__container" [backdropTransparent]="true">
+	<div class="harbor-pilot-feedback-form__message">
+		<app-harbor-pilot-icon-button />
+		<div class="harbor-pilot-feedback-form__message-header">
+			<h4>{{ 'CHATBOT.FEEDBACK_FORM.TITLE' | slptTranslate }}</h4>
+		</div>
+		<div class="harbor-pilot-feedback-form__message-text">
+			<p>
+				{{ 'CHATBOT.FEEDBACK_FORM.MESSAGE' | slptTranslate }}
+			</p>
+		</div>
+	</div>
+	<div class="harbor-pilot-feedback-form__quick-options">
+		<slpt-quick-filter
+			position="horizontal"
+			[filterList]="QUICK_FEEDBACK_OPTIONS"
+			[multiple]="true"
+			[atLeastOneSelected]="false"
+			(onFilterChanged)="handleOnQuickOptionSelected($event)"
+		></slpt-quick-filter>
+	</div>
+	<div class="harbor-pilot-feedback-form__form">
+		<slpt-text-field key="comments" placeholder="CHATBOT.DESCRIBE_YOUR_EXPERIENCE" [group]="form"></slpt-text-field>
+		<div class="harbor-pilot-feedback__form-ctas">
+			<slpt-button type="tertiary" label="CHATBOT.CANCEL" (click)="cancel.emit()"> </slpt-button>
+			<slpt-button type="primary" label="CHATBOT.SUBMIT" [disabled]="!form.valid" (click)="handleOnSubmit()">
+			</slpt-button>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,70 @@
+{
+	"CHATBOT": {
+		"HEY_THERE_IM_HARBOR_PILOT": "您好，{user}！我是 Harbor Pilot，我在這裡協助您開始您的 Acme 之旅。",
+		"FEEDBACK_FORM": {
+			"MESSAGE": "請描述您在此次體驗中遇到的問題。這將有助於我未來提供更好的回答。",
+			"TITLE": "請告訴我更多關於您的經驗。"
+		},
+		"MESSAGE_FORM": {
+			"STOP_PROMPT": "訊息已取消。"
+		},
+		"TOOLS": {
+			"ADMIN_SEARCH": {
+				"BOT_PROMPT": "請向我提問有關您的數據的問題，我將建立搜索查詢並返回結果。",
+				"TITLE": "資料",
+				"USER_PROMPT": "搜尋您的資料"
+			},
+			"ACME_DOC": {
+				"BOT_PROMPT": "好的！請隨時提出您對 ISC 想了解的任何問題，我可以查詢我們的文檔為您提供答案！",
+				"TITLE": "Acme",
+				"USER_PROMPT": "搜尋文件"
+			},
+			"WORKFLOW_BUILDER": {
+				"BOT_PROMPT": "當然可以！請提供您正在嘗試構建的工作流程描述，我將為您製作它。",
+				"TITLE": "工作流程",
+				"USER_PROMPT": "建立工作流程"
+			}
+		},
+		"ASK_ME_A_QUESTION": "請提出您的問題。",
+		"CANCEL": "取消",
+		"CLEAR_CHAT_START_NEW_CONVERSATION": "清除聊天並開始新的對話",
+		"CLEAR_CONVERSATION": "清除對話",
+		"CLOSE": "關閉",
+		"COLLAPSE": "摺疊",
+		"CREATE_A_NEW_WORKFLOW_IN_THE_WORKFLOWS_PAGE": "在工作流程頁面建立新的工作流程",
+		"CREATE_POLICY": "建立政策",
+		"CREATE_WORKFLOW": "建立工作流程",
+		"DESCRIBE_YOUR_EXPERIENCE": "描述您的經驗",
+		"EXPAND": "展開",
+		"EXPERIMENTAL_WARNING_MESSAGE": "Harbor Pilot 是實驗性質的，可能會出錯。請務必核實重要資訊。",
+		"EXPLORE_PROMPTS": "探索提示",
+		"HARBOR_PILOT": "港口試驗",
+		"MAXIMIZE": "最大化",
+		"MESSAGE": "訊息",
+		"MESSAGE_DEBUGGER": "訊息調試器",
+		"MINIMIZE": "最小化",
+		"NEXT_STEP": "下一步",
+		"NOT_ACCURATE": "不準確",
+		"NOT_WHAT_I_EXPECTED": "不是我預期的",
+		"PREVIEW_CAMPAIGN": "預覽憑證集",
+		"QUICK_START": "快速啟動",
+		"RECOMMENDED_ACTIONS": "建議的行動",
+		"RUN_CERTIFICATION": "執行憑證",
+		"SELECT_OPTION": "選擇選項",
+		"SELECT_TOOL": "選擇工具",
+		"SEND": "傳送",
+		"SOMETHING_WRONG_HAPPENED_TRY_AGAIN": "發生錯誤，請再試一次",
+		"STOP": "停止",
+		"SUBMIT": "提交",
+		"SURE_WHAT_QUESTIONS_DO_YOU_HAVE": "當然！您有什麼問題？",
+		"THANKS_FOR_YOU_FEEDBACK": "謝謝您的反饋！",
+		"THUMBS_DOWN": "不贊成",
+		"THUMBS_UP": "讚",
+		"TOOK_TOO_LONG": "耗時過長。",
+		"VIEW_GENERAL_POLICY_HERE": "在此查看一般政策",
+		"VIEW_SEARCH_RESULTS_HERE": "在這裡檢視搜尋結果",
+		"VIEW_WORKFLOW_HERE": "在此查看工作流程",
+		"WAS_THIS_HELPFUL": "這是否對您有幫助？",
+		"YOU_CAN_VIEW_THE_CAMPAIGN_HERE": "在此檢視憑證集"
+	}
+}

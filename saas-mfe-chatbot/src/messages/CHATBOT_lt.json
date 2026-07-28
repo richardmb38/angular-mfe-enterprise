@@ -1,0 +1,70 @@
+{
+	"CHATBOT": {
+		"HEY_THERE_IM_HARBOR_PILOT": "Sveiki, {user}! Aš esu „Harbor Pilot“, pokalbinė dirbtinio intelekto sistema, kuri padės Jums pradėti Jūsų „Acme“ kelionę.",
+		"FEEDBACK_FORM": {
+			"MESSAGE": "Prašome aprašyti, kas nebuvo visiškai teisinga jūsų patirtyje. Tai padės man teikti geresnius atsakymus ateityje.",
+			"TITLE": "Papasakokite man daugiau apie savo patirtį"
+		},
+		"MESSAGE_FORM": {
+			"STOP_PROMPT": "Pranešimas buvo atšauktas."
+		},
+		"TOOLS": {
+			"ADMIN_SEARCH": {
+				"BOT_PROMPT": "Užduokite man klausimą apie jūsų duomenis. Aš sukursiu paieškos užklausą ir grąžinsiu rezultatus.",
+				"TITLE": "Duomenys",
+				"USER_PROMPT": "Ieškokite savo duomenų"
+			},
+			"ACME_DOC": {
+				"BOT_PROMPT": "Prašau, užduokite man klausimą apie ISC, ir aš galiu užklausti mūsų dokumentacijos, kad suteikčiau jums atsakymą.",
+				"TITLE": "Acme",
+				"USER_PROMPT": "Paieškos Dokumentacija"
+			},
+			"WORKFLOW_BUILDER": {
+				"BOT_PROMPT": "Žinoma, galiu! Prašome pateikti aprašymą apie darbo srautą, kurį bandote sukurti, ir aš jį jums sukursiu.",
+				"TITLE": "Darbo srautai",
+				"USER_PROMPT": "Kurti darbo srautą"
+			}
+		},
+		"ASK_ME_A_QUESTION": "Užduokite man klausimą.",
+		"CANCEL": "Atšaukti",
+		"CLEAR_CHAT_START_NEW_CONVERSATION": "Išvalyti pokalbį ir pradėti naują pokalbį",
+		"CLEAR_CONVERSATION": "Išvalyti pokalbį",
+		"CLOSE": "Uždaryti",
+		"COLLAPSE": "Suglaudinti",
+		"CREATE_A_NEW_WORKFLOW_IN_THE_WORKFLOWS_PAGE": "Kurti naują darbo srautą Darbo srautų puslapyje",
+		"CREATE_POLICY": "Kurkite politiką",
+		"CREATE_WORKFLOW": "Kurti darbo srautą",
+		"DESCRIBE_YOUR_EXPERIENCE": "Apibūdinkite savo patirtį",
+		"EXPAND": "Išplėsti",
+		"EXPERIMENTAL_WARNING_MESSAGE": "Harbor Pilot yra eksperimentinis ir gali padaryti klaidų. Visada patikrinkite svarbią informaciją.",
+		"EXPLORE_PROMPTS": "Naršyti užklausas",
+		"HARBOR_PILOT": "Harbor Pilot",
+		"MAXIMIZE": "Maksimizuoti",
+		"MESSAGE": "Pranešimas",
+		"MESSAGE_DEBUGGER": "Žinutės derinimo įrankis",
+		"MINIMIZE": "Sumažinti",
+		"NEXT_STEP": "Kitas žingsnis",
+		"NOT_ACCURATE": "Netikslus",
+		"NOT_WHAT_I_EXPECTED": "Ne tai, ko tikėjausi",
+		"PREVIEW_CAMPAIGN": "Peržiūrėti kampaniją",
+		"QUICK_START": "Greitoji pradžia",
+		"RECOMMENDED_ACTIONS": "Rekomenduojami veiksmai",
+		"RUN_CERTIFICATION": "Vykdyti sertifikavimą",
+		"SELECT_OPTION": "Pasirinkite parinktį",
+		"SELECT_TOOL": "Pasirinkti įrankį",
+		"SEND": "Siųsti",
+		"SOMETHING_WRONG_HAPPENED_TRY_AGAIN": "Kažkas nepavyko. Bandykite dar kartą",
+		"STOP": "Sustabdyti",
+		"SUBMIT": "Pateikti",
+		"SURE_WHAT_QUESTIONS_DO_YOU_HAVE": "Žinoma! Kokių klausimų turite?",
+		"THANKS_FOR_YOU_FEEDBACK": "Dėkojame už jūsų atsiliepimą!",
+		"THUMBS_DOWN": "Nepatinka",
+		"THUMBS_UP": "Patinka",
+		"TOOK_TOO_LONG": "Per ilgai truko",
+		"VIEW_GENERAL_POLICY_HERE": "Peržiūrėkite bendrą politiką čia",
+		"VIEW_SEARCH_RESULTS_HERE": "Peržiūrėkite paieškos rezultatus čia",
+		"VIEW_WORKFLOW_HERE": "Peržiūrėkite darbo srautą čia",
+		"WAS_THIS_HELPFUL": "Ar tai buvo naudinga?",
+		"YOU_CAN_VIEW_THE_CAMPAIGN_HERE": "Sertifikavimo kampaniją galite peržiūrėti čia"
+	}
+}

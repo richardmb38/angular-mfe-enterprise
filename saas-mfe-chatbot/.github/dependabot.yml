@@ -1,0 +1,24 @@
+version: 2
+registries:
+  npm-artifactory:
+    type: npm-registry
+    url: https://acme.jfrog.io/artifactory/api/npm/sp-npm-prod/
+    username: ${{secrets.ARTIFACTORY_USERNAME}}
+    password: ${{secrets.ARTIFACTORY_PASSWORD}}
+
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    registries:
+      - npm-artifactory
+    schedule:
+      interval: "daily"
+    commit-message:
+      prefix: "build: "
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    labels:
+      - "feature-flag-exempt"
+      - "dependencies"
+    open-pull-requests-limit: 3

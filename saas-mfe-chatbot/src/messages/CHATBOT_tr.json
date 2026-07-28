@@ -1,0 +1,70 @@
+{
+	"CHATBOT": {
+		"HEY_THERE_IM_HARBOR_PILOT": "Merhaba {user}! Ben Harbor Pilot, Acme yolculuğunuza başlamanıza yardımcı olmak için buradayım.",
+		"FEEDBACK_FORM": {
+			"MESSAGE": "Lütfen deneyiminizde tam olarak neyin yanlış gittiğini açıklayın. Bu, gelecekte daha iyi yanıtlar vermeme yardımcı olacaktır.",
+			"TITLE": "Deneyiminiz hakkında daha fazla bilgi verin"
+		},
+		"MESSAGE_FORM": {
+			"STOP_PROMPT": "Mesaj iptal edildi."
+		},
+		"TOOLS": {
+			"ADMIN_SEARCH": {
+				"BOT_PROMPT": "Verileriniz hakkında bana bir soru sorun. Bir arama sorgusu oluşturacak ve sonuçları size sunacağım.",
+				"TITLE": "Veri",
+				"USER_PROMPT": "Verilerinizde Arayın"
+			},
+			"ACME_DOC": {
+				"BOT_PROMPT": "Bana Identity Security Cloud hakkında bir soru sorarsanız belgelerimizi araştıracağım ve bir yanıt bulacağım.",
+				"TITLE": "Acme",
+				"USER_PROMPT": "Arama Belgeleri"
+			},
+			"WORKFLOW_BUILDER": {
+				"BOT_PROMPT": "Elbette! Lütfen oluşturmak istediğiniz iş akışının bir açıklamasını sağlayın, halledeyim.",
+				"TITLE": "İş akışları",
+				"USER_PROMPT": "İş Akışı Oluştur"
+			}
+		},
+		"ASK_ME_A_QUESTION": "Bana bir soru sorabilirsiniz.",
+		"CANCEL": "İptal et",
+		"CLEAR_CHAT_START_NEW_CONVERSATION": "Sohbeti temizleyin ve yeni bir konuşma başlatın",
+		"CLEAR_CONVERSATION": "Konuşmayı Temizle",
+		"CLOSE": "Kapat",
+		"COLLAPSE": "Daralt",
+		"CREATE_A_NEW_WORKFLOW_IN_THE_WORKFLOWS_PAGE": "İş Akışları sayfasında yeni bir iş akışı oluşturun",
+		"CREATE_POLICY": "Politika Oluştur",
+		"CREATE_WORKFLOW": "İş Akışı Oluştur",
+		"DESCRIBE_YOUR_EXPERIENCE": "Deneyiminizi açıklayın.",
+		"EXPAND": "Genişlet",
+		"EXPERIMENTAL_WARNING_MESSAGE": "Harbor Pilot deneyselidir ve hatalar yapabilir. Önemli bilgileri her zaman doğrulayın.",
+		"EXPLORE_PROMPTS": "İstemleri Keşfedin",
+		"HARBOR_PILOT": "Harbor Pilot",
+		"MAXIMIZE": "Büyüt",
+		"MESSAGE": "Mesaj",
+		"MESSAGE_DEBUGGER": "Mesaj Hata Ayıklayıcısı",
+		"MINIMIZE": "Küçült",
+		"NEXT_STEP": "Sonraki Adım",
+		"NOT_ACCURATE": "Doğru Değil",
+		"NOT_WHAT_I_EXPECTED": "Beklediğim Şey Değil",
+		"PREVIEW_CAMPAIGN": "Kampanyayı Önizle",
+		"QUICK_START": "Hızlı Başlangıç",
+		"RECOMMENDED_ACTIONS": "Önerilen Eylemler",
+		"RUN_CERTIFICATION": "Sertifikalandırmayı Yürüt",
+		"SELECT_OPTION": "Bir seçenek seçin",
+		"SELECT_TOOL": "Araç Seç",
+		"SEND": "Gönder",
+		"SOMETHING_WRONG_HAPPENED_TRY_AGAIN": "Bir sorun oluştu, tekrar deneyin",
+		"STOP": "Durdur",
+		"SUBMIT": "Gönder",
+		"SURE_WHAT_QUESTIONS_DO_YOU_HAVE": "Tabii! Ne sormak istiyorsunuz?",
+		"THANKS_FOR_YOU_FEEDBACK": "Geri bildiriminiz için teşekkürler!",
+		"THUMBS_DOWN": "Başparmak Aşağı",
+		"THUMBS_UP": "Başparmak Yukarı",
+		"TOOK_TOO_LONG": "Çok Uzun Sürdü",
+		"VIEW_GENERAL_POLICY_HERE": "Genel Politika'yı burada görüntüleyin",
+		"VIEW_SEARCH_RESULTS_HERE": "Arama Sonuçlarını burada görüntüleyin",
+		"VIEW_WORKFLOW_HERE": "İş Akışını burada görüntüleyin",
+		"WAS_THIS_HELPFUL": "Bu faydalı oldu mu?",
+		"YOU_CAN_VIEW_THE_CAMPAIGN_HERE": "Serifikasyon Kampanyasını burada görüntüleyin"
+	}
+}

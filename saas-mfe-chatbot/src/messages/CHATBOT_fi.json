@@ -1,0 +1,70 @@
+{
+	"CHATBOT": {
+		"HEY_THERE_IM_HARBOR_PILOT": "Hei {user}! Olen Harbor Pilot, ja autan sinut Acme-matkasi alkuun.",
+		"FEEDBACK_FORM": {
+			"MESSAGE": "Kuvaile, mikä mielestäsi meni vikaan. Se auttaa minua antamaan parempia vastauksia tulevaisuudessa.",
+			"TITLE": "Kerro lisää kokemuksestasi"
+		},
+		"MESSAGE_FORM": {
+			"STOP_PROMPT": "Viesti kumottiin."
+		},
+		"TOOLS": {
+			"ADMIN_SEARCH": {
+				"BOT_PROMPT": "Esitä minulle tietojasi koskeva kysymys. Laadin hakukyselyn ja palautan tulokset.",
+				"TITLE": "Tiedot",
+				"USER_PROMPT": "Hae tietojasi"
+			},
+			"ACME_DOC": {
+				"BOT_PROMPT": "Esitä minulle Identity Security Cloudia koskeva kysymys, niin etsin vastauksen dokumentaatiostamme.",
+				"TITLE": "Acme",
+				"USER_PROMPT": "Dokumentaatiohaku"
+			},
+			"WORKFLOW_BUILDER": {
+				"BOT_PROMPT": "Tietysti voin auttaa! Kirjoita minulle kuvaus haluamastasi työnkulusta, niin rakennan sen puolestasi.",
+				"TITLE": "Työnkulut",
+				"USER_PROMPT": "Luo työnkulku"
+			}
+		},
+		"ASK_ME_A_QUESTION": "Esitä minulle kysymys.",
+		"CANCEL": "Peruuta",
+		"CLEAR_CHAT_START_NEW_CONVERSATION": "Tyhjennä keskustelu ja aloita uusi",
+		"CLEAR_CONVERSATION": "Tyhjennä keskustelu",
+		"CLOSE": "Sulje",
+		"COLLAPSE": "Kutista",
+		"CREATE_A_NEW_WORKFLOW_IN_THE_WORKFLOWS_PAGE": "Luo uusi työnkulku Työnkulut-sivulla",
+		"CREATE_POLICY": "Luo käytäntö",
+		"CREATE_WORKFLOW": "Luo työnkulku",
+		"DESCRIBE_YOUR_EXPERIENCE": "Kuvaile kokemuksesi",
+		"EXPAND": "Laajenna",
+		"EXPERIMENTAL_WARNING_MESSAGE": "Harbor Pilot on kokeellinen, ja se voi tehdä virheitä. Tarkista aina tärkeät tiedot.",
+		"EXPLORE_PROMPTS": "Tutustu kehotteisiin",
+		"HARBOR_PILOT": "Harbor Pilot",
+		"MAXIMIZE": "Laajenna",
+		"MESSAGE": "Viesti",
+		"MESSAGE_DEBUGGER": "Viestin virheenkorjaus",
+		"MINIMIZE": "Pienennä",
+		"NEXT_STEP": "Seuraava vaihe",
+		"NOT_ACCURATE": "Epätarkka",
+		"NOT_WHAT_I_EXPECTED": "Ei mitä odotin",
+		"PREVIEW_CAMPAIGN": "Kampanjan esikatselu",
+		"QUICK_START": "Pikakäynnistys",
+		"RECOMMENDED_ACTIONS": "Suositellut toimenpiteet",
+		"RUN_CERTIFICATION": "Suorita sertifiointi",
+		"SELECT_OPTION": "Valitse vaihtoehto",
+		"SELECT_TOOL": "Valitse työkalu",
+		"SEND": "Lähetä",
+		"SOMETHING_WRONG_HAPPENED_TRY_AGAIN": "Jokin meni vikaan. Yritä uudelleen",
+		"STOP": "Keskeytä",
+		"SUBMIT": "Lähetä",
+		"SURE_WHAT_QUESTIONS_DO_YOU_HAVE": "Tietenkin! Mitä haluaisit kysyä?",
+		"THANKS_FOR_YOU_FEEDBACK": "Kiitos palautteestasi!",
+		"THUMBS_DOWN": "Peukku alas",
+		"THUMBS_UP": "Peukku ylös",
+		"TOOK_TOO_LONG": "Kesti liian pitkään",
+		"VIEW_GENERAL_POLICY_HERE": "Lue yleinen käytäntö tästä",
+		"VIEW_SEARCH_RESULTS_HERE": "Näytä hakutulokset tästä",
+		"VIEW_WORKFLOW_HERE": "Näytä työnkulku tästä",
+		"WAS_THIS_HELPFUL": "Oliko tästä apua?",
+		"YOU_CAN_VIEW_THE_CAMPAIGN_HERE": "Näytä sertifiointikampanja tästä"
+	}
+}

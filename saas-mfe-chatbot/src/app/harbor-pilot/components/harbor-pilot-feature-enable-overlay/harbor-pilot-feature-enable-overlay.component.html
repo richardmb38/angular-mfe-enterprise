@@ -1,0 +1,32 @@
+<div slptBackdrop class="harbor-pilot-feature-enablement-overlay" [backdropTransparent]="true">
+	<div class="harbor-pilot-feature-enablement__message">
+		<app-harbor-pilot-icon-button size="medium" />
+		<div class="harbor-pilot-feature-enablement__message-header">
+			<h2>{{ 'CHATBOT.ENABLE_HARBOR_PILOT' | slptTranslate }}</h2>
+		</div>
+		<div class="harbor-pilot-feature-enablement__message-body">
+			<p>
+				{{ 'CHATBOT.TERMS' | slptTranslate }}
+				<a
+					href="https://documentation.acme.com/main_landing_page/customer_agreements.html#product-specific-terms"
+					target="_blank"
+					rel="noopener"
+				>
+					{{ 'CHATBOT.ACME_AI_TERMS' | slptTranslate }}.</a
+				>
+			</p>
+		</div>
+		<div class="harbor-pilot-feature-enablement__footer">
+			<slpt-button
+				type="primary"
+				[attr.data-sp-pendo-chatbot-hp-action]="'enable-harbor-pilot'"
+				(click)="onEnableAndContinue()"
+			>
+				{{ 'CHATBOT.ENABLE_AND_CONTINUE' | slptTranslate }}
+			</slpt-button>
+			<slpt-button type="tertiary" [inline]="true" (click)="onCancel()">
+				{{ 'CHATBOT.CANCEL' | slptTranslate }}
+			</slpt-button>
+		</div>
+	</div>
+</div>

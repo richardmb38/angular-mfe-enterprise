@@ -1,0 +1,111 @@
+<div class="harbor-pilot-chat-message-form__form-container">
+	<ng-container *ngIf="isToolsSelectionEnabled">
+		<slpt-dropdown-select-list
+			*ngIf="(tool$ | async)[0] as tool"
+			class="harbor-pilot-overlay__tool-dropdown-select-list display-flex align-center"
+			width="250px"
+			alignment="bottom-left"
+			[open]="isToolsDropdownListOpen"
+			[selected]="toolsDropdownListOptionsMap.get(tool).id"
+			[options]="toolsDropdownListOptions"
+			[defaultOptionTemplate]="customOptionTemplate"
+			(onOptionClick)="onToolSelectChange($event)"
+			(onOpenChange)="isToolsDropdownListOpen = $event"
+		>
+			<slpt-icon
+				slptTooltip
+				class="trigger"
+				height="20px"
+				width="20px"
+				type="solid"
+				[name]="toolsDropdownListOptionsMap.get(tool).iconName"
+				[fill]="toolsDropdownListOptionsMap.get(tool).iconFill"
+				[tooltipContent]="'CHATBOT.SELECT_OPTION'"
+			></slpt-icon>
+		</slpt-dropdown-select-list>
+	</ng-container>
+
+	<slpt-textarea-input
+		class="harbor-pilot-overlay__text-area-input"
+		rows="auto"
+		[value]="message"
+		[minRows]="3"
+		[maxRows]="3"
+		[maxlength]="500"
+		[placeholder]="'CHATBOT.ASK_ME_A_QUESTION'"
+		(onInputChange)="onInputChange($event)"
+		(keydown)="onTextAreaKeydown($event)"
+	></slpt-textarea-input>
+
+	<!--Using custom buttons as slpt-icon-button does not support custom sizes-->
+	<div class="harbor-pilot-chat-message-form_tool-bar">
+		<div class="harbor-pilot-chat-message-form_tool-bar-left display-flex align-center">
+			<button
+				slptTooltip
+				type="button"
+				class="harbor-pilot-icon-button"
+				[attr.aria-label]="'CHATBOT.EXPLORE_PROMPTS' | slptTranslate"
+				[attr.data-sp-pendo-chatbot-hp-action]="'explore-prompts'"
+				[tooltipContent]="'CHATBOT.EXPLORE_PROMPTS'"
+				(click)="onExplorePromptsClick()"
+			>
+				<slpt-icon fill="g4" name="messageCaptions" width="16px" height="16px"></slpt-icon>
+			</button>
+			<button
+				slptTooltip
+				type="button"
+				class="harbor-pilot-icon-button"
+				[attr.aria-label]="'CHATBOT.CLEAR_CONVERSATION' | slptTranslate"
+				[attr.data-sp-pendo-chatbot-hp-action]="'clear-chat'"
+				[tooltipContent]="'CHATBOT.CLEAR_CONVERSATION'"
+				(click)="onClearChatClick()"
+			>
+				<slpt-icon fill="g4" name="broom" width="16px" height="16px"></slpt-icon>
+			</button>
+		</div>
+		<div class="harbor-pilot-chat-message-form_tool-bar-right display-flex align-center">
+			<button
+				type="button"
+				class="harbor-pilot-icon-button"
+				[attr.aria-label]="(isMessageLoading ? 'CHATBOT.CANCEL' : 'CHATBOT.SEND') | slptTranslate"
+				(click)="onActionButtonClick()"
+			>
+				<div
+					slptTooltip
+					class="display-flex align-center"
+					[tooltipContent]="isMessageLoading ? 'CHATBOT.CANCEL' : 'CHATBOT.SEND'"
+				>
+					<slpt-icon
+						*ngIf="isMessageLoading; else send"
+						fill="g4"
+						name="stop"
+						width="20px"
+						height="20px"
+					></slpt-icon>
+					<ng-template #send>
+						<slpt-icon fill="g4" name="send" width="16px" height="16px"></slpt-icon>
+					</ng-template>
+				</div>
+			</button>
+		</div>
+	</div>
+</div>
+
+<span class="harbor-pilot-chat-message-form_warning-message" [class.add-margin]="isToolsSelectionEnabled">{{
+	'CHATBOT.EXPERIMENTAL_WARNING_MESSAGE' | slptTranslate
+}}</span>
+
+<!-- Custom dropdown list option template reference -->
+<ng-template #customOptionTemplate let-option>
+	<span class="harbor-pilot-overlay__tool-dropdown-select-list-option">
+		<slpt-icon
+			[name]="option.icon"
+			[fill]="option.fill"
+			class="trigger"
+			height="20px"
+			width="20px"
+			type="solid"
+		></slpt-icon>
+		{{ option.label | slptTranslate }}
+	</span>
+</ng-template>

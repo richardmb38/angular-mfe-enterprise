@@ -1,0 +1,30 @@
+/*
+ * Copyright (C) 2025 Acme Technologies, Inc.  All rights reserved.
+ */
+@import '@acme-priv/armada-angular/src/acme/theme/styles/variables';
+@import '../../shared/styles/variables';
+
+:host {
+	@extend .harbor-pilot-overlay--inner;
+}
+
+.harbor-pilot-prompts-overlay {
+	z-index: 1050;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	padding: 1rem 0.5rem;
+}
+
+.harbor-pilot-prompts-overlay__header {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: end;
+	padding: 0 0.5rem;
+}
+
+.harbor-pilot-prompts-overlay__prompts-container {
+	height: 100%;
+}

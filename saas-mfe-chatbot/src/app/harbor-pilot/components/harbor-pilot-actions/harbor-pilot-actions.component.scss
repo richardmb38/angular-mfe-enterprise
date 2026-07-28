@@ -1,0 +1,19 @@
+/*
+ * Copyright (C) 2024 Acme Technologies, Inc.  All rights reserved.
+ */
+
+.harbor-pilot-actions__command {
+	display: flex;
+	flex-flow: column;
+	align-items: end;
+	gap: 8px;
+}
+
+.harbor-pilot-actions__spacer {
+	padding-top: 0.5rem;
+}
+
+.harbor-pilot-actions__message-container {
+	display: block;
+	margin-bottom: 1rem;
+}

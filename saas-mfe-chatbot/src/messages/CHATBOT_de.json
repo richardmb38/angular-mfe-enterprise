@@ -1,0 +1,70 @@
+{
+	"CHATBOT": {
+		"HEY_THERE_IM_HARBOR_PILOT": "Hallo {user}! Ich bin Harbor Pilot und ich bin hier, um Ihnen zu helfen, Ihre Acme-Reise zu beginnen.",
+		"FEEDBACK_FORM": {
+			"MESSAGE": "Bitte beschreiben Sie, was an Ihren Erfahrungen nicht ganz richtig war. Dies wird mir helfen, in Zukunft bessere Antworten zu geben.",
+			"TITLE": "Erzählen Sie mir mehr über Ihre Erfahrung"
+		},
+		"MESSAGE_FORM": {
+			"STOP_PROMPT": "Die Nachricht wurde storniert."
+		},
+		"TOOLS": {
+			"ADMIN_SEARCH": {
+				"BOT_PROMPT": "Stellen Sie mir eine Frage zu Ihren Daten. Ich werde eine Suchanfrage erstellen und die Ergebnisse zurückgeben.",
+				"TITLE": "Daten",
+				"USER_PROMPT": "Durchsuchen Sie Ihre Daten"
+			},
+			"ACME_DOC": {
+				"BOT_PROMPT": "Stellen Sie mir eine Frage zur Identity Security Cloud, und ich kann unsere Dokumentation durchsuchen, um eine Antwort zu finden.",
+				"TITLE": "Acme",
+				"USER_PROMPT": "Suchdokumentation"
+			},
+			"WORKFLOW_BUILDER": {
+				"BOT_PROMPT": "Das kann ich sicherlich tun! Bitte geben Sie eine Beschreibung des Workflows an, den Sie erstellen möchten, und ich werde ihn für Sie erstellen.",
+				"TITLE": "Workflows",
+				"USER_PROMPT": "Workflow erstellen"
+			}
+		},
+		"ASK_ME_A_QUESTION": "Stellen Sie mir eine Frage.",
+		"CANCEL": "Abbrechen",
+		"CLEAR_CHAT_START_NEW_CONVERSATION": "Chat löschen und ein neues Gespräch starten",
+		"CLEAR_CONVERSATION": "Gespräch löschen",
+		"CLOSE": "Schließen",
+		"COLLAPSE": "Einklappen",
+		"CREATE_A_NEW_WORKFLOW_IN_THE_WORKFLOWS_PAGE": "Neuen Workflow auf der Workflows-Seite erstellen",
+		"CREATE_POLICY": "Regel erstellen",
+		"CREATE_WORKFLOW": "Workflow erstellen",
+		"DESCRIBE_YOUR_EXPERIENCE": "Beschreiben Sie Ihre Erfahrung",
+		"EXPAND": "Ausklappen",
+		"EXPERIMENTAL_WARNING_MESSAGE": "Harbor Pilot ist experimentell und kann Fehler machen. Verifizieren Sie stets wichtige Informationen.",
+		"EXPLORE_PROMPTS": "Abfragen erkunden",
+		"HARBOR_PILOT": "Hafenpilot",
+		"MAXIMIZE": "Maximieren",
+		"MESSAGE": "Nachricht",
+		"MESSAGE_DEBUGGER": "Nachrichten-Debugger",
+		"MINIMIZE": "Minimieren",
+		"NEXT_STEP": "Nächster Schritt",
+		"NOT_ACCURATE": "Ungenau",
+		"NOT_WHAT_I_EXPECTED": "Nicht wie erwartet",
+		"PREVIEW_CAMPAIGN": "Vorschau für Kampagne",
+		"QUICK_START": "Schnellstart",
+		"RECOMMENDED_ACTIONS": "Empfohlene Aktionen",
+		"RUN_CERTIFICATION": "Zertifizierung ausführen",
+		"SELECT_OPTION": "Option auswählen",
+		"SELECT_TOOL": "Werkzeug auswählen",
+		"SEND": "Senden",
+		"SOMETHING_WRONG_HAPPENED_TRY_AGAIN": "Es ist ein Fehler aufgetreten. Bitte erneut versuchen.",
+		"STOP": "Stopp",
+		"SUBMIT": "Absenden",
+		"SURE_WHAT_QUESTIONS_DO_YOU_HAVE": "Selbstverständlich! Welche Fragen haben Sie?",
+		"THANKS_FOR_YOU_FEEDBACK": "Vielen Dank für Ihr Feedback!",
+		"THUMBS_DOWN": "Daumen runter",
+		"THUMBS_UP": "Daumen hoch",
+		"TOOK_TOO_LONG": "Hat zu lange gedauert",
+		"VIEW_GENERAL_POLICY_HERE": "Allgemeine Regel hier anzeigen",
+		"VIEW_SEARCH_RESULTS_HERE": "Suchergebnisse hier anzeigen",
+		"VIEW_WORKFLOW_HERE": "Workflow hier anzeigen",
+		"WAS_THIS_HELPFUL": "War dies hilfreich?",
+		"YOU_CAN_VIEW_THE_CAMPAIGN_HERE": "Sie können die Zertifizierungskampagne hier ansehen"
+	}
+}

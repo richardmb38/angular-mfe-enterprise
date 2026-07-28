@@ -1,0 +1,78 @@
+<div class="harbor-pilot-overlay__header" [class.harbor-pilot-overlay__header-minimized]="minimized()">
+	<div class="harbor-pilot-overlay__header-toolbar">
+		<div class="harbor-pilot-overlay__header-toolbar-left">
+			<slpt-icon fill="a2" name="dragHandle" width="24px" height="24px" type="light"></slpt-icon>
+			<h6 *ngIf="!minimized(); else logo" class="harbor-pilot-overlay__title">
+				{{ 'CHATBOT.HARBOR_PILOT' | slptTranslate }}
+			</h6>
+			<ng-template #logo>
+				<app-harbor-pilot-icon-button />
+			</ng-template>
+		</div>
+		<div class="harbor-pilot-overlay__header-toolbar-right">
+			<!--Using custom buttons as slpt-icon-button does not support custom color fill-->
+			<button
+				*ngIf="!minimized()"
+				slptTooltip
+				type="button"
+				class="harbor-pilot-icon-button harbor-pilot-overlay__header-control"
+				[attr.aria-label]="(expanded() ? 'CHATBOT.COLLAPSE' : 'CHATBOT.EXPAND') | slptTranslate"
+				[attr.data-sp-pendo-chatbot-hp-action]="'expand-chat'"
+				[tooltipContent]="expanded() ? 'CHATBOT.COLLAPSE' : 'CHATBOT.EXPAND'"
+				(click)="onExpandClick()"
+			>
+				<slpt-icon
+					fill="a2"
+					width="16px"
+					height="16px"
+					type="light"
+					[name]="expanded() ? 'collapseWindow' : 'expandWindow'"
+				></slpt-icon>
+			</button>
+			<button
+				slptTooltip
+				type="button"
+				class="harbor-pilot-icon-button harbor-pilot-overlay__header-control"
+				[attr.aria-label]="(minimized() ? 'CHATBOT.MAXIMIZE' : 'CHATBOT.MINIMIZE') | slptTranslate"
+				[attr.data-sp-pendo-chatbot-hp-action]="'minimize-maximize-chat'"
+				[tooltipContent]="minimized() ? 'CHATBOT.MAXIMIZE' : 'CHATBOT.MINIMIZE'"
+				(click)="onMinimizeClick()"
+			>
+				<slpt-icon
+					fill="a2"
+					width="16px"
+					height="16px"
+					type="light"
+					[name]="minimized() ? 'arrowDown' : 'arrowUp'"
+				></slpt-icon>
+			</button>
+			<button
+				slptTooltip
+				type="button"
+				class="harbor-pilot-icon-button harbor-pilot-overlay__header-control"
+				[attr.aria-label]="'CHATBOT.CLOSE' | slptTranslate"
+				[attr.data-sp-pendo-chatbot-hp-action]="'close-chat'"
+				[tooltipContent]="'CHATBOT.CLOSE'"
+				(click)="onCloseClick()"
+			>
+				<slpt-icon fill="a2" width="16px" height="16px" name="close" type="light"></slpt-icon>
+			</button>
+		</div>
+	</div>
+	<div
+		*ngIf="!minimized() && (isNewConversation$ | async)"
+		class="harbor-pilot-overlay__header-body"
+		[class.harbor-pilot-overlay__header-body-expanded]="expanded()"
+	>
+		<div class="harbor-pilot-overlay__header-body-message">
+			<app-harbor-pilot-chat-message
+				alignment="center"
+				[message]="welcomeMessage()"
+				[isWhiteBackground]="true"
+			></app-harbor-pilot-chat-message>
+		</div>
+		<div class="harbor-pilot-overlay__header-body-prompts">
+			<app-harbor-pilot-prompts [expanded]="expanded()"></app-harbor-pilot-prompts>
+		</div>
+	</div>
+</div>

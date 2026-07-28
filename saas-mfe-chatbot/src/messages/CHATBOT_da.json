@@ -1,0 +1,70 @@
+{
+	"CHATBOT": {
+		"HEY_THERE_IM_HARBOR_PILOT": "Hej {user}! Jeg er Havnepilot, og jeg er her for at hjælpe dig med at starte din Acme-rejse.",
+		"FEEDBACK_FORM": {
+			"MESSAGE": "Venligst beskriv, hvad der ikke var helt korrekt ved din oplevelse. Det vil hjælpe mig med at give bedre svar i fremtiden.",
+			"TITLE": "Fortæl mig mere om din erfaring"
+		},
+		"MESSAGE_FORM": {
+			"STOP_PROMPT": "Beskeden blev annulleret."
+		},
+		"TOOLS": {
+			"ADMIN_SEARCH": {
+				"BOT_PROMPT": "Stil mig et spørgsmål om dine data. Jeg opretter en søgeforespørgsel og returnerer resultaterne.",
+				"TITLE": "Data",
+				"USER_PROMPT": "Søg i dine data"
+			},
+			"ACME_DOC": {
+				"BOT_PROMPT": "Stil mig et spørgsmål om ISC, og jeg vil søge i vores dokumentation for at finde et svar.",
+				"TITLE": "Acme",
+				"USER_PROMPT": "Søgedokumentation"
+			},
+			"WORKFLOW_BUILDER": {
+				"BOT_PROMPT": "Det kan jeg bestemt! Venligst giv en beskrivelse af den arbejdsgang, du forsøger at opbygge, så vil jeg lave den for dig.",
+				"TITLE": "Arbejdsgange",
+				"USER_PROMPT": "Opret en arbejdsgang"
+			}
+		},
+		"ASK_ME_A_QUESTION": "Stil mig et spørgsmål.",
+		"CANCEL": "Annuller",
+		"CLEAR_CHAT_START_NEW_CONVERSATION": "Ryd chat og start en ny samtale",
+		"CLEAR_CONVERSATION": "Ryd samtale",
+		"CLOSE": "Luk",
+		"COLLAPSE": "Skjul",
+		"CREATE_A_NEW_WORKFLOW_IN_THE_WORKFLOWS_PAGE": "Opret en ny arbejdsgang på siden for arbejdsgange",
+		"CREATE_POLICY": "Opret politik",
+		"CREATE_WORKFLOW": "Opret arbejdsgang",
+		"DESCRIBE_YOUR_EXPERIENCE": "Beskriv din erfaring",
+		"EXPAND": "Udvid",
+		"EXPERIMENTAL_WARNING_MESSAGE": "Harbor Pilot er eksperimentel og kan lave fejl. Verificer altid vigtige oplysninger.",
+		"EXPLORE_PROMPTS": "Udforsk prompter",
+		"HARBOR_PILOT": "Havnepilot",
+		"MAXIMIZE": "Maksimer",
+		"MESSAGE": "Besked",
+		"MESSAGE_DEBUGGER": "Beskedfejlsøger",
+		"MINIMIZE": "Minimer",
+		"NEXT_STEP": "Næste trin",
+		"NOT_ACCURATE": "Ikke nøjagtig",
+		"NOT_WHAT_I_EXPECTED": "Ikke hvad jeg havde forventet",
+		"PREVIEW_CAMPAIGN": "Forhåndsvisning af kampagne",
+		"QUICK_START": "Hurtig Start",
+		"RECOMMENDED_ACTIONS": "Anbefalede handlinger",
+		"RUN_CERTIFICATION": "Kør certificering",
+		"SELECT_OPTION": "Vælg en indstilling",
+		"SELECT_TOOL": "Vælg værktøj",
+		"SEND": "Send",
+		"SOMETHING_WRONG_HAPPENED_TRY_AGAIN": "Noget gik galt. Prøv igen",
+		"STOP": "Stop",
+		"SUBMIT": "Indsend",
+		"SURE_WHAT_QUESTIONS_DO_YOU_HAVE": "Selvfølgelig! Hvilke spørgsmål har du?",
+		"THANKS_FOR_YOU_FEEDBACK": "Tak for din feedback!",
+		"THUMBS_DOWN": "Tommel ned",
+		"THUMBS_UP": "Tommel op",
+		"TOOK_TOO_LONG": "Det tog for længe",
+		"VIEW_GENERAL_POLICY_HERE": "Se generel politik her",
+		"VIEW_SEARCH_RESULTS_HERE": "Se søgeresultater her",
+		"VIEW_WORKFLOW_HERE": "Se arbejdsgang her",
+		"WAS_THIS_HELPFUL": "Var dette nyttigt?",
+		"YOU_CAN_VIEW_THE_CAMPAIGN_HERE": "Se certificeringskampagne her"
+	}
+}

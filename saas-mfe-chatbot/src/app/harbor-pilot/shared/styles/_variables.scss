@@ -1,0 +1,70 @@
+@import 'animations';
+@import '@acme-priv/armada-angular/src/acme/theme/styles/theme';
+
+$hp-size-x: 550px;
+$hp-size-y: 600px;
+$hp-header-toolbar-size: 55px;
+$hp-drop-shadow: 2px 4px 4px 0 rgba($slpt-g3, 0.3);
+//@TODO UIDATE-1096: [Armada] Standardize Color Gradients - https://acme.atlassian.net/browse/UIDATA-1096
+// stylelint-disable-next-line color-no-hex
+$hp-gradient: linear-gradient(180deg, #011e69 0%, #9747ff 100%);
+$hp-gradient-1: linear-gradient(90deg, rgba(188, 204, 244) -1.14%, rgba(217, 177, 227) 71.21%);
+
+// Base overlay styles.
+.harbor-pilot-overlay--base {
+	z-index: 1;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	background: $slpt-w1;
+}
+
+// Extend the base overlay styles to add a top margin corresponding to the header toolbar size.
+.harbor-pilot-overlay--inner {
+	@extend .harbor-pilot-overlay--base;
+	top: $hp-header-toolbar-size;
+	height: calc(100% - $hp-header-toolbar-size);
+}
+
+// End - TODO: Standardize Color Gradients Section
+.harbor-pilot-alive-gradient {
+	background-size: 200% 200% !important;
+	animation: alive 15s ease infinite;
+}
+
+.harbor-pilot-gradient-text-effect {
+	background: $hp-gradient;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.harbor-pilot-bounce-size-transition {
+	transition:
+		width 500ms cubic-bezier(0.05, 1.2, 0.1, 1),
+		height 300ms cubic-bezier(0.05, 1.2, 0.1, 1);
+}
+
+.harbor-pilot-scroll-bar {
+	// style the scrollbar to make it blend into our custom look and feel.
+	&::-webkit-scrollbar {
+		background-color: transparent;
+		width: 6px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background-color: transparent;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: $slpt-g2;
+		border-radius: 16px;
+	}
+
+	&::-webkit-scrollbar-button {
+		display: none;
+	}
+}

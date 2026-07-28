@@ -1,0 +1,70 @@
+{
+	"CHATBOT": {
+		"HEY_THERE_IM_HARBOR_PILOT": "Hei {user}! Jeg er Harbor Pilot, og jeg er her for å hjelpe deg med å starte din Acme-reise.",
+		"FEEDBACK_FORM": {
+			"MESSAGE": "Beskriv hva som ikke ikke stemte helt med opplevelsen din. Det vil hjelpe meg med å gi bedre svar i fremtiden.",
+			"TITLE": "Fortell meg mer om opplevelsen din"
+		},
+		"MESSAGE_FORM": {
+			"STOP_PROMPT": "Meldingen ble avbrutt."
+		},
+		"TOOLS": {
+			"ADMIN_SEARCH": {
+				"BOT_PROMPT": "Still meg et spørsmål om dine data. Jeg vil opprette en søkespørring og gi deg resultatene.",
+				"TITLE": "Data",
+				"USER_PROMPT": "Søk etter dine data"
+			},
+			"ACME_DOC": {
+				"BOT_PROMPT": "Still meg et spørsmål om Identity Security Cloud, så vil jeg søke i dokumentasjonen vår for å finne svar.",
+				"TITLE": "Acme",
+				"USER_PROMPT": "Søkedokumentasjon"
+			},
+			"WORKFLOW_BUILDER": {
+				"BOT_PROMPT": "Det kan jeg! Gi meg en beskrivelse av arbeidsflyten du forsøker å lage, så gjør jeg det for deg.",
+				"TITLE": "Arbeidsflyter",
+				"USER_PROMPT": "Opprett en arbeidsflyt"
+			}
+		},
+		"ASK_ME_A_QUESTION": "Still meg et spørsmål.",
+		"CANCEL": "Avbryt",
+		"CLEAR_CHAT_START_NEW_CONVERSATION": "Tøm chatten og start en ny samtale",
+		"CLEAR_CONVERSATION": "Tøm samtale",
+		"CLOSE": "Lukk",
+		"COLLAPSE": "Skjul",
+		"CREATE_A_NEW_WORKFLOW_IN_THE_WORKFLOWS_PAGE": "Opprett en ny arbeidsflyt på Arbeidsflyt-siden",
+		"CREATE_POLICY": "Opprett policy",
+		"CREATE_WORKFLOW": "Opprett arbeidsflyt",
+		"DESCRIBE_YOUR_EXPERIENCE": "Beskriv opplevelsen din",
+		"EXPAND": "Vis",
+		"EXPERIMENTAL_WARNING_MESSAGE": "Harbor Pilot er i eksperimentfasen og kan gjøre feil. Verifiser alltid viktig informasjon.",
+		"EXPLORE_PROMPTS": "Utforsk spørringer",
+		"HARBOR_PILOT": "Harbor Pilot",
+		"MAXIMIZE": "Maksimer",
+		"MESSAGE": "Melding",
+		"MESSAGE_DEBUGGER": "Meldingsfeilsøker",
+		"MINIMIZE": "Minimer",
+		"NEXT_STEP": "Neste trinn",
+		"NOT_ACCURATE": "Ikke nøyaktig",
+		"NOT_WHAT_I_EXPECTED": "Ikke det jeg forventet",
+		"PREVIEW_CAMPAIGN": "Forhåndsvis kampanje",
+		"QUICK_START": "Hurtigstart",
+		"RECOMMENDED_ACTIONS": "Anbefalte handlinger",
+		"RUN_CERTIFICATION": "Kjør sertifisering",
+		"SELECT_OPTION": "Velg alternativ",
+		"SELECT_TOOL": "Velg verktøy",
+		"SEND": "Send",
+		"SOMETHING_WRONG_HAPPENED_TRY_AGAIN": "Noe gikk galt. Prøv igjen",
+		"STOP": "Stopp",
+		"SUBMIT": "Send",
+		"SURE_WHAT_QUESTIONS_DO_YOU_HAVE": "Selvfølgelig! Hvilke spørsmål har du?",
+		"THANKS_FOR_YOU_FEEDBACK": "Takk for tilbakemeldingen!",
+		"THUMBS_DOWN": "Tommel ned",
+		"THUMBS_UP": "Tommel opp",
+		"TOOK_TOO_LONG": "Tok for lang tid",
+		"VIEW_GENERAL_POLICY_HERE": "Vis generelle retningslinjer her",
+		"VIEW_SEARCH_RESULTS_HERE": "Vis søkeresultater her",
+		"VIEW_WORKFLOW_HERE": "Vis arbeidsflyt her",
+		"WAS_THIS_HELPFUL": "Var dette nyttig?",
+		"YOU_CAN_VIEW_THE_CAMPAIGN_HERE": "Vis sertifiseringskampanje her"
+	}
+}

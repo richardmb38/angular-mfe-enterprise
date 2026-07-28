@@ -1,0 +1,30 @@
+<ng-container *ngIf="message?.navigationActions?.length">
+	<div *ngFor="let action of message.navigationActions">
+		<div class="harbor-pilot-actions__message-container">
+			<app-harbor-pilot-chat-message
+				[message]="message"
+				[navigationAction]="navigationActionsDefinitions[action.actionType]"
+				(onActionClick)="handleActionClick($event, action)"
+			/>
+		</div>
+	</div>
+</ng-container>
+
+<ng-container *ngIf="message?.commandActions?.length">
+	<div class="harbor-pilot-actions__spacer">
+		<div class="harbor-pilot-actions__message-container">
+			<app-harbor-pilot-chat-message [message]="recommendedActionsMessage" />
+		</div>
+	</div>
+	<div class="harbor-pilot-actions__command">
+		<div *ngFor="let action of message.commandActions">
+			<div class="harbor-pilot-actions__message-container">
+				<app-harbor-pilot-chat-message
+					[message]="message"
+					[commandAction]="commandActionsDefinitions[action.actionType]"
+					(onActionClick)="handleActionClick($event, action)"
+				/>
+			</div>
+		</div>
+	</div>
+</ng-container>

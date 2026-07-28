@@ -1,0 +1,70 @@
+{
+	"CHATBOT": {
+		"HEY_THERE_IM_HARBOR_PILOT": "안녕하세요, {user}님! 저는 하버 파일럿이며, Acme 여정을 시작하는 데 도움을 드리기 위해 여기에 있습니다.",
+		"FEEDBACK_FORM": {
+			"MESSAGE": "귀하의 경험에서 어떤 점이 완벽하지 않았는지 설명해 주세요. 이는 향후 더 나은 답변을 제공하는 데 도움이 됩니다.",
+			"TITLE": "귀하의 경험에 대해 더 말씀해 주세요"
+		},
+		"MESSAGE_FORM": {
+			"STOP_PROMPT": "메시지가 취소되었습니다."
+		},
+		"TOOLS": {
+			"ADMIN_SEARCH": {
+				"BOT_PROMPT": "데이터에 대해 저에게 질문해 주세요. 검색 쿼리를 생성하고 결과를 반환하겠습니다.",
+				"TITLE": "데이터",
+				"USER_PROMPT": "데이터 검색"
+			},
+			"ACME_DOC": {
+				"BOT_PROMPT": "Identity Security Cloud에 관한 질문을 해주시면, 문서를 검색하여 답변을 찾아드리겠습니다.",
+				"TITLE": "Acme",
+				"USER_PROMPT": "자료 검색"
+			},
+			"WORKFLOW_BUILDER": {
+				"BOT_PROMPT": "구축하려는 워크플로에 대한 설명을 제공해 주시면 제가 작성해 드리겠습니다.",
+				"TITLE": "워크플로",
+				"USER_PROMPT": "워크플로 생성"
+			}
+		},
+		"ASK_ME_A_QUESTION": "질문해 주세요.",
+		"CANCEL": "취소",
+		"CLEAR_CHAT_START_NEW_CONVERSATION": "채팅을 삭제하고 새 대화를 시작하세요",
+		"CLEAR_CONVERSATION": "대화 지우기",
+		"CLOSE": "닫기",
+		"COLLAPSE": "축소",
+		"CREATE_A_NEW_WORKFLOW_IN_THE_WORKFLOWS_PAGE": "워크플로 페이지에서 새 워크플로 생성",
+		"CREATE_POLICY": "정책 생성",
+		"CREATE_WORKFLOW": "워크플로 생성",
+		"DESCRIBE_YOUR_EXPERIENCE": "귀하의 경험을 설명해 주세요",
+		"EXPAND": "확장",
+		"EXPERIMENTAL_WARNING_MESSAGE": "Harbor Pilot는 실험적이며 실수를 할 수 있습니다. 중요한 정보는 항상 확인하세요.",
+		"EXPLORE_PROMPTS": "프롬프트 탐색",
+		"HARBOR_PILOT": "Harbor Pilot",
+		"MAXIMIZE": "최대화",
+		"MESSAGE": "메시지",
+		"MESSAGE_DEBUGGER": "메시지 디버거",
+		"MINIMIZE": "최소화",
+		"NEXT_STEP": "다음 단계",
+		"NOT_ACCURATE": "정확하지 않음",
+		"NOT_WHAT_I_EXPECTED": "예상과 다름",
+		"PREVIEW_CAMPAIGN": "캠페인 미리보기",
+		"QUICK_START": "빠른 시작",
+		"RECOMMENDED_ACTIONS": "권장 조치",
+		"RUN_CERTIFICATION": "인증 실행",
+		"SELECT_OPTION": "옵션 선택",
+		"SELECT_TOOL": "도구 선택",
+		"SEND": "전송",
+		"SOMETHING_WRONG_HAPPENED_TRY_AGAIN": "문제가 발생했습니다. 다시 시도하세요.",
+		"STOP": "중지",
+		"SUBMIT": "제출",
+		"SURE_WHAT_QUESTIONS_DO_YOU_HAVE": "물론입니다! 어떤 질문이 있으신가요?",
+		"THANKS_FOR_YOU_FEEDBACK": "피드백 주셔서 감사합니다!",
+		"THUMBS_DOWN": "싫어요",
+		"THUMBS_UP": "좋아요",
+		"TOOK_TOO_LONG": "너무 오래 걸렸음",
+		"VIEW_GENERAL_POLICY_HERE": "여기에서 일반 정책을 확인하세요",
+		"VIEW_SEARCH_RESULTS_HERE": "여기에서 검색 결과를 확인하세요",
+		"VIEW_WORKFLOW_HERE": "여기에서 워크플로를 확인하세요",
+		"WAS_THIS_HELPFUL": "도움이 되었나요?",
+		"YOU_CAN_VIEW_THE_CAMPAIGN_HERE": "여기에서 권한 리뷰 캠페인을 확인하세요"
+	}
+}

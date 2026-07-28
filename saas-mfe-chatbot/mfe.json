@@ -1,0 +1,10 @@
+{
+	"name": "saas-mfe-chatbot",
+	"app": "idn:mfe-chatbot",
+	"routes": [
+		{
+			"route": "*",
+			"featureFlagIn": ["HARBOR_PILOT_SAFELIST"]
+		}
+	]
+}

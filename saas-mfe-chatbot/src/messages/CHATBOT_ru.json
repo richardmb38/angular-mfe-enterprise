@@ -1,0 +1,70 @@
+{
+	"CHATBOT": {
+		"HEY_THERE_IM_HARBOR_PILOT": "Здравствуйте, {user}! Я Harbor Pilot, и я готов помочь вам начать работу с Acme.",
+		"FEEDBACK_FORM": {
+			"MESSAGE": "Пожалуйста, опишите, что вам не понравилось. Это поможет мне в дальнейшем давать лучшие ответы.",
+			"TITLE": "Расскажите больше о том, что случилось"
+		},
+		"MESSAGE_FORM": {
+			"STOP_PROMPT": "Сообщение было отменено."
+		},
+		"TOOLS": {
+			"ADMIN_SEARCH": {
+				"BOT_PROMPT": "Задайте мне вопрос о ваших данных. Я создам поисковый запрос и верну результаты.",
+				"TITLE": "Данные",
+				"USER_PROMPT": "Поиск в ваших данных"
+			},
+			"ACME_DOC": {
+				"BOT_PROMPT": "Задайте мне вопрос об Identity Security Cloud, и я поищу ответ в нашей документации.",
+				"TITLE": "Acme",
+				"USER_PROMPT": "Поиск в документации"
+			},
+			"WORKFLOW_BUILDER": {
+				"BOT_PROMPT": "Конечно! Пожалуйста, предоставьте описание рабочего процесса, который вы пытаетесь создать, и я разработаю его для вас.",
+				"TITLE": "Рабочие процессы",
+				"USER_PROMPT": "Создайте рабочий процесс"
+			}
+		},
+		"ASK_ME_A_QUESTION": "Задайте мне вопрос.",
+		"CANCEL": "Отмена",
+		"CLEAR_CHAT_START_NEW_CONVERSATION": "Очистить чат и начать новый разговор",
+		"CLEAR_CONVERSATION": "Очистить разговор",
+		"CLOSE": "Закрыть",
+		"COLLAPSE": "Свернуть",
+		"CREATE_A_NEW_WORKFLOW_IN_THE_WORKFLOWS_PAGE": "Создайте новый рабочий процесс на странице \"Рабочие процессы\"",
+		"CREATE_POLICY": "Создать политику",
+		"CREATE_WORKFLOW": "Создайте рабочий процесс",
+		"DESCRIBE_YOUR_EXPERIENCE": "Опишите свои впечатления",
+		"EXPAND": "Развернуть",
+		"EXPERIMENTAL_WARNING_MESSAGE": "Harbor Pilot является экспериментальной версией и может допускать ошибки. Всегда проверяйте важную информацию.",
+		"EXPLORE_PROMPTS": "Исследуйте запросы",
+		"HARBOR_PILOT": "Пилот гавани",
+		"MAXIMIZE": "Развернуть",
+		"MESSAGE": "Сообщение",
+		"MESSAGE_DEBUGGER": "Отладчик сообщений",
+		"MINIMIZE": "Свернуть",
+		"NEXT_STEP": "Следующий шаг",
+		"NOT_ACCURATE": "Неточно",
+		"NOT_WHAT_I_EXPECTED": "Не то, что мне нужно",
+		"PREVIEW_CAMPAIGN": "Предпросмотр кампании",
+		"QUICK_START": "Быстрый старт",
+		"RECOMMENDED_ACTIONS": "Рекомендуемые действия",
+		"RUN_CERTIFICATION": "Запуск сертификации",
+		"SELECT_OPTION": "Выберите вариант",
+		"SELECT_TOOL": "Выбрать инструмент",
+		"SEND": "Отправить",
+		"SOMETHING_WRONG_HAPPENED_TRY_AGAIN": "Что-то пошло не так, попробуйте еще раз",
+		"STOP": "Остановить",
+		"SUBMIT": "Отправить",
+		"SURE_WHAT_QUESTIONS_DO_YOU_HAVE": "Конечно! Какие у вас есть вопросы?",
+		"THANKS_FOR_YOU_FEEDBACK": "Благодарим за отзыв!",
+		"THUMBS_DOWN": "Палец вниз",
+		"THUMBS_UP": "Палец вверх",
+		"TOOK_TOO_LONG": "Заняло слишком много времени",
+		"VIEW_GENERAL_POLICY_HERE": "Просмотреть общую политику здесь",
+		"VIEW_SEARCH_RESULTS_HERE": "Просмотр результатов поиска здесь",
+		"VIEW_WORKFLOW_HERE": "Просмотр рабочего процесса здесь",
+		"WAS_THIS_HELPFUL": "Было ли это полезно?",
+		"YOU_CAN_VIEW_THE_CAMPAIGN_HERE": "Просмотр кампании по сертификации здесь"
+	}
+}

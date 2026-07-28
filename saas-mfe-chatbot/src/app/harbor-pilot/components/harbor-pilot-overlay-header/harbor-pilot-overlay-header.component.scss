@@ -1,0 +1,83 @@
+/*
+ * Copyright (C) 2024 Acme Technologies, Inc.  All rights reserved.
+ */
+@import '@acme-priv/armada-angular/src/acme/theme/styles/variables';
+@import '../../shared/styles/variables';
+
+.harbor-pilot-overlay__header {
+	border-radius: 8px 8px 0 0;
+
+	&.harbor-pilot-overlay__header-minimized {
+		height: 100%;
+		border-radius: 8px;
+	}
+}
+
+.harbor-pilot-overlay__header-toolbar {
+	height: $hp-header-toolbar-size;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	flex-shrink: 0;
+	padding: 1rem;
+}
+
+.harbor-pilot-overlay__header-body {
+	height: 395px;
+	padding: 0 0.5rem;
+	overflow: auto;
+	@extend .harbor-pilot-scroll-bar;
+}
+
+.harbor-pilot-overlay__header-body-expanded {
+	height: 100%;
+}
+
+.harbor-pilot-overlay__header-body-message {
+	padding: 1rem 5rem 3rem;
+}
+
+.harbor-pilot-overlay__header-toolbar-left {
+	display: flex;
+	align-items: center;
+	column-gap: 16px;
+}
+
+.harbor-pilot-overlay__header-toolbar-right {
+	display: flex;
+	flex-direction: row;
+	column-gap: 4px;
+}
+
+.harbor-pilot-overlay__header-control {
+	display: flex;
+	height: 100%;
+	padding: 8px;
+	border: none;
+	background: transparent;
+
+	&:hover {
+		background-color: $slpt-a2-light;
+		border-radius: 50%;
+	}
+}
+
+.harbor-pilot-overlay__title {
+	font-size: 20px;
+	margin-bottom: 0;
+	white-space: nowrap;
+	@extend .harbor-pilot-gradient-text-effect;
+}
+
+// NG-DEEP: Drag handle icon fill attribute its hardcoded, well need to fix it on Armada
+// https://acme.atlassian.net/browse/UIDATA-1515
+slpt-icon {
+	// stylelint-disable-next-line selector-pseudo-element-no-unknown
+	::ng-deep {
+		svg {
+			circle {
+				fill: $slpt-a2;
+			}
+		}
+	}
+}

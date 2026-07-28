@@ -1,0 +1,74 @@
+{
+	"CHATBOT": {
+		"SUBMIT": "Submit",
+		"SEND": "Send",
+		"CANCEL": "Cancel",
+		"CLEAR_CHAT_START_NEW_CONVERSATION": "Clear chat and start a new conversation",
+		"CREATE_POLICY": "Create Policy",
+		"CREATE_A_NEW_WORKFLOW_IN_THE_WORKFLOWS_PAGE": "Create a new workflow in the Workflows page",
+		"CREATE_WORKFLOW": "Create Workflow",
+		"QUICK_START": "Quick Start",
+		"HARBOR_PILOT": "Harbor Pilot",
+		"HEY_THERE_IM_HARBOR_PILOT": "Hey there {user}! I'm Harbor Pilot, and I’m here to help you start your Acme journey.",
+		"MESSAGE": "Message",
+		"ASK_ME_A_QUESTION": "Ask me a question.",
+		"MINIMIZE": "Minimize",
+		"MAXIMIZE": "Maximize",
+		"NEXT_STEP": "Next Step",
+		"PREVIEW_CAMPAIGN": "Preview Campaign",
+		"RUN_CERTIFICATION": "Run Certification",
+		"RECOMMENDED_ACTIONS": "Recommended Actions",
+		"SOMETHING_WRONG_HAPPENED_TRY_AGAIN": "Something wrong happened, try again",
+		"SURE_WHAT_QUESTIONS_DO_YOU_HAVE": "Sure! What questions do you have?",
+		"SELECT_TOOL": "Select Tool",
+		"SELECT_OPTION": "Select Option",
+		"ACME_AI_TERMS": "Acme's AI Terms",
+		"VIEW_GENERAL_POLICY_HERE": "View General Policy here",
+		"VIEW_SEARCH_RESULTS_HERE": "View Search Results here",
+		"VIEW_WORKFLOW_HERE": "View Workflow here",
+		"YOU_CAN_VIEW_THE_CAMPAIGN_HERE": "View Certification Campaign here",
+		"WAS_THIS_HELPFUL": "Was this helpful?",
+		"THANKS_FOR_YOU_FEEDBACK": "Thanks for your feedback!",
+		"THUMBS_UP": "Thumbs Up",
+		"THUMBS_DOWN": "Thumbs Down",
+		"TERMS": "Harbor Pilot is Acme's generative AI created to help you quickly find information, build queries and workflows, search your data, and more. Before enabling Harbor Pilot, ensure you've read and agreed to",
+		"CLOSE": "Close",
+		"COLLAPSE": "Collapse",
+		"EXPAND": "Expand",
+		"EXPLORE_PROMPTS": "Explore Prompts",
+		"ENABLE_AND_CONTINUE": "Enable and Continue",
+		"ENABLE_HARBOR_PILOT": "Enable Harbor Pilot",
+		"CLEAR_CONVERSATION": "Clear Conversation",
+		"EXPERIMENTAL_WARNING_MESSAGE": "Harbor Pilot is experimental and can make mistakes. Always verify important information.",
+		"DESCRIBE_YOUR_EXPERIENCE": "Describe your experience",
+		"NOT_ACCURATE": "Not Accurate",
+		"NOT_WHAT_I_EXPECTED": "Not What I Expected",
+		"TOOK_TOO_LONG": "Took Too Long",
+		"STOP": "Stop",
+		"TOOLS": {
+			"ADMIN_SEARCH": {
+				"TITLE": "Data",
+				"USER_PROMPT": "Search Your Data",
+				"BOT_PROMPT": "Ask me a question about your data. I'll create a search query and return the results."
+			},
+			"ACME_DOC": {
+				"TITLE": "Acme",
+				"USER_PROMPT": "Search Documentation",
+				"BOT_PROMPT": "Ask me a question about Identity Security Cloud and I’ll search our documentation to find an answer."
+			},
+			"WORKFLOW_BUILDER": {
+				"TITLE": "Workflows",
+				"USER_PROMPT": "Create a Workflow",
+				"BOT_PROMPT": "I sure can! Please provide a description of the workflow you are trying to build and I will make it for you."
+			}
+		},
+		"FEEDBACK_FORM": {
+			"TITLE": "Tell me more about your experience",
+			"MESSAGE": "Please describe what wasn’t quite right about your experience. It will help me give better answers in the future."
+		},
+		"MESSAGE_FORM": {
+			"STOP_PROMPT": "The message was canceled."
+		},
+		"MESSAGE_DEBUGGER": "Message Debugger"
+	}
+}

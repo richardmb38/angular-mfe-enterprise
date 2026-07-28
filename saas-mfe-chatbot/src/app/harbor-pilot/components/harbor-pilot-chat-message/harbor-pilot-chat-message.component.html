@@ -1,0 +1,119 @@
+<div *ngIf="message" class="harbor-pilot-chat-message">
+	<div
+		class="harbor-pilot-chat-message__message-bubble"
+		[style.justify-content]="alignment()"
+		[ngClass]="{
+			'harbor-pilot-chat-message--bot-message': message.type === messageTypes.BOT,
+			'harbor-pilot-chat-message--user-message': message.type === messageTypes.USER,
+			'harbor-pilot-chat-message--static-message': message.type === messageTypes.STATIC,
+			'harbor-pilot-chat-message--loading-message': message.loading
+		}"
+	>
+		<ng-container *ngIf="navigationAction?.message; then navigationMessage"></ng-container>
+
+		<ng-container *ngIf="commandAction?.message; then commandMessage"> </ng-container>
+
+		<ng-container *ngIf="!navigationAction && !commandAction; then textMessage"> </ng-container>
+	</div>
+	<!-- harbor pilot chat footer -->
+	<div
+		*ngIf="!message.loading && !navigationAction && !commandAction && message.requestUserFeedback"
+		class="harbor-pilot-chat-message__footer"
+		[class.harbor-pilot-chat-message__footer-most-recent]="
+			(this.lastBotMessage$ | async)?.requestId === message?.requestId
+		"
+	>
+		<div class="harbor-pilot-chat-message__rating-buttons">
+			<slpt-icon-button
+				type="secondary"
+				icon="thumbsUp"
+				ariaLabel="CHATBOT.THUMBS_UP"
+				[attr.data-sp-pendo-chatbot-hp-action]="'rated-up'"
+				[iconType]="
+					feedback?.sentiment === messageSentimentType.UP
+						? sentimentIconTypes.REGULAR
+						: sentimentIconTypes.LIGHT
+				"
+				[border]="false"
+				[disabled]="!!feedback"
+				(click)="handleRating(messageSentimentType.UP)"
+			>
+			</slpt-icon-button>
+			<slpt-icon-button
+				type="secondary"
+				icon="thumbsDown"
+				ariaLabel="CHATBOT.THUMBS_DOWN"
+				[attr.data-sp-pendo-chatbot-hp-action]="'rated-down'"
+				[iconType]="
+					feedback?.sentiment === messageSentimentType.DOWN
+						? sentimentIconTypes.REGULAR
+						: sentimentIconTypes.LIGHT
+				"
+				[border]="false"
+				[disabled]="!!feedback"
+				(click)="handleRating(messageSentimentType.DOWN)"
+			>
+			</slpt-icon-button>
+		</div>
+	</div>
+</div>
+
+<!-- Template for plain text (markdown) answers from the chatbot-->
+<ng-template #textMessage>
+	<ng-container *ngIf="message.type === messageTypes.BOT">
+		<app-harbor-pilot-icon-button [message]="message" [debugger]="isDebuggerEnabled"></app-harbor-pilot-icon-button>
+	</ng-container>
+	<div
+		class="harbor-pilot-chat-message__content"
+		[ngClass]="{
+			'harbor-pilot-chat-message__content--loading': message.loading,
+			'harbor-pilot-chat-message__content--user': message.type === messageTypes.USER,
+			'harbor-pilot-chat-message__content--bot': message.type === messageTypes.BOT,
+			'harbor-pilot-chat-message__content--static': message.type === messageTypes.STATIC
+		}"
+		[class.harbor-pilot-chat-message__content--white]="isWhiteBackground"
+	>
+		<markdown
+			*ngIf="message.message && !message.loading && message.type === messageTypes.BOT"
+			[data]="message.message"
+		></markdown>
+
+		<p *ngIf="message.type === messageTypes.USER || message.type === messageTypes.STATIC">{{ message.message }}</p>
+		<slpt-icon *ngIf="message.loading" [name]="'dotsAnimated'" [width]="'28px'" [height]="'28px'"></slpt-icon>
+	</div>
+</ng-template>
+
+<!-- Template for navigation actions from the chatbot-->
+<ng-template #navigationMessage>
+	<div
+		class="harbor-pilot-chat-message__content harbor-pilot-chat-message__content--bot harbor-pilot-chat-message__action"
+	>
+		<slpt-button
+			class="harbor-pilot-chat-message__navigation-action"
+			type="tertiary"
+			direction="reverse"
+			[attr.data-sp-pendo-chatbot-hp-action]="'navigation-clicked-' + navigationAction.name"
+			(click)="handleActionClick(navigationAction)"
+			>{{ navigationAction.message | slptTranslate }}</slpt-button
+		>
+	</div></ng-template
+>
+
+<!-- Template for command (API) actions from the chatbot-->
+<ng-template #commandMessage>
+	<div class="harbor-pilot-chat-message__command-action">
+		<slpt-button
+			type="secondary"
+			[attr.data-sp-pendo-chatbot-hp-action]="'command-clicked-' + commandAction.name"
+			(click)="handleActionClick(commandAction)"
+		>
+			{{ commandAction.message | slptTranslate }}
+		</slpt-button>
+	</div>
+</ng-template>
+
+<app-harbor-pilot-feedback-form-overlay
+	*ngIf="isUserFeedbackOverlayOpen()"
+	(submit)="onUserFeedbackFormSubmit($event)"
+	(cancel)="onUserFeedbackFormCancel()"
+></app-harbor-pilot-feedback-form-overlay>

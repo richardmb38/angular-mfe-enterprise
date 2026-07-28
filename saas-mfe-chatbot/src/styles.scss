@@ -1,0 +1,50 @@
+/*
+ * Copyright (C) 2024 Acme Technologies, Inc.  All rights reserved.
+ */
+
+/* You can add global styles to this file, and also import other style files */
+@import '@acme-priv/armada-angular/src/acme/theme/styles/theme';
+
+app-harbor-pilot {
+	// enforce the use of the sans-serif font family for Harbor Pilot.
+	font-family: var(--font-family-sans-serif);
+	font-size: 1rem;
+
+	.harbor-pilot-icon-button {
+		display: flex;
+		height: 100%;
+		border: none;
+		background: transparent;
+		cursor: pointer;
+	}
+
+	// Custom styles to match custom design backdrop transparency.
+	.harbor-pilot-overlay {
+		.slpt-backdrop {
+			display: none;
+		}
+	}
+
+	.display-flex {
+		display: flex;
+	}
+
+	.align-center {
+		align-items: center;
+	}
+
+	.opacity-80 {
+		opacity: 0.8;
+	}
+
+	// styling the cursor for the chat box overlay drag and drop events.
+	.cdk-drag-handle {
+		cursor: grab;
+	}
+
+	.cdk-drag-dragging {
+		.cdk-drag-handle {
+			cursor: grabbing;
+		}
+	}
+}

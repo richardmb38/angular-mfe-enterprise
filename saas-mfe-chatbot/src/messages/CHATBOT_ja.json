@@ -1,0 +1,70 @@
+{
+	"CHATBOT": {
+		"HEY_THERE_IM_HARBOR_PILOT": "{user}さん、こんにちは！私はHarbor Pilotです。Acmeの導入を開始するお手伝いをいたします。",
+		"FEEDBACK_FORM": {
+			"MESSAGE": "ユーザーエクスペリエンスで問題があった点をお教えください。これは今後、より良い回答を提供するのに役立ちます。",
+			"TITLE": "ユーザーエクスペリエンスについて詳しく教えてください"
+		},
+		"MESSAGE_FORM": {
+			"STOP_PROMPT": "メッセージがキャンセルされました。"
+		},
+		"TOOLS": {
+			"ADMIN_SEARCH": {
+				"BOT_PROMPT": "データに関する質問をしてください。私が検索クエリを作成し、結果を返します。",
+				"TITLE": "データ",
+				"USER_PROMPT": "データを検索"
+			},
+			"ACME_DOC": {
+				"BOT_PROMPT": "Identity Security Cloudに関する質問をしていただければ、弊社のドキュメンテーションを参照して回答を見つけます。",
+				"TITLE": "Acme",
+				"USER_PROMPT": "検索ドキュメンテーション"
+			},
+			"WORKFLOW_BUILDER": {
+				"BOT_PROMPT": "もちろんです！構築しようとしているワークフローについて説明してください。そうすれば作成します。",
+				"TITLE": "ワークフロー",
+				"USER_PROMPT": "ワークフローを構築"
+			}
+		},
+		"ASK_ME_A_QUESTION": "質問してください。",
+		"CANCEL": "キャンセル",
+		"CLEAR_CHAT_START_NEW_CONVERSATION": "チャットをクリアして新しい会話を開始します",
+		"CLEAR_CONVERSATION": "会話を消去",
+		"CLOSE": "閉じる",
+		"COLLAPSE": "折りたたむ",
+		"CREATE_A_NEW_WORKFLOW_IN_THE_WORKFLOWS_PAGE": "ワークフローページで新しいワークフローを作成します",
+		"CREATE_POLICY": "ポリシーを作成",
+		"CREATE_WORKFLOW": "ワークフローを作成",
+		"DESCRIBE_YOUR_EXPERIENCE": "ユーザーエクスペリエンスについて説明してください",
+		"EXPAND": "展開",
+		"EXPERIMENTAL_WARNING_MESSAGE": "Harbor Pilotは実験的であり、誤りを犯す可能性があります。重要な情報は常に確認してください。",
+		"EXPLORE_PROMPTS": "プロンプトを探索",
+		"HARBOR_PILOT": "Harbor Pilot",
+		"MAXIMIZE": "最大化",
+		"MESSAGE": "メッセージ",
+		"MESSAGE_DEBUGGER": "メッセージデバッガ",
+		"MINIMIZE": "最小化",
+		"NEXT_STEP": "次の手順",
+		"NOT_ACCURATE": "正確でなかった",
+		"NOT_WHAT_I_EXPECTED": "期待していたものではなかった",
+		"PREVIEW_CAMPAIGN": "キャンペーンをプレビュー",
+		"QUICK_START": "クイックスタート",
+		"RECOMMENDED_ACTIONS": "推奨されるアクション",
+		"RUN_CERTIFICATION": "棚卸を実行",
+		"SELECT_OPTION": "オプションを選択",
+		"SELECT_TOOL": "ツールを選択",
+		"SEND": "送信",
+		"SOMETHING_WRONG_HAPPENED_TRY_AGAIN": "問題が発生しました。もう一度お試しください",
+		"STOP": "停止",
+		"SUBMIT": "送信",
+		"SURE_WHAT_QUESTIONS_DO_YOU_HAVE": "もちろん！どのようなご質問がありますか？",
+		"THANKS_FOR_YOU_FEEDBACK": "フィードバックありがとうございます！",
+		"THUMBS_DOWN": "サムズダウン",
+		"THUMBS_UP": "サムズアップ",
+		"TOOK_TOO_LONG": "時間がかかりすぎた",
+		"VIEW_GENERAL_POLICY_HERE": "ここで一般的なポリシーを表示します",
+		"VIEW_SEARCH_RESULTS_HERE": "ここで検索結果を表示します",
+		"VIEW_WORKFLOW_HERE": "ここでワークフローを表示します",
+		"WAS_THIS_HELPFUL": "これは役に立ちましたか？",
+		"YOU_CAN_VIEW_THE_CAMPAIGN_HERE": "ここで棚卸キャンペーンを表示します"
+	}
+}

@@ -1,0 +1,29 @@
+@import '@acme-priv/armada-angular/src/acme/theme/styles/variables';
+@import '../../shared/styles/variables';
+
+:host {
+	@extend .harbor-pilot-overlay--base;
+}
+
+.harbor-pilot-feature-enablement-overlay {
+	z-index: 1050;
+	padding: 5rem 6rem;
+	position: absolute;
+	display: flex;
+	justify-content: center;
+}
+
+.harbor-pilot-feature-enablement__message {
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	text-align: center;
+	gap: 1rem;
+}
+
+.harbor-pilot-feature-enablement__footer {
+	display: flex;
+	flex-flow: column;
+	justify-content: center;
+	gap: 1rem;
+}

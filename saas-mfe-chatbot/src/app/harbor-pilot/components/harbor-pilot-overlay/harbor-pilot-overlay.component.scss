@@ -1,0 +1,118 @@
+/*
+ * Copyright (C) 2024 Acme Technologies, Inc.  All rights reserved.
+ */
+@import '@acme-priv/armada-angular/src/acme/theme/styles/variables';
+@import '../../shared/styles/variables';
+
+.harbor-pilot-overlay__boundary {
+	position: absolute;
+	pointer-events: none;
+	top: 0;
+	height: 100vh;
+	width: 100vw;
+}
+
+.harbor-pilot-overlay {
+	position: fixed;
+	pointer-events: all;
+	display: flex;
+	flex-direction: column;
+	transform-origin: center top;
+	inset: 60px 20px auto auto;
+	border-radius: 0.5rem;
+	height: $hp-size-y;
+	width: $hp-size-x;
+	box-shadow: $hp-drop-shadow;
+	z-index: $zIndexStaticModal;
+	background: $slpt-w1;
+	@extend .harbor-pilot-bounce-size-transition;
+	// expanded version of the chat box overlay.
+	&.harbor-pilot-overlay__expanded {
+		max-height: 84.5vh;
+		height: 84.5vh;
+		width: 75vw;
+		inset: 62px 20px auto auto;
+	}
+	// minimized version of the chat box overlay.
+	&.harbor-pilot-overlay__minimized {
+		height: $hp-header-toolbar-size;
+		width: 260px;
+		border-radius: 0.5rem;
+
+		.harbor-pilot-overlay__header {
+			border-radius: 0.5rem;
+		}
+
+		.harbor-pilot-overlay__messages-container {
+			overflow: hidden;
+		}
+	}
+	// new conversation version of chat box overlay.
+	&.harbor-pilot-overlay__new-conversation {
+		.harbor-pilot-overlay__header {
+			height: 100%;
+		}
+
+		.harbor-pilot-overlay__body {
+			height: unset;
+			overflow: visible;
+		}
+	}
+}
+
+.harbor-pilot-overlay__message-container {
+	display: block;
+	margin-bottom: 2rem;
+
+	&:last-of-type {
+		margin-bottom: 1rem !important;
+	}
+}
+
+.harbor-pilot-overlay__header {
+	border-radius: 8px 8px 0 0;
+	background: $hp-gradient-1;
+	@extend .harbor-pilot-alive-gradient;
+}
+
+.harbor-pilot-overlay__body {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	flex-grow: 1;
+	border-radius: 0 0 8px 8px;
+	background-color: $slpt-w1;
+	overflow: hidden;
+	height: 100%;
+}
+
+.harbor-pilot-overlay__messages-container {
+	height: 100%;
+	flex-grow: 1;
+	padding: 16px 24px 0;
+	overflow-y: auto;
+	@extend .harbor-pilot-scroll-bar;
+}
+
+.harbor-pilot-overlay__command-actions {
+	display: flex;
+}
+
+.harbor-pilot-overlay__first-command {
+	margin-left: 35px;
+}
+
+.harbor-pilot-overlay__message-form-container {
+	margin: 1rem 1rem 0.5rem;
+
+	// NG-DEEP: Allow layout of the message form tools for the chat box to be aligned accordingly.
+	// stylelint-disable-next-line selector-pseudo-element-no-unknown
+	::ng-deep {
+		textarea {
+			padding-bottom: 2rem;
+			min-height: 95px !important;
+			max-height: 95px !important;
+		}
+	}
+}

@@ -1,0 +1,70 @@
+{
+	"CHATBOT": {
+		"HEY_THERE_IM_HARBOR_PILOT": "Dobrý den {user}! Jsem Harbor Pilot a jsem zde, abych vám pomohl se začátky v Acmeu.",
+		"FEEDBACK_FORM": {
+			"MESSAGE": "Popište prosím, co nebylo zcela v pořádku. Pomůže mi to poskytovat v budoucnu lepší odpovědi.",
+			"TITLE": "Povězte mi více o vašich zkušenostech"
+		},
+		"MESSAGE_FORM": {
+			"STOP_PROMPT": "Zpráva byla zrušena."
+		},
+		"TOOLS": {
+			"ADMIN_SEARCH": {
+				"BOT_PROMPT": "Ptejte se mě na vaše data. Vytvořím vyhledávací dotaz a vrátím výsledky.",
+				"TITLE": "Data",
+				"USER_PROMPT": "Vyhledat svá data"
+			},
+			"ACME_DOC": {
+				"BOT_PROMPT": "Zeptejte se mě na otázku týkající se Identity Security Cloud a já prohledám naše dokumenty, abych našel odpověď.",
+				"TITLE": "Acme",
+				"USER_PROMPT": "Dokumentace k vyhledávání"
+			},
+			"WORKFLOW_BUILDER": {
+				"BOT_PROMPT": "Samozřejmě! Popište mi pracovní postup, který se snažíte vytvořit, a já ho pro vás vytvořím.",
+				"TITLE": "Pracovní postupy",
+				"USER_PROMPT": "Vytvořte pracovní postup"
+			}
+		},
+		"ASK_ME_A_QUESTION": "Zeptejte se mě na otázku.",
+		"CANCEL": "Zrušit",
+		"CLEAR_CHAT_START_NEW_CONVERSATION": "Vymazat chat a zahájit novou konverzaci",
+		"CLEAR_CONVERSATION": "Vymazat konverzaci",
+		"CLOSE": "Zavřít",
+		"COLLAPSE": "Sbalit",
+		"CREATE_A_NEW_WORKFLOW_IN_THE_WORKFLOWS_PAGE": "Vytvořit nový pracovní postup na stránce pracovních postupů",
+		"CREATE_POLICY": "Vytvořit zásady",
+		"CREATE_WORKFLOW": "Vytvořit pracovní postup",
+		"DESCRIBE_YOUR_EXPERIENCE": "Popište své zkušenosti",
+		"EXPAND": "Rozbalit",
+		"EXPERIMENTAL_WARNING_MESSAGE": "Harbor Pilot je experimentální a může dělat chyby. Důležité informace vždy ověřujte.",
+		"EXPLORE_PROMPTS": "Prozkoumat výzvy",
+		"HARBOR_PILOT": "Harbor Pilot",
+		"MAXIMIZE": "Maximalizovat",
+		"MESSAGE": "Zpráva",
+		"MESSAGE_DEBUGGER": "Debugger zpráv",
+		"MINIMIZE": "Minimalizovat",
+		"NEXT_STEP": "Další krok",
+		"NOT_ACCURATE": "Nepřesné",
+		"NOT_WHAT_I_EXPECTED": "Nesplňuje očekávání",
+		"PREVIEW_CAMPAIGN": "Náhled kampaně",
+		"QUICK_START": "Rychlý start",
+		"RECOMMENDED_ACTIONS": "Doporučené akce",
+		"RUN_CERTIFICATION": "Spustit certifikaci",
+		"SELECT_OPTION": "Vybrat možnost",
+		"SELECT_TOOL": "Vybrat nástroj",
+		"SEND": "Odeslat",
+		"SOMETHING_WRONG_HAPPENED_TRY_AGAIN": "Něco se pokazilo, zkuste to prosím znovu",
+		"STOP": "Zastavit",
+		"SUBMIT": "Odeslat",
+		"SURE_WHAT_QUESTIONS_DO_YOU_HAVE": "Samozřejmě! Na co se chcete zeptat?",
+		"THANKS_FOR_YOU_FEEDBACK": "Děkujeme za vaši zpětnou vazbu!",
+		"THUMBS_DOWN": "Palec dolů",
+		"THUMBS_UP": "Palec nahoru",
+		"TOOK_TOO_LONG": "Trvalo to příliš dlouho",
+		"VIEW_GENERAL_POLICY_HERE": "Zobrazit obecné zásady",
+		"VIEW_SEARCH_RESULTS_HERE": "Zobrazit výsledky vyhledávání",
+		"VIEW_WORKFLOW_HERE": "Zobrazit pracovní postup",
+		"WAS_THIS_HELPFUL": "Bylo to užitečné?",
+		"YOU_CAN_VIEW_THE_CAMPAIGN_HERE": "Zobrazit certifikační kampaň"
+	}
+}

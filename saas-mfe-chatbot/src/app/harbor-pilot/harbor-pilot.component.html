@@ -1,0 +1,11 @@
+<ng-container *ngIf="isEnabled">
+	<app-harbor-pilot-icon-button
+		#buttonReference
+		[attr.data-sp-pendo-chatbot-hp-action]="'toggle-chat'"
+		[fill]="isOpen()"
+		(click)="onTriggerButtonClick()"
+	/>
+	<div class="harbor-pilot">
+		<app-harbor-pilot-overlay [open]="isOpen()" [disclaimer]="isTermsDisclaimerShown()" (dismiss)="onDismiss()" />
+	</div>
+</ng-container>

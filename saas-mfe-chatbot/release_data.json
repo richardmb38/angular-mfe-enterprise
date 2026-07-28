@@ -1,0 +1,21 @@
+{
+	"schema": 2,
+	"metadata": {
+		"app": "idn:mfe-chatbot"
+	},
+	"tests": [
+		{
+			"job_name": "saas-mfe-chatbot - Cypress Production Smoke Test",
+			"release_stage": "prod",
+			"type": "jenkins_remote",
+			"remote_server": "saas-ui-guild"
+		}
+	],
+	"notifications": {
+		"slack": {
+			"rooms": ["bot-saas-ui"],
+			"failureRooms": ["bot-saas-ui"]
+		}
+	},
+	"product": "SaaS Platform"
+}

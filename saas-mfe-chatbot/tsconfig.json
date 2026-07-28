@@ -1,0 +1,33 @@
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"baseUrl": "src",
+		"declaration": false,
+		"downlevelIteration": true,
+		"emitDecoratorMetadata": true,
+		"esModuleInterop": true,
+		"experimentalDecorators": true,
+		"importHelpers": true,
+		"lib": ["es2020", "dom"],
+		"module": "es2020",
+		"moduleResolution": "node",
+		"outDir": "./dist/out-tsc",
+		"sourceMap": true,
+		"target": "es2022",
+		"paths": {
+			"@acme/armada/cypress": [
+				"./../node_modules/@acme-priv/armada-angular/src/acme/cypress"
+			],
+			"@acme/storybook/*": [
+				"./../.storybook/*"
+			]
+		},
+		"resolveJsonModule": true,
+		"allowSyntheticDefaultImports": true
+	},
+	"angularCompilerOptions": {
+		"strictTemplates": true,
+		"preserveWhitespaces": true
+	},
+	"exclude": ["**/*.spec.ts"]
+}

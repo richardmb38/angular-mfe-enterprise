@@ -1,0 +1,190 @@
+{
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"saas-mfe-chatbot": {
+			"root": "",
+			"sourceRoot": "src",
+			"projectType": "application",
+			"architect": {
+				"build": {
+					"builder": "@angular-builders/custom-webpack:browser",
+					"options": {
+						"customWebpackConfig": {
+							"path": "node_modules/@acme-priv/ui-common/etc/lib/webpack/autoConf.js",
+							"libraryName": "saas-mfe-chatbot",
+							"libraryTarget": "umd",
+							"mfe": true
+						},
+						"outputPath": "dist",
+						"index": "./src/index.html",
+						"main": "./src/main.ts",
+						"tsConfig": "./src/tsconfig.mfe.json",
+						"polyfills": "./src/polyfills.ts",
+						"preserveSymlinks": true,
+						"sourceMap": true,
+						"assets": ["./src/assets", "./src/favicon.ico"],
+						"styles": ["./src/styles.scss"],
+						"scripts": [],
+						"allowedCommonJsDependencies": ["util", "crypto-js", "moment-timezone"]
+					},
+					"configurations": {
+						"production": {
+							"optimization": {
+								"scripts": true,
+								"styles": {
+									"minify": true,
+									"inlineCritical": false
+								},
+								"fonts": true
+							},
+							"outputHashing": "none",
+							"sourceMap": false,
+							"namedChunks": false,
+							"aot": true,
+							"extractLicenses": true,
+							"vendorChunk": false,
+							"buildOptimizer": true,
+							"progress": false,
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.prod.ts"
+								}
+							],
+							/**
+								If your build is failing because of these budgets here is what you need to do:
+								1) Run 'npm run bundle-report' to see a visualization of what is in each bundle. Compare
+								   the report with previous versions of the module and determine why the bundle size
+								   has changed.
+								2) If the change is because of a new library is being pulled in determine if there
+								   is a more efficent way the library could be used to reduce the size.
+								3) If the change is due to organic growth of Acme developed code then that is
+								   okay.
+								4) If the budget needs to be changed, then please update the "baseline" parameter
+								   to the new bundle size.
+							**/
+							"budgets": [
+								/** ONLY BUNDLE BUDGET HERE **/
+								{
+									"type": "bundle",
+									"name": "main",
+									"baseline": "5MB",
+									"minimumError": "10%",
+									"maximumError": "10%"
+								}
+							]
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true,
+							"aot": true
+						}
+					}
+				},
+				"serve": {
+					"builder": "@angular-builders/custom-webpack:dev-server",
+					"options": {
+						"browserTarget": "saas-mfe-chatbot:build:development",
+						"liveReload": false,
+						"port": 9013,
+						"host": "localhost",
+						"ssl": true,
+						"sslKey": "node_modules/@acme-priv/npm-tools/etc/cert/server.key",
+						"sslCert": "node_modules/@acme-priv/npm-tools/etc/cert/server.crt"
+					},
+					"configurations": {
+						"production": {
+							"browserTarget": "saas-mfe-chatbot:build:production"
+						},
+						"development": {
+							"browserTarget": "saas-mfe-chatbot:build:development"
+						}
+					}
+				},
+				"extract-i18n": {
+					"builder": "@angular-devkit/build-angular:extract-i18n",
+					"options": {
+						"buildTarget": "saas-mfe-chatbot:build"
+					}
+				},
+				"test": {
+					"builder": "@angular-builders/jest:run",
+					"options": {
+						"configPath": "jest.config.js"
+					}
+				},
+				"storybook": {
+					"builder": "@storybook/angular:start-storybook",
+					"options": {
+						"quiet": false,
+						"port": 6006,
+						"browserTarget": "saas-mfe-chatbot:build",
+						"compodoc": true,
+						"compodocArgs": [
+							"-t",
+							"-e",
+							"json",
+							"--disablePrivate",
+							"--disableInternal",
+							"--disableLifeCycleHooks",
+							"--minimal",
+							"--disableSourceCode"
+						],
+						"styles": [
+							"src/styles.scss",
+							"node_modules/@acme-priv/armada-angular/src/acme/storybook/styles/documentation.scss"
+						],
+						"assets": [
+							{
+								"glob": "Robot.js",
+								"input": "node_modules/gojs/extensions",
+								"output": "assets"
+							}
+						]
+					}
+				},
+				"storybook-build": {
+					"builder": "@storybook/angular:build-storybook",
+					"options": {
+						"enableProdMode": false,
+						"browserTarget": "saas-mfe-chatbot:build",
+						"outputDir": "dist/storybook",
+						"compodoc": true,
+						"compodocArgs": [
+							"-t",
+							"-e",
+							"json",
+							"--disablePrivate",
+							"--disableInternal",
+							"--disableLifeCycleHooks",
+							"--minimal",
+							"--disableSourceCode"
+						],
+						"styles": [
+							"src/styles.scss",
+							"node_modules/@acme-priv/armada-angular/src/acme/storybook/styles/documentation.scss"
+						]
+					}
+				}
+			}
+		}
+	},
+	"schematics": {
+		"@schematics/angular:component": {
+			"prefix": "app",
+			"style": "scss"
+		},
+		"@schematics/angular:directive": {
+			"prefix": "app"
+		}
+	},
+	"cli": {
+		"analytics": false
+	}
+}

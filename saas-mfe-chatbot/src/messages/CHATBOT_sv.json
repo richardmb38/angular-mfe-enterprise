@@ -1,0 +1,70 @@
+{
+	"CHATBOT": {
+		"HEY_THERE_IM_HARBOR_PILOT": "Hej {user}! Jag är Harbor Pilot och jag är här för att hjälpa dig att komma igång med din Acme-resa.",
+		"FEEDBACK_FORM": {
+			"MESSAGE": "Berätta vad som inte kändes så bra i din upplevelse. Det hjälper mig att ge bättre svar i framtiden.",
+			"TITLE": "Berätta mer om din upplevelse"
+		},
+		"MESSAGE_FORM": {
+			"STOP_PROMPT": "Meddelandet avbröts."
+		},
+		"TOOLS": {
+			"ADMIN_SEARCH": {
+				"BOT_PROMPT": "Ställ en fråga om dina data. Jag skapar en sökfråga och returnerar resultaten.",
+				"TITLE": "Data",
+				"USER_PROMPT": "Sök dina data"
+			},
+			"ACME_DOC": {
+				"BOT_PROMPT": "Du kan ställa en fråga om Identity Security Cloud så söker jag i våra dokument för att ge dig ett svar.",
+				"TITLE": "Acme",
+				"USER_PROMPT": "Sök i dokumentationen"
+			},
+			"WORKFLOW_BUILDER": {
+				"BOT_PROMPT": "Det kan jag absolut göra! Beskriv det arbetsflöde du försöker bygga så ska jag skapa det åt dig.",
+				"TITLE": "Arbetsflöden",
+				"USER_PROMPT": "Skapa ett arbetsflöde"
+			}
+		},
+		"ASK_ME_A_QUESTION": "Du kan ställa en fråga.",
+		"CANCEL": "Avbryt",
+		"CLEAR_CHAT_START_NEW_CONVERSATION": "Rensa chatten och starta en ny konversation",
+		"CLEAR_CONVERSATION": "Rensa konversation",
+		"CLOSE": "Stäng",
+		"COLLAPSE": "Minimera",
+		"CREATE_A_NEW_WORKFLOW_IN_THE_WORKFLOWS_PAGE": "Skapa ett nytt arbetsflöde på sidan Arbetsflöden",
+		"CREATE_POLICY": "Skapa policy",
+		"CREATE_WORKFLOW": "Skapa ett arbetsflöde",
+		"DESCRIBE_YOUR_EXPERIENCE": "Beskriv din upplevelse",
+		"EXPAND": "Expandera",
+		"EXPERIMENTAL_WARNING_MESSAGE": "Harbor Pilot är experimentell och kan göra misstag. Verifiera alltid viktig information.",
+		"EXPLORE_PROMPTS": "Utforska prompts",
+		"HARBOR_PILOT": "Harbor Pilot",
+		"MAXIMIZE": "Maximera",
+		"MESSAGE": "Meddelande",
+		"MESSAGE_DEBUGGER": "Meddelandedebugger",
+		"MINIMIZE": "Minimera",
+		"NEXT_STEP": "Nästa steg",
+		"NOT_ACCURATE": "Inte korrekt",
+		"NOT_WHAT_I_EXPECTED": "Inte som jag förväntade mig",
+		"PREVIEW_CAMPAIGN": "Förhandsvisa kampanj",
+		"QUICK_START": "Snabbstart",
+		"RECOMMENDED_ACTIONS": "Rekommenderade åtgärder",
+		"RUN_CERTIFICATION": "Kör certifiering",
+		"SELECT_OPTION": "Välj ett alternativ",
+		"SELECT_TOOL": "Välj verktyg",
+		"SEND": "Skicka",
+		"SOMETHING_WRONG_HAPPENED_TRY_AGAIN": "Någonting gick fel, försök igen",
+		"STOP": "Stoppa",
+		"SUBMIT": "Skicka",
+		"SURE_WHAT_QUESTIONS_DO_YOU_HAVE": "Naturligtvis! Vad undrar du över?",
+		"THANKS_FOR_YOU_FEEDBACK": "Tack för återkopplingen!",
+		"THUMBS_DOWN": "Tummen ner",
+		"THUMBS_UP": "Tummen upp",
+		"TOOK_TOO_LONG": "Det tog för lång tid",
+		"VIEW_GENERAL_POLICY_HERE": "Visa Allmän policy här",
+		"VIEW_SEARCH_RESULTS_HERE": "Visa sökresultat här",
+		"VIEW_WORKFLOW_HERE": "Visa arbetsflöde här",
+		"WAS_THIS_HELPFUL": "Var detta till hjälp?",
+		"YOU_CAN_VIEW_THE_CAMPAIGN_HERE": "Visa certifieringskampanj här"
+	}
+}

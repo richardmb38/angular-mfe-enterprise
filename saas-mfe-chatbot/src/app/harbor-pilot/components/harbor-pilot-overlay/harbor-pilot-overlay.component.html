@@ -1,0 +1,51 @@
+<div class="harbor-pilot-overlay__boundary">
+	<div
+		cdkDrag
+		cdkDragBoundary=".harbor-pilot-overlay__boundary"
+		@popInOut
+		*ngIf="open()"
+		class="harbor-pilot-overlay"
+		[ngClass]="{
+			'harbor-pilot-overlay__expanded': expanded(),
+			'harbor-pilot-overlay__minimized': minimized(),
+			'harbor-pilot-overlay__new-conversation': isNewConversation()
+		}"
+	>
+		<div cdkDragHandle class="harbor-pilot-overlay__header">
+			<app-harbor-pilot-overlay-header
+				[(expanded)]="expanded"
+				[(minimized)]="minimized"
+				(expandChange)="onExpandChanged()"
+				(dismiss)="onDismiss()"
+			/>
+		</div>
+		<div *ngIf="!minimized()" class="harbor-pilot-overlay__body">
+			<div
+				*ngIf="!isNewConversation()"
+				class="harbor-pilot-overlay__messages-container"
+				#messagesContainer
+				(scroll)="onScroll(messagesContainer)"
+			>
+				<ng-container *ngFor="let message of messages(); let i = index">
+					<div class="harbor-pilot-overlay__message-container">
+						<app-harbor-pilot-chat-message
+							[message]="message"
+							(userFeedbackSubmitted)="onUserFeedbackSubmitted(message, $event)"
+						/>
+					</div>
+					<app-harbor-pilot-actions [message]="message" />
+				</ng-container>
+			</div>
+			<div class="harbor-pilot-overlay__message-form-container">
+				<app-harbor-pilot-chat-message-form (openPromptsOverlay)="isPromptsOverlayShown.set(true)" />
+			</div>
+		</div>
+		<!-- Explore prompt overlay that sits on top of the whole overlay area when open. -->
+		<app-harbor-pilot-prompts-overlay
+			*ngIf="isPromptsOverlayShown()"
+			(dismiss)="isPromptsOverlayShown.set(false)"
+		/>
+		<!-- Feature enablement overlay that sits on top of the whole overlay area when open. -->
+		<app-harbor-pilot-feature-enable-overlay *ngIf="isFeatureEnableOverlayShown()" />
+	</div>
+</div>
