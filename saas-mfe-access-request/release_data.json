@@ -1,0 +1,13 @@
+{
+	"schema": 2,
+	"metadata": {
+		"app": "idn:vanity"
+	},
+	"notifications": {
+		"slack": {
+			"rooms": ["bot-saas-ui"],
+			"failureRooms": ["bot-saas-ui"]
+		}
+	},
+	"product": "IdentityNow"
+}

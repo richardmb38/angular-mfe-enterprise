@@ -1,0 +1,243 @@
+{
+	"$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+	"version": 1,
+	"newProjectRoot": "projects",
+	"projects": {
+		"saas-mfe-access-request": {
+			"root": "",
+			"sourceRoot": "src",
+			"projectType": "application",
+			"architect": {
+				"build": {
+					"builder": "@angular-builders/custom-webpack:browser",
+					"options": {
+						"customWebpackConfig": {
+							"path": "node_modules/@acme-priv/ui-common/etc/lib/webpack/autoConf.js",
+							"libraryTarget": "umd",
+							"mfe": true
+						},
+						"outputPath": "dist",
+						"index": "",
+						"main": "./src/main.ts",
+						"tsConfig": "./src/tsconfig.app.json",
+						"polyfills": "./src/polyfills.ts",
+						"preserveSymlinks": true,
+						"sourceMap": true,
+						"assets": [],
+						"styles": ["./src/styles.scss"],
+						"scripts": [],
+						"allowedCommonJsDependencies": [
+							"util",
+							"crypto-js",
+							"@js-joda/timezone",
+							"systemjs-webpack-interop"
+						]
+					},
+					"configurations": {
+						"production": {
+							"optimization": {
+								"scripts": true,
+								"styles": {
+									"minify": true,
+									"inlineCritical": false
+								},
+								"fonts": true
+							},
+							"outputHashing": "none",
+							"sourceMap": false,
+							"namedChunks": false,
+							"aot": true,
+							"extractLicenses": true,
+							"vendorChunk": false,
+							"buildOptimizer": true,
+							"progress": false,
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.prod.ts"
+								}
+							],
+							"budgets": [
+								{
+									"type": "bundle",
+									"name": "main",
+									"baseline": "2.55mb",
+									"maximumError": "5%"
+								}
+							]
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true,
+							"aot": true
+						}
+					}
+				},
+				"build-mfe": {
+					"builder": "@angular-builders/custom-webpack:browser",
+					"options": {
+						"customWebpackConfig": {
+							"path": "node_modules/@acme-priv/ui-common/etc/lib/webpack/autoConf.js",
+							"libraryName": "saas-mfe-access-request",
+							"libraryTarget": "umd",
+							"mfe": true
+						},
+						"outputPath": "dist",
+						"index": "./src/index.html",
+						"main": "./src/main.ts",
+						"tsConfig": "./src/tsconfig.app.json",
+						"polyfills": "./src/polyfills.ts",
+						"preserveSymlinks": true,
+						"sourceMap": true,
+						"assets": ["./src/assets", "./src/favicon.ico"],
+						"styles": ["./src/styles.scss"],
+						"scripts": []
+					},
+					"configurations": {
+						"production": {
+							"optimization": {
+								"scripts": true,
+								"styles": {
+									"minify": true,
+									"inlineCritical": false
+								},
+								"fonts": true
+							},
+							"outputHashing": "none",
+							"sourceMap": false,
+							"namedChunks": false,
+							"aot": true,
+							"extractLicenses": true,
+							"vendorChunk": false,
+							"buildOptimizer": true,
+							"progress": false,
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.prod.ts"
+								}
+							],
+							"budgets": [
+								{
+									"type": "bundle",
+									"name": "main",
+									"baseline": "900kb",
+									"maximumError": "5%"
+								}
+							]
+						},
+						"development": {
+							"buildOptimizer": false,
+							"optimization": false,
+							"vendorChunk": true,
+							"extractLicenses": false,
+							"sourceMap": true,
+							"namedChunks": true,
+							"aot": true
+						}
+					}
+				},
+				"serve": {
+					"builder": "@angular-builders/custom-webpack:dev-server",
+					"options": {
+						"browserTarget": "saas-mfe-access-request:build:development",
+						"liveReload": false,
+						"port": 9003,
+						"host": "localhost",
+						"ssl": true,
+						"sslKey": "node_modules/@acme-priv/npm-tools/etc/cert/server.key",
+						"sslCert": "node_modules/@acme-priv/npm-tools/etc/cert/server.crt"
+					},
+					"configurations": {
+						"production": {
+							"browserTarget": "saas-mfe-access-request:build:production"
+						},
+						"development": {
+							"browserTarget": "saas-mfe-access-request:build:development"
+						}
+					}
+				},
+				"extract-i18n": {
+					"builder": "@angular-devkit/build-angular:extract-i18n",
+					"options": {
+						"buildTarget": "saas-mfe-access-request:build"
+					}
+				},
+				"test": {
+					"builder": "@angular-builders/jest:run",
+					"options": {
+						"configPath": "jest.config.js"
+					}
+				},
+				"storybook": {
+					"builder": "@storybook/angular:start-storybook",
+					"options": {
+						"quiet": false,
+						"port": 6006,
+						"browserTarget": "saas-mfe-access-request:build-mfe",
+						"compodoc": true,
+						"compodocArgs": [
+							"-t",
+							"-e",
+							"json",
+							"--disablePrivate",
+							"--disableInternal",
+							"--disableLifeCycleHooks",
+							"--minimal",
+							"--disableSourceCode"
+						],
+						"styles": [
+							"src/styles.scss",
+							"node_modules/@acme-priv/armada-angular/src/acme/storybook/styles/documentation.scss"
+						],
+						"assets": [
+							{
+								"glob": "Robot.js",
+								"input": "node_modules/gojs/extensions",
+								"output": "assets"
+							}
+						]
+					}
+				},
+				"storybook-build": {
+					"builder": "@storybook/angular:build-storybook",
+					"options": {
+						"browserTarget": "saas-mfe-access-request:build-mfe",
+						"outputDir": "dist/storybook",
+						"compodoc": true,
+						"compodocArgs": [
+							"-t",
+							"-e",
+							"json",
+							"--disablePrivate",
+							"--disableInternal",
+							"--disableLifeCycleHooks",
+							"--minimal",
+							"--disableSourceCode"
+						],
+						"styles": [
+							"src/styles.scss",
+							"node_modules/@acme-priv/armada-angular/src/acme/storybook/styles/documentation.scss"
+						]
+					}
+				}
+			}
+		}
+	},
+	"schematics": {
+		"@schematics/angular:component": {
+			"prefix": "app",
+			"style": "scss"
+		},
+		"root": "",
+		"projectType": "application",
+		"architect": {}
+	},
+	"cli": {
+		"analytics": false
+	}
+}

@@ -1,0 +1,28 @@
+{
+	"compileOnSave": false,
+	"compilerOptions": {
+		"baseUrl": "src",
+		"declaration": false,
+		"downlevelIteration": true,
+		"emitDecoratorMetadata": true,
+		"esModuleInterop": true,
+		"experimentalDecorators": true,
+		"importHelpers": true,
+		"lib": ["ES2022", "dom"],
+		"module": "ES2022",
+		"moduleResolution": "node",
+		"outDir": "./dist/out-tsc",
+		"sourceMap": true,
+		"target": "ES2022",
+		"paths": {
+			"@app/shared": ["./app/shared"],
+			"@admin/shared": ["./app/admin/shared"],
+			"@acme/armada/cypress": ["./../node_modules/@acme-priv/armada-angular/src/acme/cypress"],
+			"@acme/storybook/*": ["./../.storybook/*"]
+		},
+		"useDefineForClassFields": false,
+		"resolveJsonModule": true,
+		"allowSyntheticDefaultImports": true
+	},
+	"exclude": ["**/*.spec.ts"]
+}

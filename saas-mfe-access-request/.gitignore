@@ -1,0 +1,61 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+/dist
+/tmp
+/out-tsc
+/bazel-out
+/test-output
+
+# Node
+/node_modules
+npm-debug.log
+yarn-error.log
+
+# IDEs and Editors
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# Visual Studio Code
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# Miscellaneous
+/.angular/cache
+.sass-cache/
+/connect.lock
+/coverage
+/libpeerconnection.log
+testem.log
+/typings
+
+# System files
+.DS_Store
+Thumbs.db
+
+# e2e
+/e2e/test-output
+/e2e/target
+/e2e/.idea
+/e2e/.factorypath
+
+# StoryBook
+documentation.json
+
+# Cypress
+/cypress/screenshots/
+/cypress/snapshots/actual
+/cypress/snapshots/diff
+/cypress/downloads/downloads.html
+
+# This is a fix for the Cypress Cleanup fails - https://acme.slack.com/archives/CFNQWTJP2/p1680639772919489
+**/.ds-logs*

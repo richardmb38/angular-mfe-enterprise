@@ -1,0 +1,90 @@
+/*
+ * Copyright (C) 2025 Acme Technologies, Inc.  All rights reserved.
+ */
+
+/*
+ * Production e2e Smoke Test Suite Run Script.
+ */
+
+@Library("acme/jenkins-release-utils")_
+
+pipeline {
+	agent {
+		kubernetes {
+			yaml """
+apiVersion: v1
+kind: Pod
+spec:
+  serviceAccountName: pod-build-container
+  securityContext:
+    fsGroup: 65534
+  containers:
+  - name: node
+    image: 406205545357.dkr.ecr.us-east-1.amazonaws.com/acme/node:20-latest
+    imagePullPolicy: IfNotPresent
+    command:
+     - cat
+    tty: true
+    resources:
+      requests:
+        memory: "6Gi"
+        cpu: 1
+  tolerations:
+    - key: cb-core
+      operator: Equal
+      value: agent
+      effect: NoSchedule
+"""
+		}
+	}
+
+	environment {
+		POD = "smoke-ui"
+		ORG = "smoke-ui"
+		REPO = "saas-mfe-access-request"
+	}
+
+	options {
+		// Aborts job if run time is over a 6 hours
+		timeout(time: 6, unit: 'HOURS')
+	}
+
+	stages {
+		stage('Setup') {
+			steps {
+				container('node') {
+					withCloudBeesCreds([credentialsId: 'git-automation-ssh']) {
+						sh "mkdir -m 700 ~/.ssh"
+						sh "ssh-keyscan -H github.com >> ~/.ssh/known_hosts"
+						sh "git clone git@github.com:acme/${REPO}.git"
+						sh "aws --version"
+						sh "nproc"
+						sh "free -h"
+					}
+				}
+			}
+		}
+
+		stage('Production Verification: e2e') {
+			steps {
+				container('node') {
+					assumePodRole {
+						script {
+							dir("${REPO}/e2e") {
+								sh """
+									mvn clean test --batch-mode \
+									-DtestSuite=src/test/resources/test_suites/smoke_suite.xml \
+									-DpodUrl=https://${POD}.identitynow.com \
+									-DresetOrg=false \
+									-DtestOrg=${ORG} \
+									-DretryFailedTest=true \
+									-DseleniumProfile=gridVideo
+								"""
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"name": "saas-mfe-access-request",
+	"app": "idn:vanity",
+	"routes": [
+		{
+			"route": "d/request-center",
+			"featureFlagIn": ["UIGOV688_ACCESS_REQUEST_MFE"]
+		}
+	]
+}
