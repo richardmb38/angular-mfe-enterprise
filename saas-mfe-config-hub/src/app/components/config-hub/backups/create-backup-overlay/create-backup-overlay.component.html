@@ -1,0 +1,61 @@
+<slpt-overlay (onDismiss)="handleDismiss()">
+	<slpt-overlay-content class="slpt-overlay-content--width-4">
+		<slpt-overlay-header>
+			<slpt-overlay-header-title>{{ 'CONFIG_HUB.CREATE_BACKUP' | slptTranslate }}</slpt-overlay-header-title>
+			<slpt-overlay-header-description>{{
+				'CONFIG_HUB.CREATE_BACKUP_OF_OBJECTS_IN_YOUR_TENANT' | slptTranslate
+			}}</slpt-overlay-header-description>
+		</slpt-overlay-header>
+		<slpt-overlay-body>
+			<slpt-overlay-body-column
+				class="slpt-overlay-body-column--full-height slpt-overlay-body-column--full-height-mobile"
+			>
+				<form
+					class="create-backup-overlay__form"
+					[formGroup]="createBackupForm"
+					slptAutoFocus
+					autofocusedElement="#backup-name"
+				>
+					<slpt-text-field
+						[group]="createBackupForm"
+						[key]="'backupName'"
+						[label]="'CONFIG_HUB.BACKUP_NAME'"
+						[maxlength]="BACKUP_JOB_NAME_MAX_LENGTH"
+						[required]="true"
+						[resetEvent]="onDismiss"
+						[slptId]="'backup-name'"
+						[submitAttempted]="submitAttempted"
+						(keyup.enter)="handleCreateBackup()"
+					>
+					</slpt-text-field>
+				</form>
+				<div class="create-backup-overlay__grid-container" [slptLoadingMask]="loading">
+					<app-config-hub-object-selection-grid
+						*ngIf="backupObjectList"
+						[backupObjectList]="backupObjectList"
+						[(selectedObjectTypes)]="selectedObjectTypes"
+						[objectOptions]="objectOptions"
+					></app-config-hub-object-selection-grid>
+				</div>
+			</slpt-overlay-body-column>
+		</slpt-overlay-body>
+		<slpt-overlay-footer class="slpt-overlay-footer--wrap-sections-mobile">
+			<slpt-overlay-footer-section class="create-backup-overlay__footer">
+				<slpt-button
+					id="slpt-config-hub-create-backup-overlay-cancel-button"
+					[label]="'CONFIG_HUB.CANCEL'"
+					(click)="handleDismiss()"
+				>
+				</slpt-button>
+				<slpt-button
+					id="slpt-config-hub-create-backup-overlay-create-button"
+					[type]="'primary'"
+					[label]="'CONFIG_HUB.CREATE_BACKUP'"
+					[disabled]="createBackupForm.invalid || selectedObjectTypes.length === 0"
+					(click)="handleCreateBackup()"
+				>
+				</slpt-button>
+			</slpt-overlay-footer-section>
+		</slpt-overlay-footer>
+	</slpt-overlay-content>
+</slpt-overlay>

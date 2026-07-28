@@ -1,0 +1,49 @@
+<slpt-modal
+	[title]="modalTitle"
+	[width]="'sm'"
+	[icon]="'warning'"
+	[isOpen]="true"
+	[backdrop]="'static'"
+	[verticallyCentered]="true"
+	(onDismiss)="handleDismiss()"
+>
+	<div class="submit-draft-for-approval-modal__message" [innerHtml]="modalDescription | slptTranslateSafeHtml"></div>
+	<form
+		class="submit-draft-for-approval__form"
+		[formGroup]="createApprovalStatusForm"
+		slptAutoFocus
+		autofocusedElement="#draft-comment"
+	>
+		<slpt-textarea
+			[group]="createApprovalStatusForm"
+			[key]="'comment'"
+			[label]="'CONFIG_HUB.COMMENTS'"
+			[maxlength]="DRAFT_COMMENT_MAX_LENGTH"
+			[placeholder]="'CONFIG_HUB.A_SAMPLE_COMMENT'"
+			[required]="true"
+			[resetEvent]="onDismiss"
+			[slptId]="'draft-comment'"
+			[submitAttempted]="submitAttempted"
+			(keyup.enter)="handleApproveDraft()"
+		>
+		</slpt-textarea>
+		<div class="submit-draft-for-approval-modal__character-counter">
+			<span
+				>{{ createApprovalStatusForm.get('comment')?.value?.length ?? 0 }} /
+				{{ DRAFT_COMMENT_MAX_LENGTH }}</span
+			>
+		</div>
+	</form>
+	<div class="submit-draft-for-approval__footer">
+		<slpt-button [label]="'CONFIG_HUB.CANCEL'" [type]="'secondary'" (click)="handleDismiss()"> </slpt-button>
+		<slpt-button
+			[label]="buttonLabel"
+			[type]="'primary'"
+			[disabled]="
+				createApprovalStatusForm && (!createApprovalStatusForm.dirty || createApprovalStatusForm.invalid)
+			"
+			(click)="handleApproveDraft()"
+		></slpt-button>
+	</div>
+</slpt-modal>
+<slpt-backdrop [transparent]="false" [zIndex]="backdropZIndex" *ngIf="showOverlay"></slpt-backdrop>

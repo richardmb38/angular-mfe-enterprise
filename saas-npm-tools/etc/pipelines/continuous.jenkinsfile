@@ -1,0 +1,162 @@
+/*
+ * Copyright (C) 2023 Acme Technologies, Inc.  All rights reserved.
+ */
+
+/*
+ * This pipeline is run on all changes to the master branch
+ */
+
+@Library("acme/jenkins-release-utils")_
+
+pipeline {
+    environment {
+        VERSION_FILE_PATH = 'saasNpmToolsNewVersion'
+        RELEASE_SLACK_CHANNEL = '#saas-ui-guild-shared-releases'
+    }
+
+    agent {
+        kubernetes {
+            yaml """
+    apiVersion: v1
+    kind: Pod
+    spec:
+      nodeSelector:
+        cb-core: agent
+      serviceAccount: pod-build-container
+      securityContext:
+        fsGroup: 65534
+      containers:
+      - name: node
+        image: 538659638057.dkr.ecr.us-east-1.amazonaws.com/acme/node:20-latest
+        imagePullPolicy: Always
+        command:
+        - cat
+        tty: true
+        envFrom:
+        - secretRef:
+            name: artifactory
+            optional: true
+      - name: aws-cli
+        image: 538659638057.dkr.ecr.us-east-1.amazonaws.com/devops/aws-cli-jq:4328
+        imagePullPolicy: IfNotPresent
+        command:
+          - cat
+        tty: true
+        volumeMounts:
+        - name: aws-config
+          mountPath: /aws_config
+        env:
+        - name: AWS_CONFIG_FILE
+          value: /aws_config/config
+      volumes:
+      - name: aws-config
+        configMap:
+          name: aws-config
+          optional: true
+      tolerations:
+        - key: cb-core
+          operator: Equal
+          value: agent
+          effect: NoSchedule
+    """
+        }
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                script {
+                    git(
+                        url: 'git@github.com:acme/saas-npm-tools',
+                        branch: 'master',
+                        credentialsId: 'git-automation-ssh'
+                    )
+                }
+            }
+        }
+
+        stage('Dependencies') {
+            steps {
+                script {
+                    container('node') {
+                        sh "npm config set prefix ~/"
+                        sh "mkdir -m 700 ~/.ssh"
+                        sh "ssh-keyscan -H github.com >> ~/.ssh/known_hosts"
+                        sh "git config --global user.name 'Jenkins Automation'"
+                        sh "git config --global user.email 'jenkins@construct.identitysoon.com'"
+                        sh "node --version"
+                        sh "npm --version"
+                        // authorise artifactory to resolve packages
+                        awsUtils.setNpmRegistry()
+                        sh "rm -rf test-output node_modules"
+                        sh "npm run npm:login"
+                        sh "npm ci"
+                    }
+                }
+            }
+        }
+
+        stage('Call Checkmarx') {
+            steps {
+                script {
+                    checkmarxScan.call([
+                        "PRODUCT_NAME": "SaaS Platform",
+                        "BRANCH": "master",
+                        "JIRA_ID": "PLTUI"
+                    ])
+                }
+            }
+        }
+
+        stage('Release') {
+            steps {
+                script {
+                    container('node') {
+                        withCredentials([string(credentialsId: 'githubAutomationToken', variable: 'GITHUB_PERSONAL_ACCESS_TOKEN')]) {
+                            withCloudBeesCreds([credentialsId: 'git-automation-ssh']) {
+                                // authorise artifactory to resolve packages
+                                awsUtils.setNpmRegistry()
+                                sh "git remote set-url origin git@github.com:acme/saas-npm-tools.git"
+                                sh "npm run release:ci --newVersion=-autoRelease --newVersionFilePath=${env.VERSION_FILE_PATH}"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    post {
+        success {
+          script {
+              def data = readFile "${env.VERSION_FILE_PATH}"
+              env.newVersion = data;
+          }
+
+            slackSend(
+                failOnError: true,
+                channel: "${env.RELEASE_SLACK_CHANNEL}",
+                message: "@acme-priv/saas-npm-tools@${newVersion} released as a part of Build <${env.BUILD_URL}|${env.BUILD_NUMBER}>.",
+                color: 'good'
+            )
+        }
+
+        failure {
+            slackSend(
+                failOnError: true,
+                channel: "${env.RELEASE_SLACK_CHANNEL}",
+                message: "@acme-priv/saas-npm-tools release pipeline for Build <${env.BUILD_URL}|${env.BUILD_NUMBER}> failed .",
+                color: 'danger'
+            )
+        }
+
+        aborted {
+            slackSend(
+                failOnError: true,
+                channel: "${env.RELEASE_SLACK_CHANNEL}",
+                message: "@acme-priv/saas-npm-tools release pipeline for Build <${env.BUILD_URL}|${env.BUILD_NUMBER}> aborted.",
+                color: 'danger'
+            )
+        }
+    }
+}

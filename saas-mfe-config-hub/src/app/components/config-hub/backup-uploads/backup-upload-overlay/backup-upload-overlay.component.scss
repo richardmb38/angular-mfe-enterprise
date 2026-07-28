@@ -1,0 +1,21 @@
+/*
+ * Copyright (C) 2024 Acme Technologies, Inc.  All rights reserved.
+ */
+
+.backup-upload-overlay__container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.backup-upload-overlay__action-button {
+	margin: 0 8px;
+
+	&:last-of-type {
+		margin-right: 0;
+	}
+
+	&:first-of-type {
+		margin-left: 0;
+	}
+}

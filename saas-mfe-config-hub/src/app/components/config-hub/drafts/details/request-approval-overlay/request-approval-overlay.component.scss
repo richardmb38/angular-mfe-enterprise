@@ -1,0 +1,28 @@
+/*
+ * Copyright (C) 2023 Acme Technologies, Inc.  All rights reserved.
+ */
+
+@import '@acme-priv/armada-angular/src/acme/theme/styles/variables';
+
+.submit-draft-for-approval-modal__message {
+	margin-bottom: 16px;
+}
+
+.submit-draft-for-approval__footer {
+	padding-top: 20px;
+	display: flex;
+	justify-content: flex-end;
+	gap: 12px;
+}
+
+.submit-draft-for-approval-modal__character-counter {
+	position: relative;
+	width: 100%;
+	margin-bottom: 30px;
+
+	span {
+		position: absolute;
+		right: 0;
+		top: -20px;
+	}
+}

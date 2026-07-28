@@ -1,0 +1,46 @@
+<div class="backup-details-grid__container" [slptLoadingMask]="loading">
+	<slpt-multi-select-bar
+		class="backup-details-grid__multi-select-bar"
+		[showBulkCheckbox]="false"
+		[totalItems]="searchQuery ? 0 : totalItems"
+	>
+		<div class="backup-details-grid__multi-select-bar-content">
+			<slpt-search-bar-input
+				[size]="'small'"
+				[textInput]="searchQuery"
+				[inputPlaceholder]="'CONFIG_HUB.SEARCH_BY_NAME'"
+				[debounceTime]="500"
+				(onInputChange)="handleSearchInputChange($event)"
+			>
+			</slpt-search-bar-input>
+		</div>
+	</slpt-multi-select-bar>
+	<slpt-composite-data-grid
+		class="backup-details-grid__data-grid"
+		#slptCompositeGrid
+		[options]="gridOptions"
+		[columnDefs]="columnDefs"
+		[rowData]="objectList"
+		[loadingMaskConfig]="{}"
+		[noDataModel]="noDataModel"
+		[disableClientSideSorting]="false"
+		[gridHeaderEnabled]="false"
+		[showPager]="!searchQuery"
+		[pageSize]="pageSize"
+		[totalItems]="totalItems"
+		[totalPages]="searchQuery ? 0 : totalPages"
+		[pageSizeOptions]="pageSizeOptions"
+		(onPageSizeChanged)="handlePageSizeChanged($event)"
+		[currentPage]="currentPage"
+		[totalPages]="totalPages"
+		(onPageChanged)="handlePageChanged($event)"
+		(gridReadyEvent)="onGridReady($event)"
+	>
+	</slpt-composite-data-grid>
+	<app-config-hub-backup-details-overlay
+		*ngIf="selectedObject"
+		[selectedObject]="selectedObject"
+		[objectName]="selectedObjectName"
+		(onClose)="handleOverlayClose()"
+	></app-config-hub-backup-details-overlay>
+</div>

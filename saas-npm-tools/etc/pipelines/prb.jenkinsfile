@@ -1,0 +1,79 @@
+/*
+ * Copyright (C) 2021 Acme Technologies, Inc.  All rights reserved.
+ */
+
+/*
+ * This pipeline is run as the Pull Request Bulider (PRB) which runs for every pull request
+ * to verify the test before merging.
+ */
+
+pipeline {
+	agent {
+		kubernetes {
+			  yaml """
+apiVersion: v1
+kind: Pod
+spec:
+  serviceAccountName: pod-build-container
+  securityContext:
+    fsGroup: 65534
+  containers:
+  - name: node
+    image: 406205545357.dkr.ecr.us-east-1.amazonaws.com/acme/node:20-latest
+    imagePullPolicy: IfNotPresent
+    command:
+     - cat
+    tty: true
+    resources:
+      requests:
+        memory: "1024Mi"
+        cpu: "500m"
+      limits: {}
+  tolerations:
+    - key: cb-core
+      operator: Equal
+      value: agent
+      effect: NoSchedule
+"""
+		}
+	}
+
+	stages {
+		stage('Dependencies') {
+			steps {
+				container('node') {
+					sh "node --version"
+					sh "npm --version"
+					sh "rm -rf test-output node_modules"
+					sh "npm ci"
+				}
+			}
+		}
+
+		stage('Linting') {
+			steps {
+				container('node') {
+					sh "npm run lint"
+				}
+			}
+		}
+
+		stage('Pull Request') {
+			steps {
+				withCredentials([string(credentialsId: 'githubAutomationToken', variable: 'GITHUB_PERSONAL_ACCESS_TOKEN')]) {
+					container('node') {
+						sh "npm run test:pull-request --pullRequest=${env.CHANGE_ID}"
+					}
+				}
+			}
+		}
+
+		stage('Success') {
+			steps {
+				// The success stage is what github will require in order to mark the PRB as successful. It
+				// should always remain the last stage.
+				echo "PRB completed successfully."
+			}
+		}
+	}
+}

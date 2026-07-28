@@ -1,0 +1,14 @@
+<div class="object-metadata-grid__container">
+	<slpt-composite-data-grid
+		#slptCompositeGrid
+		class="object-metadata-grid__data-grid"
+		[options]="gridOptions"
+		[columnDefs]="columnDefs"
+		[rowData]="appliedModificationMetadata"
+		[noDataModel]="noDataModel"
+		[gridHeaderEnabled]="false"
+		[showPager]="false"
+		(gridReadyEvent)="onGridReady($event)"
+	>
+	</slpt-composite-data-grid>
+</div>

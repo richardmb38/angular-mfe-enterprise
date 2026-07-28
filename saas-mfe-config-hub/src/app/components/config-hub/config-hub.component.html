@@ -1,0 +1,98 @@
+<slpt-full-page-wizard-template>
+	<slpt-full-width-header>
+		<div class="config-hub__header-title">
+			<h3 class="config-hub__header-title-text">
+				{{ 'CONFIG_HUB.ACME_CONFIGURATION_HUB' | slptTranslate }}
+			</h3>
+		</div>
+		<slpt-icon-button
+			class="config-hub__dismiss-button"
+			[icon]="'close'"
+			[iconType]="'light'"
+			(click)="handleDismiss()"
+		></slpt-icon-button>
+	</slpt-full-width-header>
+	<div
+		class="slpt-full-width-sub-header config-hub__header-tenant"
+		[style.backgroundColor]="brandingService.currentBrand?.navigationColor"
+	>
+		<div class="config-hub__header-tenant-text">
+			{{ 'CONFIG_HUB.TENANT_COLON' | slptTranslate }}
+			<span class="config-hub__header-tenant-name">
+				{{ currentTenant }} <span class="config-hub__current-tenant-indicator"></span>
+			</span>
+		</div>
+	</div>
+	<slpt-left-sidebar-template [hideSidebar]="false">
+		<div class="slpt-left-sidebar-template-sidebar config-hub__sidebar-container">
+			<slpt-list-group
+				*ngIf="isTenantConnectionsNavEnabled"
+				[border]="false"
+				[expanded]="true"
+				[icon]="'clock'"
+				[iconType]="'light'"
+				[loading]="tenantConnectionsLoading$ | async"
+				[selected]="selectedRoute === configHubChildRoutes.BACKUPS.route"
+			>
+				{{ 'CONFIG_HUB.BACKUPS' | slptTranslate }}
+				<div class="slpt-list-group-items">
+					<slpt-list-item
+						[border]="false"
+						[selected]="
+							selectedRoute === configHubChildRoutes.BACKUPS.route && (selectedTenant$ | async) === null
+						"
+						(click)="setSelectedTenant()"
+					>
+						{{ currentTenant }} <span class="config-hub__current-tenant-indicator"></span>
+					</slpt-list-item>
+					<slpt-list-item
+						*ngFor="let tenant of tenantConnections$ | async"
+						(onClick)="setSelectedTenant(tenant.sourceTenant)"
+						[border]="false"
+						[selected]="
+							(selectedTenant$ | async) === selectedRoute &&
+							(selectedTenant$ | async) === tenant.sourceTenant
+						"
+						>{{ tenant.sourceTenant }}</slpt-list-item
+					>
+				</div>
+			</slpt-list-group>
+			<ng-container *ngFor="let sidebarItem of configHubPageRoutes">
+				<slpt-list-item
+					*ngIf="!sidebarItem.children"
+					[border]="false"
+					[selected]="sidebarItem.selected"
+					[routerLink]="sidebarItem.route"
+					[icon]="sidebarItem.icon"
+					[iconType]="sidebarItem.iconType"
+					[iconFill]="sidebarItem.selected ? brandingService.currentBrand?.activeLinkColor : 'g4'"
+				>
+					{{ sidebarItem.label | slptTranslate }}
+				</slpt-list-item>
+				<slpt-list-group
+					*ngIf="sidebarItem.children && sidebarItem.children.length > 0"
+					[border]="false"
+					[expanded]="true"
+					[icon]="sidebarItem.icon"
+					[iconType]="sidebarItem.iconType"
+					[selected]="sidebarItem.selected"
+				>
+					{{ sidebarItem.label | slptTranslate }}
+					<div class="slpt-list-group-items">
+						<slpt-list-item
+							*ngFor="let listItem of sidebarItem.children"
+							[routerLink]="[sidebarItem.route, listItem.route]"
+							[border]="false"
+							[selected]="selectedRoute === listItem.route"
+						>
+							{{ listItem.label | slptTranslate }}
+						</slpt-list-item>
+					</div>
+				</slpt-list-group>
+			</ng-container>
+		</div>
+		<div class="slpt-left-sidebar-template-main config-hub__main-container">
+			<router-outlet></router-outlet>
+		</div>
+	</slpt-left-sidebar-template>
+</slpt-full-page-wizard-template>

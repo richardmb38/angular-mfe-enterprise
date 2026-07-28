@@ -1,0 +1,36 @@
+<div class="draft-details">
+	<div class="draft-details__header">
+		<h1 class="draft-details__title">
+			{{ 'CONFIG_HUB.DRAFT_OBJECT_TYPE_OBJECTS' | slptTranslate: { objectType: selectedObjectType$ | async } }}
+		</h1>
+		<div class="draft-details__subtitle" *ngIf="(isEditingEnabled$ | async) && isDraftStatusUpdatable">
+			{{ 'CONFIG_HUB.DESELECT_OBJECT_TYPES_TO_REMOVE_THEM' | slptTranslate }}
+			<span>{{ 'CONFIG_HUB.SELECT_EDIT_TO_REVIEW_OR_MODIFY_OBJECTS' | slptTranslate }}</span>
+		</div>
+	</div>
+	<slpt-tab-list class="draft-details__tab-list" [activeTabIndex]="selectedTabIndex$ | async">
+		<slpt-tab
+			*ngFor="let tabItem of tabItems$ | async; let tabIndex = index"
+			[attr.id]="tabItem.id"
+			[tabIndex]="tabIndex"
+			[disabled]="tabItem.disabled"
+			(onTabClick)="tabItem.onTabClick()"
+		>
+			{{ tabItem.title | slptTranslate }} {{ tabItem.count }}
+		</slpt-tab>
+	</slpt-tab-list>
+	<div class="draft-details__grid-container" [slptLoadingMask]="loading$ | async">
+		<app-config-hub-object-details-grid
+			[loading]="loading$ | async"
+			[objectDetails]="objectDetails$ | async"
+			[selectedObjectType]="selectedObjectType$ | async"
+			[selectedOperationType]="selectedOperationType$ | async"
+			[selectedObjectId]="selectedObjectId$ | async"
+		></app-config-hub-object-details-grid>
+	</div>
+</div>
+<app-config-hub-object-overlay
+	[selectedObjectType]="selectedObjectType$ | async"
+	[selectedOperationType]="selectedOperationType$ | async"
+	[selectedObjectId]="selectedObjectId$ | async"
+></app-config-hub-object-overlay>

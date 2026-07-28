@@ -1,0 +1,12 @@
+<slpt-data-grid
+	#slptGrid
+	[options]="gridOptions"
+	[noDataModel]="noDataModel"
+	[disableClientSideSorting]="false"
+	[columnDefs]="columnDefs"
+	[rowData]="summaryRowData$ | async"
+	[loadingModel]="loadingModel"
+	(gridReadyEvent)="onGridReady($event)"
+	(selectionChangedEvent)="handleSelectionChange($event)"
+>
+</slpt-data-grid>

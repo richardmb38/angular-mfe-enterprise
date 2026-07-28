@@ -1,0 +1,11 @@
+<div class="toggle-cell__container">
+	<slpt-toggle
+		[id]="'toggle-' + params?.data?.objectType"
+		[on]="isEnabled"
+		[disabled]="!editable"
+		onLabel=""
+		offLabel=""
+		(onChange)="handleToggleChange($event)"
+	>
+	</slpt-toggle>
+</div>

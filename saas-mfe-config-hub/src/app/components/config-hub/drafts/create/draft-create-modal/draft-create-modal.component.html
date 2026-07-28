@@ -1,0 +1,38 @@
+<slpt-modal
+	[title]="'CONFIG_HUB.PREPARE_DRAFT_FOR_DEPLOYMENT'"
+	[width]="'sm'"
+	[isOpen]="true"
+	[backdrop]="'static'"
+	[verticallyCentered]="true"
+	(onDismiss)="handleDismiss()"
+>
+	<div
+		class="create-draft-modal__message"
+		[innerHtml]="'CONFIG_HUB.PREPARE_DRAFT_FOR_DEPLOYMENT_DESCRIPTION' | slptTranslateSafeHtml"
+	></div>
+	<form class="create-draft-modal__form" [formGroup]="createDraftForm" slptAutoFocus autofocusedElement="#draft-name">
+		<slpt-text-field
+			[group]="createDraftForm"
+			[key]="'draftName'"
+			[label]="'CONFIG_HUB.DRAFT_NAME'"
+			[maxlength]="DRAFT_NAME_MAX_LENGTH"
+			[placeholder]="'CONFIG_HUB.MY_DRAFT_1'"
+			[required]="true"
+			[resetEvent]="onDismiss"
+			[slptId]="'draft-name'"
+			[submitAttempted]="submitAttempted"
+			(keyup.enter)="handleCreateDraft()"
+		>
+		</slpt-text-field>
+	</form>
+	<div class="create-draft-modal__footer">
+		<slpt-button [label]="'CONFIG_HUB.CANCEL'" [type]="'secondary'" (click)="handleDismiss()"></slpt-button>
+		<slpt-button
+			[label]="'CONFIG_HUB.CREATE_DRAFT'"
+			[type]="'primary'"
+			[disabled]="createDraftForm && (!createDraftForm.dirty || createDraftForm.invalid)"
+			(click)="handleCreateDraft()"
+		></slpt-button>
+	</div>
+</slpt-modal>
+<slpt-backdrop [transparent]="false" [zIndex]="backdropZIndex"></slpt-backdrop>

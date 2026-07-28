@@ -1,0 +1,9 @@
+node_modules/*
+dist/*
+docs/*
+build/doc-theme/*
+test-output/*
+lib/vendor/*
+coverage/*
+.eslintrc.js
+jest/*

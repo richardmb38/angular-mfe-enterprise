@@ -1,0 +1,21 @@
+<div class="config-hub-drafts-list" [slptLoadingMask]="loading">
+	<div class="config-hub-drafts-list__header">
+		<h1 class="config-hub-drafts-list__header-title">
+			{{ 'CONFIG_HUB.CONFIGURATION_DRAFTS' | slptTranslate }}
+		</h1>
+		<span class="config-hub-drafts-list__header-subtitle">
+			{{ 'CONFIG_HUB.CREATE_DRAFTS_FROM_YOUR_CONFIGURATION_BACKUPS' | slptTranslate }}
+		</span>
+	</div>
+	<slpt-data-grid
+		#slptGrid
+		[options]="gridOptions"
+		[noDataModel]="noDataModel"
+		[disableClientSideSorting]="false"
+		[columnDefs]="columnDefs"
+		[rowData]="rows"
+		[loadingModel]="loadingModel"
+		(gridReadyEvent)="onGridReady($event)"
+	>
+	</slpt-data-grid>
+</div>

@@ -1,0 +1,31 @@
+/*
+ * Copyright (C) 2023 Acme Technologies, Inc.  All rights reserved.
+ */
+
+@import '@acme-priv/armada-angular/src/acme/theme/styles/variables';
+
+.draft-details {
+	background-color: $slpt-g1;
+	padding: 0 10%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.draft-details__header {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 22px;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.draft-details__title {
+	font-size: 24px;
+	margin-bottom: 0;
+	line-height: 1;
+}
+
+.draft-details__grid-container {
+	height: 100%;
+}

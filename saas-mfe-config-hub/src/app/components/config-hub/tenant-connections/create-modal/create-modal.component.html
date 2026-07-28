@@ -1,0 +1,79 @@
+<slpt-modal
+	[title]="'CONFIG_HUB.CREATE_TENANT_CONNECTION'"
+	[width]="'sm'"
+	[isOpen]="true"
+	[backdrop]="'static'"
+	(onDismiss)="handleDismiss()"
+>
+	<div class="create-tenant-connections-modal_content" [slptLoadingMask]="loading">
+		<div class="create-tenant-connections-modal__message">
+			{{ 'CONFIG_HUB.ADD_AUTHENTICATION_DETAILS' | slptTranslate }}
+		</div>
+		<form
+			class="create-tenant-connections-modal__form"
+			[formGroup]="createTenantConnectionForm"
+			slptAutoFocus
+			autofocusedElement="#tenant-connections-name"
+		>
+			<slpt-icon
+				[fill]="'g4'"
+				[name]="'questionCircle'"
+				[type]="'solid'"
+				[width]="'15px'"
+				[height]="'15px'"
+				slptTooltip
+				[tooltipContent]="'CONFIG_HUB.HOW_TO_FIND_TENANT_NAME_INSTRUCTIONS'"
+				[tooltipColor]="'g4'"
+				class="create-tenant-connections-modal__info-button"
+			></slpt-icon>
+			<slpt-text-field
+				[group]="createTenantConnectionForm"
+				[key]="'tenantSource'"
+				[label]="'CONFIG_HUB.TENANT_NAME'"
+				[maxlength]="TENANT_CONNECTION_JOB_SOURCE_MAX_LENGTH"
+				[resetEvent]="onDismiss"
+				[slptId]="'tenant-connections-tenant_source'"
+				[required]="true"
+				[displayValidationError]="true"
+			>
+			</slpt-text-field>
+			<slpt-text-field
+				[group]="createTenantConnectionForm"
+				[key]="'tenantClientId'"
+				[label]="'CONFIG_HUB.CLIENT_ID'"
+				[maxlength]="TENANT_CONNECTION_JOB_CLIENT_ID_MAX_LENGTH"
+				[resetEvent]="onDismiss"
+				[slptId]="'tenant-connections-client_id'"
+				[required]="true"
+				[displayValidationError]="true"
+			>
+			</slpt-text-field>
+			<slpt-secret-field
+				[group]="createTenantConnectionForm"
+				[key]="'tenantSecret'"
+				[label]="'CONFIG_HUB.SECRET'"
+				[maxlength]="TENANT_CONNECTION_JOB_SECRET_MAX_LENGTH"
+				[resetEvent]="onDismiss"
+				[slptId]="'tenant-connections-secret'"
+				[required]="true"
+				[displayValidationError]="true"
+			>
+			</slpt-secret-field>
+		</form>
+		<div class="create-tenant-connections-modal__footer">
+			<slpt-button [label]="'CONFIG_HUB.CANCEL'" [type]="'secondary'" (click)="handleDismiss()"></slpt-button>
+			<slpt-button
+				[label]="'CONFIG_HUB.CREATE_NEW'"
+				[type]="'primary'"
+				[disabled]="
+					createTenantConnectionForm &&
+					(!createTenantConnectionForm.dirty ||
+						createTenantConnectionForm.invalid ||
+						createTenantConnectionForm.pending)
+				"
+				(click)="handleCreateTenantConnection()"
+			></slpt-button>
+		</div>
+	</div>
+</slpt-modal>
+<slpt-backdrop [transparent]="false" [zIndex]="backdropZIndex"></slpt-backdrop>

@@ -1,0 +1,88 @@
+<div class="config-hub-cloud-storage" [slptLoadingMask]="loading">
+	<div class="config-hub-cloud-storage__header">
+		<div class="config-hub-cloud-storage__header-text">
+			<h1 class="config-hub-cloud-storage__header-title">
+				{{ 'CONFIG_HUB.CLOUD_STORAGE' | slptTranslate }}
+			</h1>
+			<span class="config-hub-cloud-storage-subtitle">
+				{{ 'CONFIG_HUB.CLOUD_STORAGE_DESCRIPTION' | slptTranslate }}
+			</span>
+		</div>
+	</div>
+	<div class="config-hub-cloud-storage__container">
+		<div class="config-hub-cloud-storage__sub-header">
+			<h1 class="config-hub-cloud-storage__header-title">{{ 'CONFIG_HUB.CONNECT_TO_AWS' | slptTranslate }}</h1>
+			<span class="config-hub-cloud-storage-subtitle">{{
+				'CONFIG_HUB.CLOUD_STORAGE_INSTRUCTIONS' | slptTranslate
+			}}</span>
+		</div>
+		<form class="config-hub-cloud-storage__form" [formGroup]="cloudStorageForm" slptAutoFocus>
+			<slpt-secret-field
+				class="config-hub-cloud-storage__bucket-field"
+				[group]="cloudStorageForm"
+				[key]="'bucketName'"
+				[label]="'CONFIG_HUB.S3_BUCKET_NAME'"
+				[placeholder]="'CONFIG_HUB.PLACEHOLDER_TEXT'"
+				[slptId]="'bucket-name'"
+				[required]="true"
+			></slpt-secret-field>
+		</form>
+
+		<div class="config-hub-cloud-storage__footer">
+			<slpt-button
+				id="config-hub-cloud-storage-test-button"
+				class="config-hub-cloud-storage__test-button"
+				[label]="'CONFIG_HUB.TEST_CONNECTION'"
+				[type]="'primary'"
+				[direction]="'reverse'"
+				(click)="handleSaveCloudStorage(true)"
+				[disabled]="!validBucketName(false)"
+			>
+			</slpt-button>
+			<slpt-button
+				id="config-hub-cloud-storage-save-button"
+				class="config-hub-cloud-storage__save-button"
+				[label]="'CONFIG_HUB.SAVE'"
+				[type]="'primary'"
+				[direction]="'reverse'"
+				(click)="handleSaveCloudStorage(false)"
+				[disabled]="!validBucketName(true)"
+			>
+			</slpt-button>
+		</div>
+	</div>
+	<div class="config-hub-cloud-sync_files_container">
+		<div class="config-hub-sync_files_container__sub-header">
+			<h1 class="config-hub-sync_files_container__header-title">{{ 'CONFIG_HUB.SYNC_FILES' | slptTranslate }}</h1>
+			<span class="config-hub-sync_files_container-subtitle">{{
+				'CONFIG_HUB.SYNC_FILES_INSTRUCTIONS' | slptTranslate
+			}}</span>
+
+			<div class="config-hub-cloud-sync_files_toggle_container">
+				<slpt-toggle
+					[onLabel]="'CONFIG_HUB.ENABLED'"
+					[offLabel]="'CONFIG_HUB.DISABLED'"
+					[(on)]="isEnabled"
+					(onChange)="handleToggleChange($event)"
+					[disabled]="!validBucketName(false)"
+				></slpt-toggle>
+			</div>
+
+			<span class="config-hub-sync_files_container-subtitle-timestamp">{{ returnFormattedDate() }} </span>
+
+			<div class="config-hub-sync_files_container__footer">
+				<slpt-badge [color]="returnBadgeLastSyncJobStatusColor()">{{ returnLastSyncJobStatus() }}</slpt-badge>
+				<slpt-button
+					id="config-hub-sync_files-sync-button"
+					class="config-hub-sync_files__sync-button"
+					[label]="'CONFIG_HUB.SYNC_FILES'"
+					[type]="'primary'"
+					[direction]="'reverse'"
+					(click)="syncFiles()"
+					[disabled]="!isEnabled || !infoWasSaved"
+				>
+				</slpt-button>
+			</div>
+		</div>
+	</div>
+</div>

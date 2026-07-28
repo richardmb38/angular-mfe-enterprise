@@ -1,0 +1,35 @@
+{/* -  Copyright (C) 2023 Acme Technologies, Inc.  All rights reserved. */}
+
+import { ArgTypes, Meta, Source, Story } from '@storybook/blocks';
+
+import { ConfigHubBackupListComponent } from './backup-list.component';
+import * as BackupListStories from './backup-list.stories';
+
+<Meta of={BackupListStories} />
+
+<mdx-title
+title="Configuration Hub Backup List"
+githubLink="https://github.com/acme/saas-ui-config-hub/tree/master/src/app/components/config-hub/backups"
+
+> </mdx-title>
+
+## Introduction
+
+Displays a list of configuration backups for a user to view and manage.
+
+## Example
+
+<Story of={BackupListStories.Default} height={550} />
+
+<Source
+	language="html"
+	code={`
+<app-config-hub-backup-list></app-config-hub-backup-list>
+`}
+/>
+
+## Interface
+
+The following attributes/methods/events are available on the component.
+
+<ArgTypes of={ConfigHubBackupListComponent} />

@@ -1,0 +1,76 @@
+<slpt-overlay (onDismiss)="handleDismiss()" *ngIf="isOverlayOpen && selectedBackup">
+	<slpt-overlay-content class="slpt-overlay-content--width-4">
+		<slpt-overlay-header>
+			<h3
+				class="summary-overlay__header-title"
+				slptTruncatedTextHover
+				[tooltipContent]="{ untranslated: selectedBackup?.name }"
+				[tooltipAlignment]="'bottom-left'"
+			>
+				{{ selectedBackup?.name }}
+			</h3>
+			<span
+				[innerHtml]="
+					'CONFIG_HUB.TOTAL_OBJECTS'
+						| slptTranslateSafeHtml: { totalObjects: backupSummary?.totalObjectCount || 0 }
+				"
+			></span>
+		</slpt-overlay-header>
+		<slpt-overlay-body>
+			<slpt-overlay-body-column
+				class="slpt-overlay-body-column--no-horizontal-padding slpt-overlay-body-column--full-height slpt-overlay-body-column--full-height-mobile"
+			>
+				<div class="summary-overlay__grid-container" [slptLoadingMask]="loading">
+					<app-config-hub-backup-summary-grid
+						*ngIf="backupSummary"
+						[backupSummary]="backupSummary"
+					></app-config-hub-backup-summary-grid>
+				</div>
+			</slpt-overlay-body-column>
+		</slpt-overlay-body>
+		<slpt-overlay-footer class="slpt-overlay-footer--wrap-sections-mobile">
+			<slpt-overlay-footer-section
+				*ngIf="disablePrepareForDraftButton"
+				class="summary-overlay__span-disabled-button"
+			>
+				<span
+					*ngIf="disablePrepareForDraftButton"
+					id="slpt-config-hub-overlay-span-disabled-button"
+					[innerHtml]="
+						'CONFIG_HUB.BACKUP_OBJECTS_WARNING'
+							| slptTranslateSafeHtml: { totalObjectCount: backupSummary?.totalObjectCount || 0 }
+					"
+				>
+				</span>
+			</slpt-overlay-footer-section>
+			<slpt-overlay-footer-section class="summary-overlay__control-buttons">
+				<div class="slpt-config-hub-overlay-view-details__container">
+					<slpt-button
+						*ngIf="isBackupDetailsEnabled && !selectedTenant"
+						id="slpt-config-hub-overlay-view-details-button"
+						[label]="'CONFIG_HUB.VIEW_DETAILS'"
+						(click)="handleViewDetails()"
+					>
+					</slpt-button>
+				</div>
+				<slpt-button
+					id="slpt-config-hub-overlay-cancel-button"
+					class="summary-overlay__action-button"
+					[label]="selectedTenant ? 'CONFIG_HUB.CLOSE' : 'CONFIG_HUB.CANCEL'"
+					(click)="handleDismiss()"
+				>
+				</slpt-button>
+				<slpt-button
+					id="slpt-config-hub-overlay-compare-button"
+					class="summary-overlay__action-button"
+					*ngIf="canUserCreateDraft$ | async"
+					[type]="'primary'"
+					[label]="'CONFIG_HUB.PREPARE_DRAFT_FOR_DEPLOYMENT'"
+					(click)="handlePrepareDraftClick()"
+					[disabled]="disablePrepareForDraftButton"
+				>
+				</slpt-button>
+			</slpt-overlay-footer-section>
+		</slpt-overlay-footer>
+	</slpt-overlay-content>
+</slpt-overlay>

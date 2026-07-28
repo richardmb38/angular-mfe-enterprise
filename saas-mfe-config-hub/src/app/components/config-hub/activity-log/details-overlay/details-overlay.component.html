@@ -1,0 +1,119 @@
+<slpt-overlay (onDismiss)="handleDismiss()">
+	<slpt-overlay-content class="slpt-overlay-content--width-3">
+		<slpt-overlay-header>
+			<h3 class="details-overlay__header-title">
+				{{ 'CONFIG_HUB.DEPLOY' | slptTranslate }}:&nbsp;
+				<span class="details-overlay__text-light">{{ selectedDetails?.draftName }}</span>
+			</h3>
+			<span>{{ 'CONFIG_HUB.REVIEW_THE_DEPLOYMENT_STATUS' | slptTranslate }}</span>
+		</slpt-overlay-header>
+		<slpt-tab-list *ngIf="tabs.length > 1" [activeTabIndex]="currentTab">
+			<ng-container *ngFor="let tab of tabs; let tabIndex = index">
+				<slpt-tab (onTabClick)="handleTabClick(tabIndex)" [tabIndex]="tabIndex">
+					{{ tab.title | slptTranslate }}
+				</slpt-tab>
+			</ng-container>
+		</slpt-tab-list>
+		<slpt-overlay-body class="slpt-overlay-body--no-top-bottom-padding">
+			<slpt-overlay-body-column class="slpt-overlay-body-column--no-horizontal-padding">
+				<div [ngSwitch]="currentTab" class="details-overlay__switch-content">
+					<ng-container *ngSwitchCase="getTabIndex(tabIndexes.DEPLOYMENT_LOG)">
+						<div
+							class="details-overlay__switch-case details-overlay__download-results"
+							[slptLoadingMask]="!selectedDetails"
+						>
+							<div class="details-overlay__info-box">
+								<div *ngIf="isDeployComplete" class="details-overlay__info-box-header">
+									<slpt-icon
+										[name]="'checkCircle'"
+										[fill]="'s2'"
+										[width]="'24px'"
+										[height]="'24px'"
+										[type]="'solid'"
+									></slpt-icon>
+									{{ 'CONFIG_HUB.DEPLOYMENT_SUCCESSFUL' | slptTranslate }}
+								</div>
+
+								<div *ngIf="isDeployPartiallyComplete" class="details-overlay__info-box-header">
+									<slpt-icon
+										[name]="'warning'"
+										[fill]="'s3'"
+										[width]="'24px'"
+										[height]="'24px'"
+										[type]="'solid'"
+									></slpt-icon>
+									{{ 'CONFIG_HUB.DEPLOYMENT_PARTIALLY_COMPLETED' | slptTranslate }}
+								</div>
+								<div
+									*ngIf="!isDeployComplete && !isDeployPartiallyComplete"
+									class="details-overlay__info-box-header"
+								>
+									<slpt-icon
+										[name]="'warning'"
+										[fill]="'s4'"
+										[width]="'24px'"
+										[height]="'24px'"
+										[type]="'solid'"
+									></slpt-icon>
+									{{ 'CONFIG_HUB.DEPLOYMENT_FAILED' | slptTranslate }}
+								</div>
+								<div class="details-overlay__info-box-line-item">
+									<strong>{{ 'CONFIG_HUB.STARTED_BY' | slptTranslate }}:</strong>
+									{{ selectedDetails?.requesterName }}
+								</div>
+								<div class="details-overlay__info-box-line-item">
+									<strong>{{ 'CONFIG_HUB.COMPLETED' | slptTranslate }}:</strong>
+									{{ selectedDetails?.completed | date: 'medium' }}
+								</div>
+							</div>
+							<slpt-textarea
+								[key]="OBJECT_JSON_FORM_KEY"
+								[slptId]="OBJECT_JSON_FORM_KEY"
+								[group]="objectDetailsForm"
+								[label]="'CONFIG_HUB.DEPLOYMENT_RESULTS_COLON'"
+								[showLineNumbers]="true"
+								[rows]="'auto'"
+								[minRows]="8"
+								[maxRows]="14"
+								[showCopyButton]="true"
+								[readOnly]="true"
+							>
+							</slpt-textarea>
+						</div>
+					</ng-container>
+					<ng-container *ngSwitchCase="getTabIndex(tabIndexes.DEPLOYMENT_DRAFT)">
+						<div
+							[slptLoadingMask]="loadingDraft"
+							class="details-overlay__switch-case details-overlay__download-results"
+						>
+							<slpt-textarea
+								[key]="DRAFT_OBJECT_JSON_FORM_KEY"
+								[slptId]="DRAFT_OBJECT_JSON_FORM_KEY"
+								[group]="objectDetailsForm"
+								[label]="'CONFIG_HUB.DRAFT_NAME'"
+								[showLineNumbers]="true"
+								[rows]="'auto'"
+								[minRows]="8"
+								[maxRows]="16"
+								[showCopyButton]="true"
+								[readOnly]="true"
+							>
+							</slpt-textarea>
+						</div>
+					</ng-container>
+				</div>
+			</slpt-overlay-body-column>
+		</slpt-overlay-body>
+		<slpt-overlay-footer class="slpt-overlay-footer--wrap-sections-mobile">
+			<slpt-overlay-footer-section class="details-overlay__control-buttons">
+				<slpt-button
+					class="details-overlay__action-button"
+					[type]="'primary'"
+					[label]="'CONFIG_HUB.CLOSE'"
+					(click)="handleDismiss()"
+				>
+				</slpt-button>
+			</slpt-overlay-footer-section>
+		</slpt-overlay-footer>
+	</slpt-overlay-content>
+</slpt-overlay>

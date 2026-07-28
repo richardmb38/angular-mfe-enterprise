@@ -1,0 +1,14 @@
+{
+	// The project's repository
+	"repo": {
+		"url": "https://github.com/acme/saas-mfe-config-hub.git",
+		"prodBranches": ["main"]
+	},
+
+	// Source files will be combined into full language packages.
+	"languagePackageSources": [
+		"src/messages/*.json",
+		"node_modules/@acme-priv/ui-common/src/acme/messages/IDENTITYNOW*.json",
+		"node_modules/@acme-priv/armada-angular/src/acme/messages/ACME*.json"
+	]
+}

@@ -1,0 +1,177 @@
+<slpt-overlay (onDismiss)="handleDismiss()" *ngIf="selectedObjectId">
+	<slpt-overlay-content
+		[ngClass]="isOperationChanged ? 'slpt-overlay-content--width-6' : 'slpt-overlay-content--width-4'"
+	>
+		<slpt-overlay-header>
+			<h3 class="object-overlay__header-title">{{ objectOperationTitle$ | async | slptTranslate }}:</h3>
+			<h4 class="object-overlay__header-details">
+				{{ (objectDetails$ | async)?.objectType }}<span> - {{ (objectDetails$ | async)?.objectName }}</span>
+			</h4>
+			<p><strong>ID:</strong> {{ (objectDetails$ | async)?.objectId }}</p>
+			<span *ngIf="(isEditingEnabled$ | async) && isDraftStatusUpdatable">
+				{{ 'CONFIG_HUB.EDIT_THE_OBJECT_DEFINITION_AS_REQUIRED' | slptTranslate }}
+			</span>
+		</slpt-overlay-header>
+		<slpt-overlay-body class="slpt-overlay-body--no-top-bottom-padding object-overlay__white-background">
+			<slpt-overlay-body-column
+				class="slpt-overlay-body-column--no-horizontal-padding object-overlay__white-background slpt-overlay-body-column--width-1 object-overlay__changelog-column"
+			>
+				<slpt-tab-list *ngIf="objectOverlayTabs.length > 1" [activeTabIndex]="currentObjectOverlayTab">
+					<ng-container *ngFor="let tab of objectOverlayTabs; let tabIndex = index">
+						<slpt-tab
+							(onTabClick)="handleTabClick(tabIndex)"
+							[tabIndex]="tabIndex"
+							*ngIf="
+								tab.index === objectOverlayTabIndexes.ISSUES ? (objectDetails$ | async).hasErrors : true
+							"
+						>
+							<slpt-icon
+								*ngIf="tab.withIcon"
+								[name]="'warning'"
+								[fill]="'s4'"
+								[width]="'20px'"
+								[height]="'20px'"
+								[type]="'solid'"
+								slptTooltip
+								[tooltipContent]="'CONFIG_HUB.REFERENCE_ISSUES'"
+								[tooltipAlignment]="Alignment.TopCenter"
+							></slpt-icon>
+							&nbsp; {{ tab.title | slptTranslate }}
+						</slpt-tab>
+					</ng-container>
+				</slpt-tab-list>
+				<div [ngSwitch]="currentObjectOverlayTab" class="object-overlay__switch-content">
+					<ng-container *ngSwitchCase="getTabIndex(objectOverlayTabIndexes.CHANGELOG)">
+						<div
+							class="object-overlay__change_list"
+							*ngIf="isOperationChanged && isJsonChangelogFlagEnabled"
+							[slptLoadingMask]="isOperationChanged && (liveObjectJson$ | async) === undefined"
+						>
+							<app-config-hub-object-changelog-grid
+								[objectChangelog]="jsonDiffList"
+							></app-config-hub-object-changelog-grid>
+						</div>
+					</ng-container>
+					<ng-container *ngSwitchCase="getTabIndex(objectOverlayTabIndexes.JSON)">
+						<div class="object-overlay__switch-case">
+							<div
+								*ngIf="isOperationChanged"
+								[slptLoadingMask]="isOperationChanged && (liveObjectJson$ | async) === undefined"
+								class="object-overlay__live-object-textarea-container"
+							>
+								<slpt-textarea
+									[group]="objectDetailsForm"
+									[key]="LIVE_OBJECT_JSON_FORM_KEY"
+									[label]="'CONFIG_HUB.LIVE_OBJECT_READ_ONLY'"
+									[slptId]="LIVE_OBJECT_JSON_FORM_KEY"
+									[showLineNumbers]="true"
+									[rows]="50"
+									[showCopyButton]="true"
+									[readOnly]="true"
+								>
+								</slpt-textarea>
+							</div>
+							<div>
+								<slpt-textarea
+									[group]="objectDetailsForm"
+									[key]="DRAFT_OBJECT_JSON_FORM_KEY"
+									[value]="localDraftJson"
+									[label]="'CONFIG_HUB.DRAFT_OBJECT'"
+									[slptId]="DRAFT_OBJECT_JSON_FORM_KEY"
+									[showLineNumbers]="true"
+									[rows]="50"
+									[showCopyButton]="true"
+									[submitAttempted]="submitAttempted"
+									[readOnly]="
+										(isEditingEnabled$ | async) === false ||
+										(isObjectWithJwsSignature$ | async) ||
+										!isDraftStatusUpdatable
+									"
+								>
+								</slpt-textarea>
+							</div>
+						</div>
+					</ng-container>
+					<ng-container *ngSwitchCase="getTabIndex(objectOverlayTabIndexes.EDIT)">
+						<div
+							*ngIf="isJsonDiffViewFlagEnabled && isOperationChanged"
+							class="object-overlay__switch-case"
+							[slptLoadingMask]="isOperationChanged && (liveObjectJson$ | async) === undefined"
+						>
+							<div class="object-overlay__diff-view">
+								<strong class="object-overlay__diff-view-title">{{
+									'CONFIG_HUB.CHANGES_IN_OBJECT' | slptTranslate
+								}}</strong>
+								<div class="object-overlay__diff-view-container">
+									<slpt-diff-view
+										[baseText]="liveObjectJson$ | async"
+										[targetText]="localDraftJson"
+										[height]="diffViewHeight + 'px'"
+									></slpt-diff-view>
+								</div>
+							</div>
+							<div class="object-overlay__draft-object-textarea-container">
+								<slpt-textarea
+									#draftTextArea
+									[group]="objectDetailsForm"
+									[key]="DIFF_OBJECT_JSON_FORM_KEY"
+									[value]="localDraftJson"
+									[label]="'CONFIG_HUB.DRAFT_OBJECT'"
+									[slptId]="DIFF_OBJECT_JSON_FORM_KEY"
+									[showLineNumbers]="false"
+									[rows]="50"
+									[showCopyButton]="true"
+									[submitAttempted]="submitAttempted"
+									[readOnly]="
+										(isEditingEnabled$ | async) === false ||
+										(isObjectWithJwsSignature$ | async) ||
+										!isDraftStatusUpdatable
+									"
+								></slpt-textarea>
+							</div>
+						</div>
+					</ng-container>
+					<ng-container *ngSwitchCase="getTabIndex(objectOverlayTabIndexes.RULES)">
+						<app-config-hub-object-metadata-grid
+							[appliedModificationMetadata]="appliedModificationMetadata"
+						></app-config-hub-object-metadata-grid>
+					</ng-container>
+					<ng-container *ngSwitchCase="getTabIndex(objectOverlayTabIndexes.ISSUES)">
+						<div *ngIf="(objectDetails$ | async).hasErrors" class="object-overlay__error-info-wrapper">
+							<div class="object-overlay__error-info-header">
+								<div>{{ 'CONFIG_HUB.ERROR_MESSAGE' | slptTranslate }}</div>
+							</div>
+							<div class="object-overlay__error-info-data" *ngFor="let error of errorsDetail">
+								<div>{{ error.text }}</div>
+							</div>
+						</div>
+					</ng-container>
+				</div>
+			</slpt-overlay-body-column>
+		</slpt-overlay-body>
+		<slpt-overlay-footer class="slpt-overlay-footer--wrap-sections-mobile">
+			<slpt-overlay-footer-section class="object-overlay__control-buttons">
+				<slpt-button
+					class="object-overlay__action-button"
+					[label]="(isEditingEnabled$ | async) ? 'CONFIG_HUB.CANCEL' : 'CONFIG_HUB.CLOSE'"
+					(click)="handleDismiss()"
+				>
+				</slpt-button>
+				<slpt-button
+					class="object-overlay__action-button"
+					[type]="'primary'"
+					[label]="'CONFIG_HUB.SAVE_CHANGES'"
+					[disabled]="objectDetailsForm.pristine"
+					(click)="handleSave()"
+					*ngIf="
+						(isEditingEnabled$ | async) &&
+						(canUserEditDraft$ | async) &&
+						(isObjectWithJwsSignature$ | async) === false &&
+						isDraftStatusUpdatable
+					"
+				>
+				</slpt-button>
+			</slpt-overlay-footer-section>
+		</slpt-overlay-footer>
+	</slpt-overlay-content>
+</slpt-overlay>

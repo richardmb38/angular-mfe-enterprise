@@ -1,0 +1,136 @@
+/*
+ * Copyright (C) 2023 Acme Technologies, Inc.  All rights reserved.
+ */
+
+@import '@acme-priv/armada-angular/src/acme/theme/styles/variables';
+
+// NG-DEEP: Prevent main content overflow and enable sidebar scrolling
+// stylelint-disable-next-line selector-pseudo-element-no-unknown
+::ng-deep {
+	slpt-left-sidebar-template {
+		height: calc(100% - 152px) !important;
+	}
+
+	.slpt-left-sidebar-template__main {
+		height: 100% !important;
+	}
+
+	.slpt-left-sidebar-template__sidebar {
+		overflow-y: scroll !important;
+	}
+}
+
+.backup-details__main-container {
+	padding: 36px 48px;
+	height: 100%;
+	background-color: $slpt-g1;
+	display: flex;
+	flex-direction: column;
+
+	.ag-header {
+		z-index: 1;
+	}
+}
+
+.backup-details__header-title {
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+.backup-details__header-title-text {
+	color: $slpt-g4;
+	margin-bottom: 0;
+}
+
+.backup-details__text-light {
+	font-weight: normal;
+}
+
+.backup-details__object-button-container {
+	margin-right: 56px;
+	display: flex;
+	align-items: center;
+
+	slpt-button {
+		padding: 0 8px;
+	}
+}
+
+.backup-details__dismiss-button {
+	display: flex;
+	align-items: center;
+	margin-right: 16px;
+}
+
+.backup-details__sub-header {
+	display: flex;
+	align-items: center;
+	padding: 0 16px;
+	height: 64px;
+}
+
+.backup-details__sub-header-text {
+	color: $slpt-w1;
+	font-weight: 700;
+	font-size: 24px;
+}
+
+.backup-details__header-subtitle {
+	text-align: justify;
+}
+
+.backup-details__object-type-header {
+	margin-bottom: 22px;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 20px;
+}
+
+.backup-details__object-type-title {
+	font-size: 24px;
+	line-height: 1;
+	margin-bottom: 5px;
+}
+
+.backup-details__card-container {
+	margin: 0 auto;
+}
+
+.backup-details__card {
+	padding: 16px 96px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.backup-details__card-title {
+	display: flex;
+	align-items: center;
+	padding-bottom: 16px;
+}
+
+.backup-details__card-content {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.backup-details__grid-container {
+	height: 100%;
+}
+
+.backup-details__back_button {
+	width: 100%;
+
+	// NG-DEEP: Prevent main content overflow and enable sidebar scrolling
+	// stylelint-disable-next-line selector-pseudo-element-no-unknown
+	::ng-deep {
+		.slpt-btn {
+			justify-content: left;
+			padding-left: 30px;
+		}
+	}
+}

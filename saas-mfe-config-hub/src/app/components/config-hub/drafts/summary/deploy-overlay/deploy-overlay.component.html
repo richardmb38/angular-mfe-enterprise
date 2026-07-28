@@ -1,0 +1,234 @@
+<slpt-overlay (onDismiss)="handleDismiss()" *ngIf="isOverlayOpen$ | async">
+	<slpt-overlay-content class="slpt-overlay-content--width-3">
+		<slpt-overlay-header>
+			<h3 class="deploy-overlay__header-title">
+				{{ 'CONFIG_HUB.DEPLOY_DRAFT' | slptTranslate }}:&nbsp;
+				<span class="drafts__text-light"
+					>{{ draftName$ | async }} {{ 'CONFIG_HUB.DRAFT' | slptTranslate }}</span
+				>
+			</h3>
+			<span *ngIf="isDeployInit$ | async">{{
+				'CONFIG_HUB.DEPLOYING_THIS_DRAFT_WILL_UPDATE_CONFIGURATIONS' | slptTranslate
+			}}</span>
+			<span *ngIf="isDeployInProgress$ | async">{{
+				'CONFIG_HUB.DEPLOYMENT_IN_PROGRESS_ELLIPSIS' | slptTranslate
+			}}</span>
+			<span *ngIf="isDeployComplete$ | async">{{
+				'CONFIG_HUB.REVIEW_THE_DEPLOYMENT_STATUS' | slptTranslate
+			}}</span>
+			<span *ngIf="isScheduledDeployInProgress$ | async">{{
+				'CONFIG_HUB.SCHEDULING_DEPLOYMENT_ELLIPSIS' | slptTranslate
+			}}</span>
+			<span *ngIf="isScheduledDeployComplete$ | async">{{
+				'CONFIG_HUB.REVIEW_THE_DEPLOYMENT_SCHEDULE' | slptTranslate
+			}}</span>
+		</slpt-overlay-header>
+		<slpt-overlay-body class="slpt-overlay-body--no-top-bottom-padding">
+			<slpt-overlay-body-column class="slpt-overlay-body-column--no-horizontal-padding">
+				<div
+					class="deploy-overlay__content"
+					[slptLoadingMask]="(isDeployInProgress$ | async) || (isScheduledDeployInProgress$ | async)"
+				>
+					<div
+						*ngIf="
+							(isDeployInProgress$ | async | slptIsFalsy) &&
+							(isScheduledDeployInProgress$ | async | slptIsFalsy)
+						"
+						class="deploy-overlay__info-box"
+					>
+						<div
+							*ngIf="
+								(isDeployInit$ | async) &&
+								scheduleDeployFormGroup.get(formControlKeys.ACTION).value ===
+									scheduleDeployOptions.DEPLOY
+							"
+							class="deploy-overlay__info-box-header"
+						>
+							{{ 'CONFIG_HUB.DEPLOY_TO_TENANT' | slptTranslate }}
+						</div>
+						<div
+							*ngIf="
+								(isScheduledDeployInit$ | async) &&
+								scheduleDeployFormGroup.get(formControlKeys.ACTION).value ===
+									scheduleDeployOptions.SCHEDULE
+							"
+							class="deploy-overlay__info-box-header"
+						>
+							{{ 'CONFIG_HUB.SCHEDULE_DEPLOY' | slptTranslate }}
+						</div>
+						<div *ngIf="isDeployResolved$ | async" class="deploy-overlay__info-box-header">
+							<slpt-icon
+								[name]="'checkCircle'"
+								[fill]="'s2'"
+								[width]="'24px'"
+								[height]="'24px'"
+								[type]="'solid'"
+							></slpt-icon>
+							{{ 'CONFIG_HUB.DEPLOYMENT_SUCCESSFUL' | slptTranslate }}
+						</div>
+						<div *ngIf="isDeployFailed$ | async" class="deploy-overlay__info-box-header">
+							<slpt-icon
+								[name]="'warning'"
+								[fill]="'s4'"
+								[width]="'24px'"
+								[height]="'24px'"
+								[type]="'solid'"
+							></slpt-icon>
+							{{ 'CONFIG_HUB.DEPLOYMENT_FAILED' | slptTranslate }}
+						</div>
+						<div *ngIf="isDeployPartial$ | async" class="deploy-overlay__info-box-header">
+							<slpt-icon
+								[name]="'warning'"
+								[fill]="'s3'"
+								[width]="'24px'"
+								[height]="'24px'"
+								[type]="'solid'"
+							></slpt-icon>
+							{{ 'CONFIG_HUB.DEPLOYMENT_PARTIALLY_COMPLETED' | slptTranslate }}
+						</div>
+						<div *ngIf="isScheduledDeployResolved$ | async" class="deploy-overlay__info-box-header">
+							<slpt-icon
+								[name]="'checkCircle'"
+								[fill]="'s2'"
+								[width]="'24px'"
+								[height]="'24px'"
+								[type]="'solid'"
+							></slpt-icon>
+							{{ 'CONFIG_HUB.DEPLOYMENT_SCHEDULED_SUCCESSFULLY' | slptTranslate }}
+						</div>
+						<div *ngIf="isScheduledDeployFailed$ | async" class="deploy-overlay__info-box-header">
+							<slpt-icon
+								[name]="'warning'"
+								[fill]="'s4'"
+								[width]="'24px'"
+								[height]="'24px'"
+								[type]="'solid'"
+							></slpt-icon>
+							{{ 'CONFIG_HUB.FAILED_TO_SCHEDULE_DEPLOY' | slptTranslate }}
+						</div>
+						<div class="deploy-overlay__info-box-line-item">
+							<div class="deploy-overlay__tenant_name">
+								<strong>{{ 'CONFIG_HUB.TENANT_NAME' | slptTranslate }}:</strong> {{ currentTenant }}
+							</div>
+						</div>
+						<div
+							class="deploy-overlay__info-box-line-item"
+							*ngIf="
+								isScheduledActionsEnabled &&
+								(isDeployComplete$ | async | slptIsFalsy) &&
+								(isScheduledDeployComplete$ | async | slptIsFalsy)
+							"
+						>
+							<form [formGroup]="scheduleDeployFormGroup">
+								<slpt-radio
+									[group]="scheduleDeployFormGroup"
+									[key]="formControlKeys.ACTION"
+									[label]="'CONFIG_HUB.SELECT_DEPLOY_ACTION'"
+									[slptId]="'scheduleDeployRadio'"
+									[options]="radioOptions"
+									[required]="true"
+									[margin]="'0'"
+									[submitAttempted]="submitAttempted"
+									[value]="scheduleDeployOptions.DEPLOY"
+								></slpt-radio>
+
+								<slpt-date-field
+									*ngIf="
+										scheduleDeployFormGroup.get(formControlKeys.ACTION).value ===
+										scheduleDeployOptions.SCHEDULE
+									"
+									[group]="scheduleDeployFormGroup"
+									[key]="formControlKeys.DATE"
+									[label]="'CONFIG_HUB.DEPLOY_DATE'"
+									[minDate]="minDate"
+									[required]="true"
+								>
+								</slpt-date-field>
+
+								<slpt-time-field
+									*ngIf="
+										scheduleDeployFormGroup.get(formControlKeys.ACTION).value ===
+										scheduleDeployOptions.SCHEDULE
+									"
+									[group]="scheduleDeployFormGroup"
+									[key]="formControlKeys.TIME"
+									[required]="true"
+									[label]="'CONFIG_HUB.DEPLOY_TIME'"
+									[ariaLabel]="'CONFIG_HUB.DEPLOY_TIME'"
+									[interval]="30"
+									[multiple]="false"
+									[placeholder]="'CONFIG_HUB.TIME_PLACEHOLDER'"
+									[submitAttempted]="submitAttempted"
+								></slpt-time-field>
+							</form>
+						</div>
+						<div *ngIf="isDeployComplete$ | async" class="deploy-overlay__info-box-line-item">
+							<strong>{{ 'CONFIG_HUB.COMPLETED' | slptTranslate }}:</strong>
+							{{ (deployJob$ | async).completed | date: 'medium' }}
+						</div>
+						<div *ngIf="isDraftWithError$ | async" class="deploy-overlay__info-box-header">
+							<slpt-icon
+								[name]="'warning'"
+								[fill]="'s4'"
+								[width]="'24px'"
+								[height]="'24px'"
+								[type]="'solid'"
+							></slpt-icon>
+							{{ 'CONFIG_HUB.THIS_DRAFT_HAS_REFERENCE_ERRORS' | slptTranslate }}
+						</div>
+					</div>
+					<slpt-textarea
+						*ngIf="isDeployComplete$ | async"
+						[value]="deployResults$ | async"
+						[label]="'CONFIG_HUB.DEPLOYMENT_RESULTS_COLON'"
+						[showLineNumbers]="true"
+						[rows]="'auto'"
+						[minRows]="8"
+						[maxRows]="18"
+						[showCopyButton]="true"
+						[readOnly]="true"
+					>
+					</slpt-textarea>
+				</div>
+			</slpt-overlay-body-column>
+		</slpt-overlay-body>
+		<slpt-overlay-footer class="slpt-overlay-footer--wrap-sections-mobile">
+			<slpt-overlay-footer-section class="deploy-overlay__control-buttons">
+				<slpt-button
+					*ngIf="(isDeployComplete$ | async) === false"
+					class="deploy-overlay__action-button"
+					[label]="'CONFIG_HUB.CANCEL'"
+					(click)="handleDismiss()"
+				>
+				</slpt-button>
+				<slpt-button
+					*ngIf="
+						(isDeployComplete$ | async | slptIsFalsy) && (isScheduledDeployComplete$ | async | slptIsFalsy)
+					"
+					class="deploy-overlay__action-button"
+					[type]="'primary'"
+					[label]="
+						!isScheduledActionsEnabled ||
+						(isScheduledActionsEnabled &&
+							scheduleDeployFormGroup.get(formControlKeys.ACTION).value === scheduleDeployOptions.DEPLOY)
+							? 'CONFIG_HUB.DEPLOY'
+							: 'CONFIG_HUB.SCHEDULE_DEPLOY'
+					"
+					[disabled]="
+						(isDeployInProgress$ | async) || (isScheduledActionsEnabled && scheduleDeployFormGroup.invalid)
+					"
+					(click)="handleDeploy()"
+				>
+				</slpt-button>
+				<slpt-button
+					*ngIf="(isDeployComplete$ | async) || (isScheduledDeployComplete$ | async)"
+					class="deploy-overlay__action-button"
+					[type]="'primary'"
+					[label]="'CONFIG_HUB.CLOSE'"
+					(click)="handleDismiss()"
+				>
+				</slpt-button>
+			</slpt-overlay-footer-section>
+		</slpt-overlay-footer>
+	</slpt-overlay-content>
+</slpt-overlay>

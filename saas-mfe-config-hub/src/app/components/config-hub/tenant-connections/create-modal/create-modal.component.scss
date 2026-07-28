@@ -1,0 +1,25 @@
+/*
+ * Copyright (C) 2023 Acme Technologies, Inc.  All rights reserved.
+ */
+
+@import '@acme-priv/armada-angular/src/acme/theme/styles/variables';
+
+.create-tenant-connections-modal__message {
+	margin-bottom: 16px;
+}
+
+.create-tenant-connections-modal__footer {
+	display: flex;
+	justify-content: flex-end;
+	gap: 12px;
+}
+
+.create-tenant-connections-modal__form {
+	position: relative;
+}
+
+.create-tenant-connections-modal__info-button {
+	position: absolute;
+	top: 6px;
+	left: 120px;
+}

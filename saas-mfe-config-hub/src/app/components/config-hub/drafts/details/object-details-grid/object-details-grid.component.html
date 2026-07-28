@@ -1,0 +1,45 @@
+<div class="object-details-grid__container">
+	<slpt-multi-select-bar
+		*ngIf="(isErrorView$ | async) === false"
+		class="object-details-grid__multi-select-bar"
+		[selectedItems]="objectSelectedCount$ | async"
+		[totalItems]="totalCount$ | async"
+	>
+		<div class="object-details-grid__multi-select-bar-content">
+			<slpt-search-bar-input
+				[size]="'small'"
+				[textInput]="(searchQuery$ | async)?.query"
+				[inputPlaceholder]="'CONFIG_HUB.SEARCH_BY_NAME'"
+				[debounceTime]="500"
+				(onInputChange)="handleSearchInputChange($event)"
+			>
+			</slpt-search-bar-input>
+		</div>
+	</slpt-multi-select-bar>
+	<slpt-composite-data-grid
+		class="object-details-grid__data-grid"
+		*ngIf="objectDetails.length; else noData"
+		#slptCompositeGrid
+		[options]="gridOptions"
+		[columnDefs]="columnDefs"
+		[rowData]="objectDetails"
+		[loadingMaskConfig]="{}"
+		[noDataModel]=""
+		[disableClientSideSorting]="false"
+		[gridHeaderEnabled]="false"
+		[showPager]="true"
+		[pagerMenuAlignment]="Alignment.Top"
+		[pageSize]="pageSize$ | async"
+		[pageSizeOptions]="pageSizeOptions"
+		(onPageSizeChanged)="handlePageSizeChanged($event)"
+		[currentPage]="currentPage$ | async"
+		[totalPages]="finalPage$ | async"
+		(onPageChanged)="handlePageChanged($event)"
+		(gridReadyEvent)="onGridReady($event)"
+		(selectionChangedEvent)="handleSelectionChange($event)"
+	>
+	</slpt-composite-data-grid>
+</div>
+<ng-template #noData>
+	<span>{{ 'CONFIG_HUB.THERES_NOTHING_TO_SEE_HERE' | slptTranslate }}</span>
+</ng-template>

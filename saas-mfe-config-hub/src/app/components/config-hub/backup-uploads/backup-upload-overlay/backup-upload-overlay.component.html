@@ -1,0 +1,61 @@
+<slpt-overlay (onDismiss)="handleDismiss()">
+	<slpt-overlay-content class="slpt-overlay-content--width-4">
+		<slpt-overlay-header>
+			<h3 class="backup-upload-overlay__header-title">
+				{{ 'CONFIG_HUB.UPLOAD_FILE' | slptTranslate }}
+			</h3>
+		</slpt-overlay-header>
+		<slpt-overlay-body>
+			<slpt-overlay-body-column
+				class="slpt-overlay-body-column--no-horizontal-padding slpt-overlay-body-column--full-height slpt-overlay-body-column--full-height-mobile"
+			>
+				<div class="backup-upload-overlay__container" [slptLoadingMask]="loading">
+					<slpt-text-field
+						[group]="formGroup"
+						[key]="'backupName'"
+						[label]="'CONFIG_HUB.UPLOADED_CONFIGURATION_NAME'"
+						[maxlength]="BACKUP_JOB_NAME_MAX_LENGTH"
+						[required]="true"
+						[displayValidationError]="true"
+						[slptId]="'backupName'"
+						[margin]="'30px'"
+					>
+					</slpt-text-field>
+					<slpt-file-upload-field
+						[key]="'backupFileUpload'"
+						[label]="'CONFIG_HUB.UPLOAD_CONFIGURATION_FILE'"
+						[slptId]="'backupFileUpload'"
+						[group]="formGroup"
+						[size]="'large'"
+						[fileExtensions]="fileExtension"
+						[allowDelete]="true"
+						[displayValidationError]="true"
+						[margin]="'30px'"
+					>
+					</slpt-file-upload-field>
+				</div>
+			</slpt-overlay-body-column>
+		</slpt-overlay-body>
+		<slpt-overlay-footer class="slpt-overlay-footer--wrap-sections-mobile">
+			<slpt-overlay-footer-section>
+				<slpt-button
+					id="slpt-config-hub-overlay-cancel-button"
+					class="backup-upload-overlay__action-button"
+					label="CONFIG_HUB.CLOSE"
+					[type]="'secondary'"
+					(click)="handleDismiss()"
+				>
+				</slpt-button>
+				<slpt-button
+					id="slpt-config-hub-overlay-submit-button"
+					class="backup-upload-overlay__action-button"
+					label="CONFIG_HUB.SUBMIT"
+					[disabled]="!formGroup.valid"
+					[type]="'primary'"
+					(click)="handleSubmit()"
+				>
+				</slpt-button>
+			</slpt-overlay-footer-section>
+		</slpt-overlay-footer>
+	</slpt-overlay-content>
+</slpt-overlay>

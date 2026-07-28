@@ -1,0 +1,52 @@
+<div class="config-hub-object-mapping__wrapper" [slptLoadingMask]="(loading$ | async) || loading">
+	<div class="config-hub-object-mapping__header">
+		<div class="config-hub-object-mapping__header-text">
+			<h1 class="config-hub-object-mapping__header-title">
+				{{ 'CONFIG_HUB.OBJECT_MAPPING' | slptTranslate }}
+			</h1>
+			<span class="config-hub-object-mapping-subtitle">Placeholder Text</span>
+		</div>
+		<slpt-button
+			*ngIf="
+				(loading$ | async) === false &&
+				(tenantConnectionOptions$ | async).length &&
+				(canUserCreateObjectMapping$ | async) === true
+			"
+			id="config-hub-object-mapping-new-button"
+			class="config-hub-object-mapping__create-button"
+			[label]="'CONFIG_HUB.CREATE_NEW'"
+			[type]="'primary'"
+			[direction]="'reverse'"
+			[disabled]="!(selectedTenantName && (objectTypesList$ | async))"
+			(click)="handleCreateNewObjectMapping()"
+		>
+		</slpt-button>
+	</div>
+	<div
+		*ngIf="(loading$ | async) === false && (tenantConnectionOptions$ | async).length"
+		class="config-hub-object-mapping__select_wrapper"
+	>
+		<p>
+			{{ 'CONFIG_HUB.SELECT_A_TENANT' | slptTranslate }}
+		</p>
+		<div class="config-hub-object-mapping__select_input">
+			<slpt-select-input
+				[placeholder]="'CONFIG_HUB.TENANT_NAME'"
+				[selectedValue]="selectedTenantName"
+				[options]="tenantConnectionOptions$ | async"
+				(onChange)="onSelectChange($event)"
+			></slpt-select-input>
+		</div>
+	</div>
+	<app-config-hub-object-mapping-grid
+		[(objectMappingList)]="objectMappingList"
+		[selectedTenant]="selectedTenantName"
+	></app-config-hub-object-mapping-grid>
+</div>
+<app-config-hub-object-mapping-create-overlay
+	*ngIf="showCreateNewMappingOverlay"
+	[objectTypes]="objectTypesList$ | async"
+	[selectedTenant]="selectedTenantName"
+	(onDismiss)="handleDetailsOverlayClose()"
+	(onSave)="handleCreateNew($event)"
+></app-config-hub-object-mapping-create-overlay>

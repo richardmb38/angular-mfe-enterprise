@@ -1,0 +1,83 @@
+/*
+ * Copyright (C) 2023 Acme Technologies, Inc.  All rights reserved.
+ */
+
+@import '@acme-priv/armada-angular/src/acme/theme/styles/variables';
+
+.drafts__header-title {
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+.drafts__header-title-text {
+	color: $slpt-g4;
+	margin-bottom: 0;
+}
+
+.drafts__text-light {
+	font-weight: normal;
+}
+
+.drafts__header-controls {
+	display: flex;
+	align-items: center;
+	margin: 0 calc(10% - 16px - 36px); // Calculated as the padding of the child components minus the width of the close button and its margin
+	gap: 16px;
+}
+
+.drafts__deploy-button {
+	margin-left: 16px;
+}
+
+.drafts__dismiss-button {
+	display: flex;
+	align-items: center;
+	margin-right: 16px;
+}
+
+.drafts__sub-header {
+	display: flex;
+	align-items: center;
+	padding: 0 16px;
+	height: 64px;
+
+	// NG-DEEP: Icon button doesn't support branding colors
+	// stylelint-disable-next-line selector-pseudo-element-no-unknown
+	::ng-deep {
+		.slpt-icon-button {
+			background-color: transparent;
+
+			svg {
+				fill: $slpt-white;
+			}
+		}
+	}
+}
+
+.drafts__sub-header-text {
+	color: $slpt-w1;
+	font-weight: 700;
+	font-size: 24px;
+}
+
+.drafts__sub-header-light {
+	font-weight: 400;
+}
+
+.drafts__sidebar-container {
+	padding-top: 32px;
+}
+
+.drafts__main-container {
+	padding-top: 36px;
+	height: 100%;
+}
+
+.drafts__header-status {
+	padding-left: 8px;
+
+	slpt-badge {
+		vertical-align: middle;
+	}
+}

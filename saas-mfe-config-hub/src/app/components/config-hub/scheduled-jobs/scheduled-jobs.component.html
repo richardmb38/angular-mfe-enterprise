@@ -1,0 +1,39 @@
+<div class="config-hub-schedule-jobs-list" [slptLoadingMask]="loading">
+	<div class="config-hub-schedule-jobs-list__header">
+		<div class="config-hub-schedule-jobs-list__header-text">
+			<h1 class="config-hub-schedule-jobs-list__header-title">
+				{{ 'CONFIG_HUB.SCHEDULED_JOBS' | slptTranslate }}
+			</h1>
+			<span class="config-hub-schedule-jobs-list__header-subtitle">
+				{{ 'CONFIG_HUB.SCHEDULED_JOBS_SUBTITLE' | slptTranslate }}
+			</span>
+		</div>
+		<slpt-button
+			id="config-hub-schedule-jobs-list-new-button"
+			class="config-hub-schedule-jobs-list__create-button"
+			[label]="'CONFIG_HUB.CREATE_SCHEDULED_JOB'"
+			[type]="'primary'"
+			[direction]="'reverse'"
+		>
+		</slpt-button>
+	</div>
+	<slpt-data-grid
+		#slptGrid
+		[options]="gridOptions"
+		[noDataModel]="noDataModel"
+		[disableClientSideSorting]="false"
+		[columnDefs]="columnDefs"
+		[rowData]="scheduledJobsList"
+		[loadingModel]="loadingModel"
+	>
+	</slpt-data-grid>
+
+	<app-config-hub-scheduled-jobs-overlay
+		[isEditMode]="isEditMode"
+		[isOverlayOpen]="showScheduledJobsOverlay"
+		[selectedItem]="scheduledJobSelected"
+		(onDismiss)="handleScheduledJobsOverlayDismiss()"
+		(onUpdateJob)="handleUpdatedJob($event)"
+	>
+	</app-config-hub-scheduled-jobs-overlay>
+</div>

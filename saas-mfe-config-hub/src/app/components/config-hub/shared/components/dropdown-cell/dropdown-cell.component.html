@@ -1,0 +1,12 @@
+<div class="typeahead-cell-renderer-container">
+	<slpt-typeahead-field
+		[placeholder]="params.placeholder || 'CONFIG_HUB.SELECT_A_VALUE'"
+		[filter]="true"
+		[required]="true"
+		[options]="params.options$ | async"
+		[selection]="initialSelection$ | async"
+		[submitAttempted]="submitAttempted"
+		(onSelectionChange)="handleChangeType($event)"
+	>
+	</slpt-typeahead-field>
+</div>

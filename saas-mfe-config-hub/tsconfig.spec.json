@@ -1,0 +1,20 @@
+{
+	"extends": "./tsconfig.json",
+	"compilerOptions": {
+		"allowJs": true,
+		"esModuleInterop": false,
+		"outDir": "../out-tsc/spec",
+		"module": "commonjs",
+		"resolveJsonModule": true,
+		"types": [
+			"jest",
+			"node",
+			"@types/testing-library__jest-dom"
+		]
+	},
+	"include": ["**/*.spec.ts", "**/*.d.ts"],
+	"exclude": [
+		"../node_modules/@acme-priv/armada-angular/src/**/*.spec.ts",
+		"../node_modules/@acme-priv/ui-common/src/**/*.spec.ts"
+	]
+}

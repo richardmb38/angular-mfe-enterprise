@@ -1,0 +1,51 @@
+<div class="config-hub-backup-uploads" [slptLoadingMask]="loading">
+	<div class="config-hub-backup-uploads__header">
+		<div class="config-hub-backup-list__header-text">
+			<h1 class="config-hub-backup-uploads__header-title">
+				{{ 'CONFIG_HUB.CONFIGURATION_UPLOAD' | slptTranslate }}
+			</h1>
+			<span class="config-hub-backup-list__header-subtitle">
+				{{
+					'CONFIG_HUB.AVAILABLE_CONFIGURATION_UPLOADS_USED'
+						| slptTranslate
+							: {
+									count: totalConfigurationUploads,
+									max: MAX_CONFIGURATION_UPLOADS_ALLOWED
+							  }
+				}}
+			</span>
+		</div>
+		<slpt-button
+			id="config-hub-backup-uploads-new-button"
+			class="config-hub-backup-uploads__import-button"
+			[label]="'CONFIG_HUB.UPLOAD'"
+			[type]="'primary'"
+			[direction]="'reverse'"
+			[disabled]="isImportInProgress || totalConfigurationUploads >= MAX_CONFIGURATION_UPLOADS_ALLOWED"
+			(click)="handleImportBackupClicked()"
+		>
+		</slpt-button>
+	</div>
+	<slpt-data-grid
+		#slptGrid
+		[options]="gridOptions"
+		[noDataModel]="noDataModel"
+		[disableClientSideSorting]="false"
+		[columnDefs]="columnDefs"
+		[rowData]="uploadedBackups"
+		[loadingModel]="loadingModel"
+		(gridReadyEvent)="onGridReady($event)"
+	>
+	</slpt-data-grid>
+
+	<app-config-hub-backup-upload-overlay
+		*ngIf="isUploadOverlayOpen"
+		(onClose)="handleOverlayClose($event)"
+	></app-config-hub-backup-upload-overlay>
+
+	<app-config-hub-backup-summary-overlay
+		*ngIf="selectedBackup"
+		[selectedBackup]="selectedBackup"
+		(onClose)="handleSummaryOverlayClose()"
+	></app-config-hub-backup-summary-overlay>
+</div>

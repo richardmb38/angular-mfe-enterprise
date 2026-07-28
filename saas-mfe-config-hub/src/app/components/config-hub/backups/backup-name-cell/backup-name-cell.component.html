@@ -1,0 +1,9 @@
+<div class="backup-name-cell">
+	<span>{{ backupName }}</span>
+	<slpt-badge class="name-badges" *ngIf="isPartial" [color]="'g2'">{{
+		'CONFIG_HUB.PARTIAL' | slptTranslate
+	}}</slpt-badge>
+	<slpt-badge class="name-badges" *ngIf="isHydrating" [color]="'a4l'">{{
+		'CONFIG_HUB.PROCESSING' | slptTranslate
+	}}</slpt-badge>
+</div>

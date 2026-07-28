@@ -1,0 +1,64 @@
+/*
+ * Copyright (C) 2023 Acme Technologies, Inc.  All rights reserved.
+ */
+
+@import '@acme-priv/armada-angular/src/acme/theme/styles/variables';
+
+.object-diff-cell {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	margin: 0;
+	padding: 10px 0;
+	width: 100%;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+.object-diff-cell--faded {
+	opacity: 0.5;
+}
+
+.object-diff-cell--clickable {
+	cursor: pointer;
+}
+
+.object-diff-cell--disabled {
+	cursor: not-allowed;
+	opacity: 0.5;
+}
+
+.object-diff-cell__value {
+	font-weight: inherit;
+}
+
+.object-diff-cell__value-highlight {
+	font-weight: normal;
+	padding: 0 8px;
+	box-sizing: border-box;
+	max-height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+}
+
+.object-diff-cell__value-highlight--added {
+	font-weight: bold;
+	background: $slpt-s2-light;
+}
+
+.object-diff-cell__value-highlight--different {
+	font-weight: bold;
+	background: $slpt-s5-light;
+}
+
+.object-diff-cell__value-highlight--removed {
+	font-weight: bold;
+	background: $slpt-s4-light;
+}
+
+.object-diff-cell__value-highlight--errors {
+	font-weight: bold;
+	color: $slpt-s4;
+}

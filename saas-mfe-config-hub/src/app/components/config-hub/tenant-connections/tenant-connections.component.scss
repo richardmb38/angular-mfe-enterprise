@@ -1,0 +1,54 @@
+/*
+ * Copyright (C) 2023 Acme Technologies, Inc.  All rights reserved.
+ */
+
+@import '@acme-priv/armada-angular/src/acme/theme/styles/variables';
+
+// NG-DEEP: need to rewrite ag-grid inner styles
+// stylelint-disable-next-line selector-pseudo-element-no-unknown
+::ng-deep {
+	.tenant-connections-grid__actions-header {
+		.slpt-data-grid-column-header__name {
+			justify-content: center;
+		}
+	}
+}
+
+.config-hub-tenant-connections {
+	background-color: $slpt-g1;
+	padding: 0 48px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+
+	.ag-header {
+		z-index: 1;
+	}
+}
+
+.config-hub-tenant-connections__header {
+	display: flex;
+	justify-content: space-between;
+	gap: 32px;
+	margin-bottom: 22px;
+}
+
+.config-hub-tenant-connections__header-text {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.config-hub-tenant-connections__header-title {
+	font-size: 24px;
+	margin-bottom: 0;
+	line-height: 1;
+}
+
+.config-hub-tenant-connections-subtitle {
+	text-align: justify;
+}
+
+.config-hub-tenant-connections__create-button {
+	align-self: baseline;
+}

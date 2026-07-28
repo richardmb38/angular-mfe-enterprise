@@ -1,0 +1,63 @@
+/*
+ * Copyright (C) 2024 Acme Technologies, Inc.  All rights reserved.
+ */
+@import '@acme-priv/armada-angular/src/acme/theme/styles/variables';
+
+.config-hub-feature-enablement {
+	background-color: $slpt-g1;
+	padding: 0 48px;
+	height: 100%;
+	width: 100%;
+	max-width: 850px;
+	display: flex;
+	flex-direction: column;
+}
+
+.config-hub-feature-enablement__header {
+	display: flex;
+	justify-content: space-between;
+	gap: 32px;
+	margin-bottom: 22px;
+}
+
+.config-hub-feature-enablement__header-text {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.config-hub-feature-enablement__header-title {
+	font-size: 24px;
+	margin-bottom: 0;
+	line-height: 1;
+}
+
+.config-hub-draft-approval-settings_container__header-title {
+	font-size: 24px;
+	line-height: 1;
+}
+
+.config-hub-draft-approval-settings-subtitle {
+	text-align: justify;
+}
+
+.config-hub-draft-approval-settings_container-subtitle {
+	text-align: justify;
+	margin-bottom: 1em;
+}
+
+.config-hub-draft-approval-settings_container {
+	background-color: $slpt-white;
+	border-radius: 8px;
+	border: 1px solid $slpt-g2;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	padding: 24px 24px 0;
+}
+
+.config-hub-draft-approval-settings_container__sub-header {
+	margin-bottom: 24px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}

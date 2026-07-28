@@ -1,0 +1,42 @@
+<div class="config-hub-activity-log" [slptLoadingMask]="loading">
+	<div class="config-hub-activity-log__header">
+		<h1 class="config-hub-activity-log__header-title">{{ 'CONFIG_HUB.ACTIVITY_LOG' | slptTranslate }}</h1>
+		<span>{{ 'CONFIG_HUB.ACTIVITY_LOG_DESCRIPTION' | slptTranslate }}</span>
+	</div>
+	<slpt-tab-list [activeTabIndex]="currentTab">
+		<ng-container *ngFor="let tab of tabs; index as i">
+			<slpt-tab [tabIndex]="i" (onTabClick)="handleTabClick(i)" *ngIf="showTab(tab.index)">
+				{{ tab.title | slptTranslate }}
+			</slpt-tab>
+		</ng-container>
+	</slpt-tab-list>
+	<div class="config-hub-activity-log__grid-container">
+		<slpt-composite-data-grid
+			#slptCompositeGrid
+			class="activity-log-overlay__data-grid"
+			[options]="gridOptions"
+			[noDataModel]="noDataModel"
+			[disableClientSideSorting]="false"
+			[pageSizeOptions]="pageSizeOptions"
+			[pageSize]="pageSize"
+			[loadingMaskConfig]="{}"
+			[columnDefs]="columnDefs"
+			[rowData]="rows"
+			[showPager]="true"
+			[gridHeaderEnabled]="false"
+			[currentPage]="currentPage"
+			[pagerMenuAlignment]="Alignment.Top"
+			[totalPages]="totalPages"
+			(onPageSizeChanged)="onPageSizeChanges($event)"
+			(gridReadyEvent)="onGridReady($event)"
+			(onPageChanged)="onPageChanged($event)"
+		>
+		</slpt-composite-data-grid>
+	</div>
+</div>
+<app-config-hub-details-overlay
+	*ngIf="showDetailsOverlay"
+	[selectedDetails]="selectedDetails"
+	[downloadResults]="downloadResults"
+	(onDismiss)="handleDetailsOverlayClose()"
+></app-config-hub-details-overlay>

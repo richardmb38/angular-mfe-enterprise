@@ -1,0 +1,88 @@
+<form class="scheduled_jobs_form-section">
+	<!-- Name Input Field-->
+	<slpt-text-field
+		data-testid="scheduled_jobs-name-input-test-id"
+		[label]="'CONFIG_HUB.JOB_NAME'"
+		[ariaLabel]="'CONFIG_HUB.JOB_NAME'"
+		class="name-field"
+		[group]="scheduledJobFormGroup"
+		[required]="true"
+		[key]="'name'"
+		[submitAttemptedBoolean]="submitAttempted$ | async"
+		[resetEvent]="resetEvent"
+		[placeholder]="'CONFIG_HUB.SCHEDULED_JOBS_NAME_PLACEHOLDER'"
+	>
+	</slpt-text-field>
+
+	<!-- Frequency Select Field-->
+	<slpt-select-field
+		data-testid="scheduled_jobs-frequency-select-test-id"
+		[label]="'CONFIG_HUB.FREQUENCY'"
+		[ariaLabel]="'CONFIG_HUB.FREQUENCY'"
+		class="frequency-select"
+		[group]="scheduledJobFormGroup"
+		[required]="true"
+		[key]="'frequency'"
+		[options]="frequencyOptions"
+		[submitAttemptedBoolean]="submitAttempted$ | async"
+		[resetEvent]="resetEvent"
+		[placeholder]="'CONFIG_HUB.SCHEDULED_JOBS_FREQUENCY_PLACEHOLDER'"
+	>
+	</slpt-select-field>
+
+	<ng-container [ngSwitch]="scheduledJobFormGroup?.get('frequency')?.value">
+		<!-- Day Select Field (Weekly)-->
+		<ng-container *ngSwitchCase="'WEEKLY'">
+			<slpt-select-field
+				data-testid="scheduled_jobs-day-select-test-id"
+				[label]="'CONFIG_HUB.DAY'"
+				[ariaLabel]="'CONFIG_HUB.DAY'"
+				class="day-select"
+				[required]="true"
+				[group]="scheduledJobFormGroup"
+				[key]="'day'"
+				[options]="dayFieldOptions"
+				[submitAttemptedBoolean]="submitAttempted$ | async"
+				[resetEvent]="resetEvent"
+				[placeholder]="'CONFIG_HUB.SCHEDULED_JOBS_DAY_PLACEHOLDER'"
+			>
+			</slpt-select-field>
+		</ng-container>
+		<ng-container *ngSwitchCase="'MONTHLY'">
+			<!-- Date Select Field (Monthly) -->
+			<slpt-select-field
+				data-testid="scheduled_jobs-date-select-test-id"
+				[label]="'CONFIG_HUB.DATE'"
+				[ariaLabel]="'CONFIG_HUB.DATE'"
+				class="date-select"
+				[required]="true"
+				[group]="scheduledJobFormGroup"
+				[key]="'date'"
+				[options]="dateFieldOptions"
+				[submitAttemptedBoolean]="submitAttempted$ | async"
+				[resetEvent]="resetEvent"
+				[placeholder]="'CONFIG_HUB.SCHEDULED_JOBS_DATE_PLACEHOLDER'"
+			>
+			</slpt-select-field>
+		</ng-container>
+	</ng-container>
+
+	<!--Time Input Field -->
+	<slpt-time-field
+		data-testid="scheduled_jobs-time-select-test-id"
+		[group]="scheduledJobFormGroup"
+		[key]="'time'"
+		[required]="true"
+		[helpTextSafeHtml]="timeHelpText"
+		[label]="timeLabelMessage"
+		[ariaLabel]="timeLabelMessage"
+		[interval]="0"
+		[multiple]="false"
+		[minTime]="minTime"
+		[maxTime]="maxTime"
+		[placeholder]="'CONFIG_HUB.TIME_PLACEHOLDER'"
+		[submitAttemptedBoolean]="submitAttempted$ | async"
+		[resetEvent]="resetEvent"
+	></slpt-time-field>
+</form>
+<p data-testid="scheduled_jobs-timezone-info-test-id">{{ timeZoneText }}</p>

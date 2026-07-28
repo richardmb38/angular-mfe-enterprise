@@ -1,0 +1,95 @@
+<slpt-full-page-wizard-template>
+	<slpt-full-width-header>
+		<div class="backup-details__header-title">
+			<h3 class="backup-details__header-title-text">
+				{{ 'CONFIG_HUB.BACKUP' | slptTranslate }}:
+				<span class="backup-details__text-light">{{ backupName }}</span>
+			</h3>
+		</div>
+		<div *ngIf="inProgressView === false" class="backup-details__object-button-container">
+			<slpt-button
+				[type]="'secondary'"
+				[leftIconConfig]="prevIconConfig"
+				(click)="previousObject()"
+				[label]="'CONFIG_HUB.PREVIOUS_OBJECT'"
+			></slpt-button>
+			<slpt-button
+				[type]="'secondary'"
+				[rightIconConfig]="nextIconConfig"
+				(click)="nextObject()"
+				[label]="'CONFIG_HUB.NEXT_OBJECT'"
+			></slpt-button>
+		</div>
+
+		<slpt-icon-button
+			class="backup-details__dismiss-button"
+			[icon]="'close'"
+			[iconType]="'light'"
+			(onClick)="returnToBackupList()"
+		></slpt-icon-button>
+	</slpt-full-width-header>
+	<div class="slpt-full-width-sub-header" [slptLoadingMask]="loading">
+		<div class="backup-details__sub-header" [style.backgroundColor]="brandingService.currentBrand?.navigationColor">
+			<div class="backup-details__sub-header-text">
+				{{ 'CONFIG_HUB.VIEW_DETAILS' | slptTranslate }}
+			</div>
+		</div>
+	</div>
+	<slpt-left-sidebar-template [hideSidebar]="inProgressView">
+		<div class="slpt-left-sidebar-template-sidebar">
+			<slpt-button
+				class="backup-details__back_button"
+				[type]="'primary'"
+				[inline]="true"
+				[label]="'CONFIG_HUB.BACK_TO_CONFIG_HUB'"
+				(click)="returnToBackupList()"
+				[leftIconConfig]="backIconConfig"
+			></slpt-button>
+			<slpt-list-item
+				*ngFor="let type of objectBreakdown$ | async"
+				(onClick)="setSelectedObjectType(type)"
+				[border]="true"
+				[selected]="type === selectedObjectType?.type"
+				>{{ type }}
+			</slpt-list-item>
+		</div>
+		<div class="slpt-left-sidebar-template-main backup-details__main-container">
+			<div class="backup-details__object-type-header">
+				<div class="backup-details__object-type-text">
+					<h1 class="backup-details__object-type-title">
+						<span>{{ selectedObjectType?.type }}</span> {{ 'CONFIG_HUB.SUMMARY' | slptTranslate }}
+					</h1>
+					<span class="backup-details__header-subtitle">
+						{{ 'CONFIG_HUB.CONFIGURATION_DETAILS_ARE_NOT_EDITABLE' | slptTranslate }}
+					</span>
+				</div>
+			</div>
+
+			<div *ngIf="inProgressView === false" class="backup-details__grid-container">
+				<app-config-hub-backup-details-grid
+					[selectedObjectType]="selectedObjectType"
+				></app-config-hub-backup-details-grid>
+			</div>
+
+			<div class="backup-details__card-container" *ngIf="inProgressView">
+				<slpt-card>
+					<main class="backup-details__card">
+						<div class="backup-details__card-title">
+							<slpt-icon
+								[name]="'loading'"
+								[fill]="'g4'"
+								[height]="'46px'"
+								[width]="'46px'"
+								class="slpt-card-header-icon"
+							></slpt-icon>
+							<!--TODO: Add Admiral Key -->
+							<strong>{{ 'CONFIG_HUB.PREPARING_BACKUP_DETAILS' | slptTranslate }}</strong>
+						</div>
+						<!--TODO: Add Admiral Key -->
+						<div class="backup-details__card-content">Hydration in progress description</div>
+					</main>
+				</slpt-card>
+			</div>
+		</div>
+	</slpt-left-sidebar-template>
+</slpt-full-page-wizard-template>

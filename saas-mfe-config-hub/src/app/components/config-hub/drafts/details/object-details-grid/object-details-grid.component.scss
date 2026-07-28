@@ -1,0 +1,33 @@
+/*
+ * Copyright (C) 2023 Acme Technologies, Inc.  All rights reserved.
+ */
+
+// NG-DEEP: need to rewrite ag-grid inner styles
+// stylelint-disable-next-line selector-pseudo-element-no-unknown
+::ng-deep {
+	.object-details-grid__actions-header {
+		.slpt-data-grid-column-header__name {
+			justify-content: center;
+		}
+	}
+}
+
+.object-details-grid__container {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.object-details-grid__multi-select-bar {
+	margin-bottom: 24px;
+}
+
+.object-details-grid__multi-select-bar-content {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+}
+
+.object-details-grid__data-grid {
+	flex-grow: 1;
+}

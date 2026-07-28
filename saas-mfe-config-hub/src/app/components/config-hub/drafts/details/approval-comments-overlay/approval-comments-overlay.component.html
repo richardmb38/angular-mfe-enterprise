@@ -1,0 +1,38 @@
+<slpt-overlay (onDismiss)="handleDismiss()" *ngIf="showOverlay">
+	<slpt-overlay-content class="slpt-overlay-content--width-2">
+		<slpt-overlay-header>
+			<h3 class="approval-comments-overlay__header-title">{{ 'CONFIG_HUB.COMMENTS' | slptTranslate }}</h3>
+		</slpt-overlay-header>
+		<slpt-overlay-body>
+			<slpt-overlay-body-column
+				class="slpt-overlay-body-column--no-horizontal-padding slpt-overlay-body-column--full-height slpt-overlay-body-column--full-height-mobile config-hub-approval-comments-overlay-container"
+			>
+				<div *ngIf="(approvalComments$ | async).length === 0">
+					{{ 'CONFIG_HUB.NO_COMMENTS_AVAILABLE' | slptTranslate }}
+				</div>
+				<div
+					class="config-hub-approval-comments-overlay__comment"
+					*ngFor="let item of approvalComments$ | async"
+				>
+					<p class="config-hub-approval-comments-overlay__comment-title">
+						<strong>{{ item.user }}</strong>
+						<span>{{ item.timestamp | date: 'short' }}</span>
+					</p>
+					<p>{{ item.comment ?? ('CONFIG_HUB.NO_COMMENT' | slptTranslate) }}</p>
+				</div>
+			</slpt-overlay-body-column>
+		</slpt-overlay-body>
+		<slpt-overlay-footer class="slpt-overlay-footer--wrap-sections-mobile">
+			<slpt-overlay-footer-section>
+				<slpt-button
+					id="slpt-config-hub-overlay-cancel-button"
+					class="summary-overlay__action-button"
+					label="CONFIG_HUB.DONE"
+					[type]="'primary'"
+					(click)="handleDismiss()"
+				>
+				</slpt-button>
+			</slpt-overlay-footer-section>
+		</slpt-overlay-footer>
+	</slpt-overlay-content>
+</slpt-overlay>

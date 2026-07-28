@@ -1,0 +1,12 @@
+/*
+ * Copyright (C) 2023 Acme Technologies, Inc.  All rights reserved.
+ */
+
+.create-backup-overlay__grid-container {
+	height: calc(100% - 96px);
+}
+
+.create-backup-overlay__footer {
+	display: flex;
+	gap: 8px;
+}

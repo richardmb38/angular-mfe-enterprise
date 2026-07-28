@@ -1,0 +1,10 @@
+{
+	"name": "saas-mfe-config-hub",
+	"app": "idn:vanity",
+	"routes": [
+		{
+			"route": "ch",
+			"featureFlagIn": ["PLT_UI_CONFIG_HUB_MFE_ROUTING"]
+		}
+	]
+}

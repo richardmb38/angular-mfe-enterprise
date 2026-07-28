@@ -1,0 +1,28 @@
+/*
+ * Copyright (C) 2023 Acme Technologies, Inc.  All rights reserved.
+ */
+@import '@acme-priv/armada-angular/src/acme/theme/styles/variables';
+
+:host {
+	// NG-DEEP: Used to style ag-cell
+	// stylelint-disable-next-line selector-pseudo-element-no-unknown
+	::ng-deep {
+		.summary-grid__header--align-end {
+			.slpt-data-grid-column-header__name {
+				justify-content: flex-end;
+			}
+		}
+
+		.summary-grid__header--align-center {
+			.slpt-data-grid-column-header__name {
+				justify-content: center;
+			}
+		}
+	}
+}
+
+.ag-theme-alpine {
+	> div {
+		overflow-x: hidden;
+	}
+}

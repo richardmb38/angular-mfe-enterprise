@@ -1,0 +1,61 @@
+<slpt-overlay (onDismiss)="handleDismiss()">
+	<slpt-overlay-content class="slpt-overlay-content--width-5">
+		<slpt-overlay-header>
+			<h3>{{ 'CONFIG_HUB.CREATE_NEW_OBJECT_MAPPING' | slptTranslate }}</h3>
+			<span>{{ 'CONFIG_HUB.OBJECT_MAPPINGS_OVERLAY_DESCRIPTION' | slptTranslate }}</span>
+		</slpt-overlay-header>
+		<slpt-overlay-body class="slpt-overlay-body--no-top-bottom-padding">
+			<slpt-overlay-body-column class="slpt-overlay-body-column--no-horizontal-padding">
+				<div class="object-mapping-overlay__content" [slptLoadingMask]="loading">
+					<div class="object-mapping-overlay__tenant-selection">
+						<h5>{{ 'CONFIG_HUB.CONNECTION_TENANT' | slptTranslate }}: {{ selectedTenant }}</h5>
+					</div>
+					<div class="object-mapping-overlay__grid-container">
+						<slpt-composite-data-grid
+							#slptCompositeGrid
+							class="object-mapping-overlay__data-grid"
+							[options]="gridOptions"
+							[columnDefs]="columnDefs"
+							[rowData]="objectMappingList$ | async"
+							[loadingMaskConfig]="{}"
+							[noDataModel]="noDataModel"
+							[disableClientSideSorting]="false"
+							[gridHeaderEnabled]="false"
+							[showPager]="false"
+							(gridReadyEvent)="onGridReady($event)"
+						>
+						</slpt-composite-data-grid>
+					</div>
+					<div class="object-mapping-overlay__add-container">
+						<slpt-button
+							class="object-mapping-overlay__action-button"
+							[type]="'secondary'"
+							[label]="'CONFIG_HUB.ADD_ANOTHER'"
+							(click)="handleAddMapping()"
+						>
+						</slpt-button>
+					</div>
+				</div>
+			</slpt-overlay-body-column>
+		</slpt-overlay-body>
+		<slpt-overlay-footer class="slpt-overlay-footer--wrap-sections-mobile">
+			<slpt-overlay-footer-section class="object-mapping-overlay__control-buttons">
+				<slpt-button
+					class="object-mapping-overlay__action-button"
+					[type]="'secondary'"
+					[label]="'CONFIG_HUB.CLOSE'"
+					(click)="handleDismiss()"
+				>
+				</slpt-button>
+				<slpt-button
+					class="object-mapping-overlay__action-button"
+					[type]="'primary'"
+					[label]="'CONFIG_HUB.SAVE_CHANGES'"
+					[disabled]="!objectMappingList$.value.length"
+					(click)="handleSave()"
+				>
+				</slpt-button>
+			</slpt-overlay-footer-section>
+		</slpt-overlay-footer>
+	</slpt-overlay-content>
+</slpt-overlay>

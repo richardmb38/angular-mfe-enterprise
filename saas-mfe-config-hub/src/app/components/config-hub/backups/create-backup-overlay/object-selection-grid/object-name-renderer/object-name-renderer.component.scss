@@ -1,0 +1,57 @@
+/*
+ * Copyright (C) 2023 Acme Technologies, Inc.  All rights reserved.
+ */
+
+@import '@acme-priv/armada-angular/src/acme/theme/styles/variables';
+
+.backup-options-container {
+	margin: 5px 0;
+
+	&.read-only {
+		margin: 0;
+	}
+}
+
+// NG-DEEP: updates to fit tag selector into the table
+// stylelint-disable-next-line selector-pseudo-element-no-unknown
+::ng-deep {
+	.backup-options-container {
+		.slpt-form-input-container,
+		.slpt-form-error-item {
+			line-height: 1.2rem;
+		}
+
+		.slpt-form-field {
+			margin-bottom: 0;
+		}
+
+		.tag-input {
+			padding: 4px 5px !important;
+			margin: 2px 0 !important;
+			opacity: 0;
+
+			&:focus {
+				opacity: 1;
+			}
+		}
+
+		.tag {
+			margin: 5px 5px 0 0;
+		}
+
+		// Vertically center tags in the table cell
+		.slpt-tag-collection-container_item {
+			margin: 0 4px !important;
+
+			slpt-badge {
+				vertical-align: sub;
+			}
+		}
+	}
+
+	[col-id='names'] {
+		&.ag-cell {
+			border: none !important;
+		}
+	}
+}

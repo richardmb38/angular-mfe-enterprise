@@ -1,0 +1,14 @@
+<div class="object-changelog-grid__container">
+	<slpt-composite-data-grid
+		#slptCompositeGrid
+		class="object-changelog-grid__data-grid"
+		[options]="gridOptions"
+		[columnDefs]="columnDefs"
+		[rowData]="objectChangelog"
+		[noDataModel]="noDataModel"
+		[gridHeaderEnabled]="false"
+		[showPager]="false"
+		(gridReadyEvent)="onGridReady()"
+	>
+	</slpt-composite-data-grid>
+</div>

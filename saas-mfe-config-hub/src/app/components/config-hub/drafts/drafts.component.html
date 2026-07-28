@@ -1,0 +1,156 @@
+<slpt-full-page-wizard-template>
+	<slpt-full-width-header>
+		<div class="drafts__header-title">
+			<h3 *ngIf="(draftName$ | async) === undefined" class="drafts__header-title-text">
+				{{ 'CONFIG_HUB.PREPARING_DRAFT_FROM_BACKUP' | slptTranslate }}:
+				<span class="drafts__text-light">{{ sourceBackupName }}</span>
+			</h3>
+			<h3 *ngIf="draftName$ | async" class="drafts__header-title-text">
+				{{ 'CONFIG_HUB.DRAFT' | slptTranslate }}:
+				<span class="drafts__text-light">{{ draftName$ | async }}</span>
+			</h3>
+			<div
+				class="drafts__header-status"
+				*ngIf="
+					isConfigHubDraftApprovalEnabled &&
+					isApprovalsFeatureEnabled &&
+					(draftApprovalStatus$ | async) &&
+					(draftApprovalStatus$ | async) !== null
+				"
+			>
+				<slpt-badge [color]="approvalStatusBadgeColor">{{ approvalStatusText }}</slpt-badge>
+			</div>
+		</div>
+		<div *ngIf="showHeaderControls" class="drafts__header-controls">
+			<slpt-icon-button
+				slptTooltip
+				[ariaLabel]="'CONFIG_HUB.VIEW_COMMENTS'"
+				[tooltipContent]="'CONFIG_HUB.VIEW_COMMENTS'"
+				[icon]="'comment'"
+				[iconType]="'light'"
+				(click)="handleViewComments()"
+				[disabled]="isSummaryLoading$ | async"
+				*ngIf="
+					isConfigHubDraftApprovalEnabled &&
+					isApprovalsFeatureEnabled &&
+					(!approvalStatusIsOneOf([null]) || (draftComments$ | async).length > 0)
+				"
+			></slpt-icon-button>
+			<slpt-button
+				*ngIf="
+					isConfigHubDraftApprovalEnabled &&
+						isApprovalsFeatureEnabled &&
+						shouldShowCancelRequestButton() &&
+						canUserEditDraft$ | async
+				"
+				[disabled]="isSummaryLoading$ | async"
+				[label]="getCancelRequestLabel()"
+				(click)="handleCancelRequest()"
+			>
+			</slpt-button>
+			<slpt-button
+				*ngIf="displayDiscardAndSaveChangesFF && approvalStatusIsOneOf([null]) && canUserEditDraft$ | async"
+				[label]="'CONFIG_HUB.DISCARD_CHANGES'"
+				[disabled]="(isDraftDirty$ | async) === false"
+				(click)="handleDiscardChanges()"
+			>
+			</slpt-button>
+			<slpt-button
+				*ngIf="displayDiscardAndSaveChangesFF && approvalStatusIsOneOf([null]) && canUserEditDraft$ | async"
+				[label]="'CONFIG_HUB.SAVE_CHANGES'"
+				[disabled]="(isDraftDirty$ | async) === false"
+				(click)="handleSave()"
+			>
+			</slpt-button>
+			<slpt-button
+				*ngIf="displayApproveRequestFF && !isSameUser() && canUserApproveDraft$ | async"
+				[label]="'CONFIG_HUB.DENY'"
+				(click)="handleDenyDraftWithComment()"
+			>
+			</slpt-button>
+			<slpt-button
+				*ngIf="displayApproveRequestFF && !isSameUser() && canUserApproveDraft$ | async"
+				[label]="'CONFIG_HUB.APPROVE'"
+				(click)="handleApproveDraftWithComment()"
+			>
+			</slpt-button>
+			<slpt-button
+				*ngIf="
+					isConfigHubDraftApprovalEnabled &&
+						isApprovalsFeatureEnabled &&
+						approvalStatusIsOneOf([null]) &&
+						canUserEditDraft$ | async
+				"
+				[label]="'CONFIG_HUB.REQUEST_APPROVAL'"
+				[disabled]="(isDraftDirty$ | async) === true || (isSummaryLoading$ | async)"
+				[type]="'primary'"
+				(click)="handleRequestApprovalWithComment()"
+			>
+			</slpt-button>
+			<slpt-button
+				*ngIf="deployDisabledWithApprovalFF && canUserDeployDraft$ | async"
+				class="drafts__deploy-button"
+				[label]="'CONFIG_HUB.DEPLOY_DRAFT'"
+				[type]="'primary'"
+				[disabled]="(isDraftDeployable$ | async) === false"
+				(click)="handleDeploy()"
+			>
+			</slpt-button>
+		</div>
+		<slpt-icon-button
+			class="drafts__dismiss-button"
+			[icon]="'close'"
+			[iconType]="'light'"
+			(click)="handleDismiss()"
+		></slpt-icon-button>
+	</slpt-full-width-header>
+	<div class="slpt-full-width-sub-header" [style.backgroundColor]="brandingService.currentBrand?.navigationColor">
+		<div *ngIf="!showHeaderControls && !showBackToSummary" class="drafts__sub-header">
+			<div class="drafts__sub-header-text">
+				{{ 'CONFIG_HUB.TENANT_COLON' | slptTranslate }}
+				<span class="drafts__sub-header-light">{{ currentTenant }}</span>
+			</div>
+		</div>
+		<div *ngIf="showHeaderControls" class="drafts__sub-header">
+			<div class="drafts__sub-header-text">
+				{{ 'CONFIG_HUB.REVIEW_DRAFT' | slptTranslate }}
+			</div>
+		</div>
+		<div *ngIf="showBackToSummary" class="drafts__sub-header">
+			<slpt-icon-button
+				class="drafts__dismiss-button"
+				[type]="'secondary'"
+				[icon]="'arrowLeft'"
+				[iconType]="'regular'"
+				[border]="false"
+				(click)="handleBackToSummary()"
+			></slpt-icon-button>
+			<div class="drafts__sub-header-text">
+				<span class="drafts__sub-header-light">
+					{{ 'CONFIG_HUB.BACK_TO' | slptTranslate }}
+				</span>
+				{{ 'CONFIG_HUB.DRAFT_SUMMARY' | slptTranslate }}
+			</div>
+		</div>
+	</div>
+	<slpt-left-sidebar-template [hideSidebar]="true">
+		<div
+			class="slpt-left-sidebar-template-main drafts__main-container"
+			[slptLoadingMask]="saveStateLoading$ | async"
+		>
+			<router-outlet></router-outlet>
+		</div>
+	</slpt-left-sidebar-template>
+</slpt-full-page-wizard-template>
+
+<app-config-hub-approval-comments-overlay
+	[showOverlay]="showCommentsOverlay"
+	(onDismiss)="handleOverlayDismiss()"
+></app-config-hub-approval-comments-overlay>
+
+<app-config-hub-request-approval-overlay
+	*ngIf="showRequestOverlay"
+	[showOverlay]="showRequestOverlay"
+	[actionType]="actionType"
+	(onDismiss)="handleRequestApprovalDismiss($event)"
+></app-config-hub-request-approval-overlay>

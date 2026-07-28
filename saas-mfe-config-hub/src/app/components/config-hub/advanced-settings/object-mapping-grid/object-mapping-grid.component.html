@@ -1,0 +1,16 @@
+<div class="object-mapping-grid__container" [slptLoadingMask]="loading">
+	<slpt-composite-data-grid
+		class="object-mapping-grid__data-grid"
+		#slptCompositeGrid
+		[options]="gridOptions"
+		[columnDefs]="columnDefs"
+		[rowData]="objectMappingList"
+		[loadingMaskConfig]="{}"
+		[noDataModel]="noDataModel"
+		[disableClientSideSorting]="false"
+		[gridHeaderEnabled]="false"
+		[showPager]="false"
+		(gridReadyEvent)="onGridReady($event)"
+	>
+	</slpt-composite-data-grid>
+</div>

@@ -1,0 +1,58 @@
+/*
+ * Copyright (C) 2023 Acme Technologies, Inc.  All rights reserved.
+ */
+
+@import '@acme-priv/armada-angular/src/acme/theme/styles/variables';
+
+.config-hub__header-title {
+	display: flex;
+	align-items: center;
+	width: 100%;
+}
+
+.config-hub__header-title-text {
+	color: $slpt-g4;
+	margin-bottom: 0;
+}
+
+.config-hub__dismiss-button {
+	display: flex;
+	align-items: center;
+	margin-right: 16px;
+}
+
+.config-hub__header-tenant {
+	display: flex;
+	align-items: center;
+	padding: 0 16px;
+	height: 64px;
+}
+
+.config-hub__header-tenant-text {
+	color: $slpt-w1;
+	font-weight: 700;
+	font-size: 24px;
+}
+
+.config-hub__header-tenant-name {
+	font-weight: 400;
+}
+
+.config-hub__sidebar-container {
+	padding-top: 32px;
+}
+
+.config-hub__main-container {
+	padding-top: 36px;
+	height: 100%;
+}
+
+.config-hub__current-tenant-indicator {
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background-color: $slpt-a3;
+	display: inline-block;
+	vertical-align: middle;
+	margin-left: 3px;
+}

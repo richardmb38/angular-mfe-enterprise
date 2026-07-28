@@ -1,0 +1,115 @@
+/*
+ * Copyright (C) 2024 Acme Technologies, Inc.  All rights reserved.
+ */
+@import '@acme-priv/armada-angular/src/acme/theme/styles/variables';
+
+.config-hub-cloud-storage {
+	background-color: $slpt-g1;
+	padding: 0 48px;
+	height: 100%;
+	width: 100%;
+	max-width: 850px;
+	display: flex;
+	flex-direction: column;
+}
+
+.config-hub-cloud-storage__header {
+	display: flex;
+	justify-content: space-between;
+	gap: 32px;
+	margin-bottom: 22px;
+}
+
+.config-hub-cloud-storage__header-text {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.config-hub-cloud-storage__header-title {
+	font-size: 24px;
+	margin-bottom: 0;
+	line-height: 1;
+}
+
+.config-hub-sync_files_container__header-title {
+	font-size: 24px;
+	margin-bottom: 0;
+	line-height: 1;
+}
+
+.config-hub-cloud-storage-subtitle {
+	text-align: justify;
+}
+
+.config-hub-sync_files_container-subtitle {
+	text-align: justify;
+}
+
+.config-hub-sync_files_container-subtitle-timestamp {
+	font-style: italic;
+}
+
+.config-hub-cloud-storage__cancel-button,
+.config-hub-cloud-storage__save-button {
+	align-self: baseline;
+}
+
+.config-hub-cloud-storage__container {
+	background-color: $slpt-white;
+	border-radius: 8px;
+	border: 1px solid $slpt-g2;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	padding: 24px 24px 0;
+}
+
+.config-hub-cloud-sync_files_container {
+	background-color: $slpt-white;
+	border-radius: 8px;
+	border: 1px solid $slpt-g2;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+	width: 100%;
+	padding: 24px 24px 0;
+	margin-top: 24px;
+}
+
+.config-hub-cloud-sync_files_toggle_container {
+	padding: 24px 0;
+	width: 110px;
+}
+
+.config-hub-cloud-storage__sub-header {
+	margin-bottom: 24px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.config-hub-sync_files_container__sub-header {
+	margin-bottom: 24px;
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.config-hub-cloud-storage__bucket-field {
+	display: block;
+	width: 50%;
+	margin-top: 24px;
+	margin-bottom: 48px;
+}
+
+.config-hub-cloud-storage__footer {
+	display: flex;
+	justify-content: flex-end;
+	gap: 16px;
+	margin: 22px 0;
+}
+
+.config-hub-sync_files_container__footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 16px;
+}

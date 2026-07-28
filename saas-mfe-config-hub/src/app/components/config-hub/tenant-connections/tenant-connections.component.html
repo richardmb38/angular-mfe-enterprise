@@ -1,0 +1,40 @@
+<div class="config-hub-tenant-connections" [slptLoadingMask]="(loading$ | async) || loading">
+	<div class="config-hub-tenant-connections__header">
+		<div class="config-hub-tenant-connections__header-text">
+			<h1 class="config-hub-tenant-connections__header-title">
+				{{ 'CONFIG_HUB.TENANT_CONNECTIONS' | slptTranslate }}
+			</h1>
+			<span class="config-hub-tenant-connections-subtitle">{{
+				'CONFIG_HUB.CREATE_AND_REVIEW_CONNECTIONS' | slptTranslate
+			}}</span>
+		</div>
+		<slpt-button
+			*ngIf="canUserCreateConnection$ | async"
+			id="config-hub-tenant-connections-new-button"
+			class="config-hub-tenant-connections__create-button"
+			[label]="'CONFIG_HUB.CREATE_TENANT_CONNECTION'"
+			[type]="'primary'"
+			[direction]="'reverse'"
+			[disabled]="false"
+			(click)="handleCreateTenantConnectionClicked()"
+		>
+		</slpt-button>
+	</div>
+	<slpt-data-grid
+		#slptGrid
+		[options]="gridOptions"
+		[noDataModel]="noDataModel"
+		[disableClientSideSorting]="false"
+		[columnDefs]="columnDefs"
+		[rowData]="tenantConnections$ | async"
+		[loadingModel]="loadingModel"
+		(gridReadyEvent)="onGridReady($event)"
+	>
+	</slpt-data-grid>
+</div>
+
+<app-create-tenant-connection-modal
+	*ngIf="isCreateTenantConnectionModalOpen"
+	(onDismiss)="handleCreateTenantConnectionModalDismiss($event)"
+>
+</app-create-tenant-connection-modal>

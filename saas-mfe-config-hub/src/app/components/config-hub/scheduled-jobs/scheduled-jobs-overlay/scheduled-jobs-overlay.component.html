@@ -1,0 +1,67 @@
+<slpt-overlay *ngIf="isOverlayOpen" (onDismiss)="handleDismiss()">
+	<slpt-overlay-content class="slpt-overlay-content--width-2">
+		<slpt-overlay-header>
+			<slpt-overlay-header-title *ngIf="!isEditMode">{{
+				'CONFIG_HUB.CREATE_NEW_SCHEDULE' | slptTranslate
+			}}</slpt-overlay-header-title>
+			<slpt-overlay-header-title *ngIf="isEditMode">{{
+				'CONFIG_HUB.EDIT_SCHEDULED_JOB' | slptTranslate
+			}}</slpt-overlay-header-title>
+			<slpt-overlay-header-description *ngIf="!isEditMode">{{
+				'CONFIG_HUB.FOR_BACKUP' | slptTranslate: { backupName: selectedItem['name'] }
+			}}</slpt-overlay-header-description>
+		</slpt-overlay-header>
+		<slpt-overlay-body>
+			<slpt-overlay-body-column
+				class="slpt-overlay-body-column--no-horizontal-padding slpt-overlay-body-column--full-height slpt-overlay-body-column--full-height-mobile scheduled_jobs-form-container"
+			>
+				<div [slptLoadingMask]="loading">
+					<app-config-hub-scheduled-jobs-form
+						*ngIf="getScheduledJobType() === JobTypes.BACKUP"
+						[gmtOffset]="currentTimezone"
+						[originalCronExpressions]="[cronExpression]"
+						[submitAttempted$]="submitAttempted$"
+						(onFormValueChange)="handleFormValueChange($event)"
+					></app-config-hub-scheduled-jobs-form>
+
+					<app-scheduled-deploy-form
+						*ngIf="getScheduledJobType() === JobTypes.DEPLOY"
+						[scheduledJob]="selectedItem"
+						(onFormValueChange)="handleFormValueChange($event)"
+					></app-scheduled-deploy-form>
+				</div>
+			</slpt-overlay-body-column>
+		</slpt-overlay-body>
+		<slpt-overlay-footer class="slpt-overlay-footer--wrap-sections-mobile">
+			<slpt-overlay-footer-section>
+				<slpt-button
+					id="slpt-config-hub-overlay-cancel-button"
+					label="CONFIG_HUB.CANCEL"
+					[type]="'secondary'"
+					(click)="handleDismiss()"
+				>
+				</slpt-button>
+
+				<slpt-button
+					*ngIf="!isEditMode"
+					id="slpt-config-hub-overlay-submit-button"
+					label="CONFIG_HUB.CREATE_SCHEDULE"
+					[disabled]="!scheduledJobFormGroup?.valid || loading"
+					[type]="'primary'"
+					(click)="handleSubmit()"
+				>
+				</slpt-button>
+
+				<slpt-button
+					*ngIf="isEditMode"
+					id="slpt-config-hub-overlay-submit-button"
+					label="CONFIG_HUB.SAVE_CHANGES"
+					[disabled]="!scheduledJobFormGroup?.valid || loading"
+					[type]="'primary'"
+					(click)="handleSubmit()"
+				>
+				</slpt-button>
+			</slpt-overlay-footer-section>
+		</slpt-overlay-footer>
+	</slpt-overlay-content>
+</slpt-overlay>

@@ -1,0 +1,32 @@
+{/* -  Copyright (C) 2023 Acme Technologies, Inc.  All rights reserved. */}
+
+import { ArgTypes, Meta, Source } from '@storybook/blocks';
+
+import { ConfigHubComponent } from './config-hub.component';
+
+<Meta title="Configuration Hub/Documentation" />
+
+<mdx-title
+title="Configuration Hub"
+githubLink="https://github.com/acme/saas-mfe-config-hub"
+
+> </mdx-title>
+
+## Introduction
+
+Acts as a container for child components, enabling navigation between them via a side navigation bar.
+
+## Example
+
+<Source
+	language="html"
+	code={`
+    <app-config-hub></app-config-hub>
+`}
+/>
+
+## Interface
+
+The following attributes/methods/events are available on the component.
+
+<ArgTypes of={ConfigHubComponent} />

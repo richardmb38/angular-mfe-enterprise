@@ -1,0 +1,47 @@
+<slpt-overlay (onDismiss)="handleDismiss()">
+	<slpt-overlay-content class="slpt-overlay-content--width-4">
+		<slpt-overlay-header>
+			<h3
+				class="object-details-overlay__header-title"
+				slptTruncatedTextHover
+				[tooltipContent]="{ untranslated: objectName }"
+				[tooltipAlignment]="'bottom-left'"
+			>
+				{{ 'CONFIG_HUB.VIEW_DETAILS' | slptTranslate }}:
+			</h3>
+			<h4 class="object-details-overlay__header-object-details">
+				{{ parsedObject?.self?.type }} - <span>{{ objectName }}</span>
+			</h4>
+			<p class="object-details-overlay__header-object-id"><strong>ID:</strong> {{ parsedObject?.self?.id }}</p>
+			<span [innerHTML]="'CONFIG_HUB.BACKUP_DETAILS_OVERLAY_DESCRIPTION' | slptTranslateSafeHtml"></span>
+		</slpt-overlay-header>
+		<slpt-overlay-body>
+			<slpt-overlay-body-column
+				class="slpt-overlay-body-column--no-horizontal-padding slpt-overlay-body-column--full-height slpt-overlay-body-column--full-height-mobile"
+			>
+				<div class="object-details-overlay__grid-container">
+					<slpt-textarea
+						[label]="'CONFIG_HUB.BACKUP_OBJECT'"
+						[showLineNumbers]="true"
+						[value]="jsonObject"
+						[rows]="24"
+						[showCopyButton]="true"
+						[readOnly]="true"
+					></slpt-textarea>
+				</div>
+			</slpt-overlay-body-column>
+		</slpt-overlay-body>
+		<slpt-overlay-footer class="slpt-overlay-footer--wrap-sections-mobile">
+			<slpt-overlay-footer-section>
+				<slpt-button
+					id="slpt-config-hub-overlay-cancel-button"
+					class="summary-overlay__action-button"
+					label="CONFIG_HUB.CLOSE"
+					[type]="'primary'"
+					(click)="handleDismiss()"
+				>
+				</slpt-button>
+			</slpt-overlay-footer-section>
+		</slpt-overlay-footer>
+	</slpt-overlay-content>
+</slpt-overlay>

@@ -1,0 +1,12 @@
+<div class="icon-cell" [title]="'CONFIG_HUB.CLICK_TO_EDIT_THIS_FIELD' | slptTranslate">
+	<span *ngIf="params.useText" class="icon-cell__value">{{ params?.value }}</span>
+	<slpt-icon
+		*ngIf="params.editable"
+		class="icon-cell__icon"
+		[name]="params.iconName"
+		[fill]="'g4'"
+		[width]="'16px'"
+		[height]="'16px'"
+		[type]="'regular'"
+	></slpt-icon>
+</div>

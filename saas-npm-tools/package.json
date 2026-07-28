@@ -1,0 +1,49 @@
+{
+	"name": "@acme-priv/npm-tools",
+	"description": "SaaS NPM Tools contains the release build scripts, so it can be used as a dependency in Armada.",
+	"license": "Copyright (C) 2021 Acme Technologies, Inc. All rights reserved.",
+	"version": "0.0.0",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/acme/saas-npm-tools"
+	},
+	"acme": {
+		"prodBranches": [
+			"master"
+		]
+	},
+	"scripts": {
+		"artifactory-publish": "npm config set @acme-priv:registry=${npm_registry} && npm publish",
+		"npm:login": "node -e \"process.env.SKIP_NPM_LOGIN ? process.exit(0) : process.exit(1)\" || aws codeartifact login --tool npm --repository acme-priv --namespace @acme-priv --domain acme-priv --domain-owner 406205545357 --duration-seconds 43200",
+		"release": "npm run npm:login && node etc/scripts/prePublishChecks.js && npm publish && node etc/scripts/postPublishCleanup.js ",
+		"release:ci": "npm run npm:login && node etc/scripts/prePublishChecks.js && npm publish && npm run artifactory-publish && node etc/scripts/postPublishCleanup.js ",
+		"test:pull-request": "node etc/scripts/testPullRequest.js --repoOwner=acme --repoName=saas-npm-tools --requireSemver",
+		"lint": "prettier \"./etc/**/*{.ts,.js,.scss,.html}\" --check && eslint -c .eslintrc.js --ext .ts etc/**/*.js",
+		"lint:fix": "prettier \"./**/*{.ts,.js,.scss,.html}\" --write && eslint -c .eslintrc.js --ext .ts etc/**/*.js --fix"
+	},
+	"dependencies": {
+		"@aws-sdk/client-dynamodb": "^3.623.0",
+		"@aws-sdk/client-s3": "^3.623.0",
+		"@aws-sdk/client-sts": "^3.623.0",
+		"@octokit/rest": "^18.11.4",
+		"axios": "^1.6.7",
+		"cross-spawn": "^7.0.3",
+		"form-data": "^4.0.0",
+		"mime": "^2.6.0",
+		"progress": "^2.0.3",
+		"rimraf": "^5.0.1"
+	},
+	"devDependencies": {
+		"eslint": "^8.1.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-import": "^2.25.2",
+		"eslint-plugin-node": "^11.1.0",
+		"eslint-plugin-prettier": "^4.0.0",
+		"eslint-plugin-promise": "^6.1.1",
+		"prettier": "^2.4.1"
+	},
+	"engines": {
+		"npm": ">=10.5.0",
+		"node": ">=20.12.2"
+	}
+}

@@ -1,0 +1,37 @@
+/*
+ * Copyright (C) 2024 Acme Technologies, Inc.  All rights reserved.
+ */
+
+@import '@acme-priv/armada-angular/src/acme/theme/styles/variables';
+
+// NG-DEEP: need to rewrite ag-grid inner styles
+// stylelint-disable-next-line selector-pseudo-element-no-unknown
+::ng-deep {
+	.backup-uploads-grid__actions-header {
+		.slpt-data-grid-column-header__name {
+			justify-content: center;
+		}
+	}
+}
+
+.config-hub-backup-uploads {
+	background-color: $slpt-g1;
+	padding: 0 48px;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.config-hub-backup-uploads__header {
+	display: flex;
+	justify-content: space-between;
+	gap: 4px;
+	margin-bottom: 22px;
+	text-align: justify;
+}
+
+.config-hub-backup-uploads__header-title {
+	font-size: 24px;
+	margin-bottom: 0;
+	line-height: 1;
+}

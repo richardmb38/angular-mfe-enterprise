@@ -1,0 +1,18 @@
+<label class="slpt-form-label" for="create-backup-grid">
+	{{ 'CONFIG_HUB.OBJECTS_TO_INCLUDE' | slptTranslate }} <span class="required-label"></span>
+</label>
+<p class="slpt-help-text">
+	{{ 'CONFIG_HUB.SELECT_OBJECT_FILTER_INSTRUCTIONS' | slptTranslate }}
+</p>
+<slpt-data-grid
+	#slptGrid
+	id="create-backup-grid"
+	[options]="gridOptions"
+	[noDataModel]="noDataModel"
+	[columnDefs]="columnDefs"
+	[rowData]="rows"
+	[loadingModel]="loadingModel"
+	(gridReadyEvent)="onGridReady($event)"
+	(rowSelectedEvent)="onRowSelected($event)"
+>
+</slpt-data-grid>

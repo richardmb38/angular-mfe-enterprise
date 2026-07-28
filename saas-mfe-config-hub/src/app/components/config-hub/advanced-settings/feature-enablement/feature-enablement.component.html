@@ -1,0 +1,32 @@
+<div class="config-hub-feature-enablement" [slptLoadingMask]="loading">
+	<div class="config-hub-feature-enablement__header">
+		<div class="config-hub-feature-enablement__header-text">
+			<h1 class="config-hub-feature-enablement__header-title">
+				{{ 'CONFIG_HUB.FEATURE_ENABLEMENT' | slptTranslate }}
+			</h1>
+			<span class="config-hub-feature-enablement-subtitle">
+				{{ 'CONFIG_HUB.MANAGE_FEATURES_CONFIG_HUB' | slptTranslate }}
+			</span>
+		</div>
+	</div>
+	<div class="config-hub-draft-approval-settings_container">
+		<div class="config-hub-draft-approval-settings_container__sub-header">
+			<h2 class="config-hub-draft-approval-settings_container__header-title">
+				{{ 'CONFIG_HUB.APPROVALS' | slptTranslate }}
+			</h2>
+			<span class="config-hub-draft-approval-settings_container-subtitle">{{
+				'CONFIG_HUB.APPROVALS_SETTINGS_DESCRIPTION' | slptTranslate
+			}}</span>
+
+			<div class="config-hub-draft-approval-settings_toggle_container">
+				<slpt-toggle
+					[onLabel]="'CONFIG_HUB.ENABLED'"
+					[offLabel]="'CONFIG_HUB.DISABLED'"
+					[(on)]="approvalsIsEnabled"
+					(onChange)="handleToggleChange($event)"
+					[disabled]="(canUserEditSettings$ | async | slptIsFalsy) || !isApprovalsFeatureFlagEnabled"
+				></slpt-toggle>
+			</div>
+		</div>
+	</div>
+</div>

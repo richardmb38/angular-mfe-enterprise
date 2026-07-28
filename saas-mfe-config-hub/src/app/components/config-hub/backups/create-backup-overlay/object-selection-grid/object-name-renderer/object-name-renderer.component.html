@@ -1,0 +1,9 @@
+<div class="backup-options-container" [class.read-only]="isReadOnly">
+	<slpt-dynamic-form
+		[items]="form"
+		(onValueChanges)="handleValueChanges()"
+		(onFieldBlur)="handleFieldBlur($event)"
+		*ngIf="!isReadOnly"
+	></slpt-dynamic-form>
+	<slpt-tag-collection [tags]="tags" *ngIf="isReadOnly"></slpt-tag-collection>
+</div>

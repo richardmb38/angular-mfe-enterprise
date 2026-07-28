@@ -1,0 +1,26 @@
+<div class="draft-create">
+	<div class="draft-create__card-container" *ngIf="isDraftJobLoading && !isCreateDraftModalOpen">
+		<slpt-card>
+			<main class="draft-create__card">
+				<div class="draft-create__card-title">
+					<slpt-icon
+						[name]="'loading'"
+						[fill]="'g4'"
+						[height]="'46px'"
+						[width]="'46px'"
+						class="slpt-card-header-icon"
+					></slpt-icon>
+					<strong>{{ 'CONFIG_HUB.PREPARING_DRAFT' | slptTranslate }}</strong>
+				</div>
+				<div class="draft-create__card-content">
+					{{ 'CONFIG_HUB.COMPARING_SELECTED_BACKUP_TO_LIVE_CONFIGURATION' | slptTranslate }}
+				</div>
+			</main>
+		</slpt-card>
+	</div>
+</div>
+<app-draft-create-modal
+	*ngIf="isCreateDraftModalOpen"
+	[sourceBackupId]="sourceBackupId"
+	(onDismiss)="handleCreateDraftModalDismiss($event)"
+></app-draft-create-modal>

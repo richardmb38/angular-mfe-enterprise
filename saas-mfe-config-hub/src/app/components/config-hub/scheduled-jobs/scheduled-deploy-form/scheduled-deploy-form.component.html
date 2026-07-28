@@ -1,0 +1,22 @@
+<form>
+	<slpt-date-field
+		[group]="scheduleDeployFormGroup"
+		[key]="formControlKeys.DATE"
+		[label]="'CONFIG_HUB.DEPLOY_DATE'"
+		[minDate]="minDate"
+		[required]="true"
+	>
+	</slpt-date-field>
+
+	<slpt-time-field
+		[group]="scheduleDeployFormGroup"
+		[key]="formControlKeys.TIME"
+		[required]="true"
+		[label]="'CONFIG_HUB.DEPLOY_TIME'"
+		[ariaLabel]="'CONFIG_HUB.DEPLOY_TIME'"
+		[interval]="30"
+		[multiple]="false"
+		[placeholder]="'CONFIG_HUB.TIME_PLACEHOLDER'"
+		[submitAttempted]="submitAttempted"
+	></slpt-time-field>
+</form>

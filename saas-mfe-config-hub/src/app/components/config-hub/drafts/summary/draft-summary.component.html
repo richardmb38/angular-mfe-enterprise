@@ -1,0 +1,41 @@
+<div class="draft-summary" [slptLoadingMask]="loading$ | async">
+	<div class="draft-summary__header">
+		<div class="draft-summary__header-text">
+			<h1 class="draft-summary__title">
+				{{ 'CONFIG_HUB.DRAFT_SUMMARY' | slptTranslate }}
+			</h1>
+			<div class="draft-summary__subtitle">
+				{{ 'CONFIG_HUB.DEPLOYING_THIS_DRAFT' | slptTranslate }}
+				<br />
+				<span *ngIf="(canUserEditDraft$ | async) && isDraftStatusUpdatable">
+					{{ 'CONFIG_HUB.DESELECT_OBJECT_TYPES_TO_REMOVE_THEM' | slptTranslate }} <br />
+					{{ 'CONFIG_HUB.SELECT_EDIT_TO_REVIEW_OR_MODIFY_OBJECTS' | slptTranslate }}
+				</span>
+			</div>
+		</div>
+		<div class="draft-summary__header-totals">
+			<span class="draft-summary__total draft-summary__total--total">
+				<strong class="draft-summary__total_title">{{ 'CONFIG_HUB.TOTAL' | slptTranslate }}: </strong>
+				{{ (summaryObjectTotals$ | async)?.total }}
+			</span>
+			<span class="draft-summary__total draft-summary__total--added">
+				<strong class="draft-summary__total_title">{{ 'CONFIG_HUB.ADDS' | slptTranslate }}: </strong>
+				{{ (summaryObjectTotals$ | async)?.added }}
+			</span>
+			<span class="draft-summary__total draft-summary__total--different">
+				<strong class="draft-summary__total_title">{{ 'CONFIG_HUB.MODIFIES' | slptTranslate }}: </strong>
+				{{ (summaryObjectTotals$ | async)?.different }}
+			</span>
+			<span class="draft-summary__total draft-summary__total--removed">
+				<strong class="draft-summary__total_title">{{ 'CONFIG_HUB.NOT_IN_BACKUP' | slptTranslate }}: </strong>
+				{{ (summaryObjectTotals$ | async)?.removed }}
+			</span>
+		</div>
+	</div>
+	<div class="draft-summary__grid-container">
+		<app-config-hub-compare-summary-grid
+			[isEditingEnabled]="(canUserEditDraft$ | async) && isDraftStatusUpdatable"
+		></app-config-hub-compare-summary-grid>
+	</div>
+</div>
+<app-config-hub-deploy-overlay></app-config-hub-deploy-overlay>

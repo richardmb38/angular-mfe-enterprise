@@ -1,0 +1,28 @@
+/*
+ * Copyright (C) 2023 Acme Technologies, Inc.  All rights reserved.
+ */
+
+:host {
+	flex-shrink: 0;
+	flex-grow: 1;
+}
+
+.object-mapping-grid__container {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.object-mapping-grid__data-grid {
+	flex: 1 0 0;
+}
+
+// NG-DEEP: need to rewrite ag-grid inner styles
+// stylelint-disable-next-line selector-pseudo-element-no-unknown
+::ng-deep {
+	.object-mapping-grid__actions-header {
+		.slpt-data-grid-column-header__name {
+			justify-content: center;
+		}
+	}
+}

@@ -1,0 +1,14 @@
+/*
+ * Copyright (C) 2023 Acme Technologies, Inc.  All rights reserved.
+ */
+
+:host {
+	display: block;
+	height: 100%;
+}
+
+.toggle-cell__container {
+	display: flex;
+	align-items: center;
+	height: 100%;
+}

@@ -1,0 +1,154 @@
+/*
+ * Copyright (C) 2023 Acme Technologies, Inc.  All rights reserved.
+ */
+@import '@acme-priv/armada-angular/src/acme/theme/styles/variables';
+
+slpt-textarea {
+	--textarea-font-family: #{$font-family-monospace};
+	--textarea-font-size: #{$small-font-size};
+}
+
+.object-overlay__white-background {
+	background-color: $slpt-w1;
+}
+
+.object-overlay__header-title {
+	display: flex;
+	align-items: center;
+	margin-bottom: 0;
+	max-width: 100%;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	gap: 10px;
+}
+
+.object-overlay__header-details {
+	margin-bottom: 0;
+
+	span {
+		font-weight: normal;
+	}
+}
+
+.object-overlay__control-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.object-overlay__action-button {
+	flex-grow: 1;
+}
+
+.object-overlay__error-info-wrapper {
+	border: solid 1px $slpt-g2;
+	margin-bottom: 16px;
+}
+
+.object-overlay__error-info-header {
+	div {
+		border-bottom: solid 1px $slpt-g2;
+		font-weight: 700;
+
+		&:first-child {
+			border-right: solid 1px $slpt-g2;
+		}
+	}
+}
+
+.object-overlay__error-info-header,
+.object-overlay__error-info-data {
+	display: flex;
+
+	div {
+		flex: 1;
+		padding: 16px;
+	}
+}
+
+.object-overlay__switch-content {
+	padding: 20px 20px 0;
+	flex: 1 0 0;
+}
+
+.object-overlay__switch-case {
+	display: flex;
+
+	> div {
+		flex: 1;
+	}
+}
+
+.object-overlay__change-item {
+	border-bottom: 1px solid $slpt-black;
+
+	p {
+		margin: 0;
+		padding: 1em;
+	}
+}
+
+.object-overlay__change-item--remove {
+	color: $slpt-s4;
+
+	span {
+		color: $slpt-black;
+	}
+}
+
+.object-overlay__change-item--add {
+	color: $slpt-s2;
+
+	span {
+		color: $slpt-black;
+	}
+}
+
+.object-overlay__change-item--replace {
+	color: $slpt-s3;
+
+	span {
+		color: $slpt-black;
+	}
+}
+
+.object-overlay__change-item-old-value {
+	text-decoration: line-through;
+	color: $slpt-charcoal !important;
+}
+
+.object-overlay__change-item-path {
+	color: $slpt-black !important;
+}
+
+.object-overlay__changelog-column {
+	// NG-DEEP: need to add this styling for the grid to show correctly
+	// stylelint-disable-next-line selector-pseudo-element-no-unknown
+	::ng-deep {
+		.slpt-overlay-body-column-content {
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+		}
+	}
+}
+
+.object-overlay__change_list {
+	height: 100%;
+}
+
+.object-overlay__diff-view-title {
+	margin-bottom: 8px;
+	display: block;
+}
+
+.object-overlay__diff-view {
+	max-width: 50%;
+}
+
+.object-overlay__diff-view-container {
+	padding: 0;
+	margin: 0;
+	background-color: $slpt-g1;
+}
