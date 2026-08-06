@@ -1,0 +1,17 @@
+name: check reviewers workflow.
+on:
+  pull_request_review:
+    types: [submitted, edited, dismissed]
+  pull_request:
+      types: [ opened, labeled, unlabeled, synchronize, updated, reopened ]
+
+jobs:
+  check-reviewers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check reviewers on pull request review trigger
+        uses:  acme/github-actions-eng-prerequisites/label-reviewer-check-action@main
+        with:
+          actions: "check-reviewers"
+          token: ${{ secrets.ACTION_READONLY_TOKEN }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}

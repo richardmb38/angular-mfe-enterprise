@@ -1,0 +1,10 @@
+{
+	"name": "saas-mfe-accounts",
+	"app": "idn:vanity",
+	"routes": [
+		{
+			"route": "am",
+			"featureFlagIn": ["UIINT_ACCOUNTS_MFE_ROUTING"]
+		}
+	]
+}

@@ -1,0 +1,14 @@
+{
+	"schema": 2,
+	"metadata": {
+		"app": "idn:vanity"
+	},
+	"tests": [],
+	"notifications": {
+		"slack": {
+			"rooms": ["bot-saas-ui"],
+			"failureRooms": ["bot-saas-ui"]
+		}
+	},
+	"product": "SaaS Platform"
+}

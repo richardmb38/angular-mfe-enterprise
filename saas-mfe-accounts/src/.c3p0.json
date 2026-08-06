@@ -1,0 +1,26 @@
+{
+	"versionTagTemplate": "release/build$version",
+	"dependencies": [
+		{
+			"repository": "acme/cloud-ui-common",
+			"versionExtractor": {
+				"type": "packageJson",
+				"dependency": "node_modules/@acme-priv/ui-common"
+			}
+		},
+		{
+			"repository": "acme/acme-angular-common",
+			"versionExtractor": {
+				"type": "packageJson",
+				"dependency": "node_modules/@acme-priv/armada-angular"
+			}
+		},
+		{
+			"repository": "acme/saas-npm-tools",
+			"versionExtractor": {
+				"type": "packageJson",
+				"dependency": "node_modules/@acme-priv/npm-tools"
+			}
+		}
+	]
+}

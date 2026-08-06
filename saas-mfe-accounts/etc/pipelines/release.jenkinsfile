@@ -1,0 +1,30 @@
+/*
+ * Copyright (C) 2024 Acme Technologies, Inc.  All rights reserved.
+ */
+@Library('acme/jenkins-release-utils')_
+
+// Only deploy to the following, by excluded them from the blacklist
+def podBlackList = (utils.ALL_DEV_PODS - 'megapod-useast1' - 'dev01-useast1' - 'lighthouse' - 'bermuda').join(',')
+
+/**
+ * Jenkins release pipeline for saas-mfe-accounts
+ */
+ atlasServiceTemplate (
+    service: "saas-mfe-accounts",
+    slackChannel: "#bot-saas-ui",
+    // E2E TESTING
+    runE2ETests: false,
+    // API TESTING
+    runAPITests: false,
+    // BUILD
+    nodeBuild: true,
+    nodeVersion: '20',
+    githubTagPrefix: 'mfe-release/',
+    podBlackList: podBlackList,
+
+    // JIRA
+    jiraProduct: "IdentityNow",
+    jiraProject: "UIINT",
+    jiraReleaseComponent: "saas-mfe-accounts",
+    jiraApplication: "microfrontend"
+)

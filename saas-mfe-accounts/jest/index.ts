@@ -1,0 +1,5 @@
+/*
+ * Copyright (C) 2024 Acme Technologies, Inc.  All rights reserved.
+ */
+import './global-mocks';
+
